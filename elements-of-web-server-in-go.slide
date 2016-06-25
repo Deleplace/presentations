@@ -4,6 +4,125 @@ Elements of Web Server (in go)
 Valentin Deleplace
 Developer
 
-* First Section *
+* Warning
 
-* Second Section *
+Some code will be displayed.
+
+* Closures
+
+* Simple chronometer
+
+	t := time.Now()
+
+	fetchData()
+
+	duration := time.Since(t)
+
+* Simple chronometer: with closure
+
+	duration := clock(fetchData)
+
+ 
+
+	func clock(f func()) time.Duration {
+		t := time.Now()
+		f()
+		return time.Since(t)
+	}
+
+# Presenter notes not working properly because my present binary has no flag -notes ??
+# This is similar to Javascript closure, but with compile-time safety.
+# This is similar to Java Runnables and Callables, but requires less boilerplate.
+
+* Chronometer: a block of code?
+
+	t := time.Now()
+
+	for _, r := range resources {
+		fetch(r)
+	}
+
+	duration := time.Since(t)
+
+* Wrap code in a closure
+
+	duration := clock(func() {
+		for _, r := range resources {
+			fetch(r)
+		}
+	})
+
+* Fork/Join
+
+* Utility goroutine spawner
+
+  // Concurrent launches funcs,
+  // and waits for their completion.
+  func Concurrent(funcs ...func()) {
+  	var wg sync.WaitGroup
+  	wg.Add(len(funcs))
+  	for _, f := range funcs {
+  		f := f
+  		go func() {
+  			f()
+  			wg.Done()
+  		}()
+  	}
+  	wg.Wait()
+  }
+
+You may often write such code to fit your needs.
+
+* Serial exec
+
+	profile()
+	news()
+	weather()
+
+.image ./elements-of-web-server-in-go/waterfall-serial.png
+
+* Concurrent exec
+
+	Concurrent(
+		profile,
+		news,
+		weather,
+	)
+
+.image ./elements-of-web-server-in-go/waterfall-concurrent.png
+
+It is straightforward and convenient, but be very careful with concurrency!
+
+* What if my services don't have the same signature?
+
+
+	func profile(username string) error {...}
+
+	func news() {...}
+
+	func weather(city string, day time.Time) {...}
+
+* Wrap in closures
+
+	Concurrent(
+		func() { perr = profile(currentuser) },
+		news,
+		func() { weather(city, time.Now()) },
+	)
+
+- Closures can *read* variables from outside their body
+- Closures can *write* variables from outside their body
+
+* Links : standard library
+
+.link https://golang.org/pkg/net/http/ Package *net/http*
+
+very good for a wide range of HTTP servers needs
+
+.link https://golang.org/pkg/sync/ Package *sync*
+
+includes WaitGroup, Mutex, etc.
+
+* Links : misc
+
+.link http://go-traps.appspot.com/ go-traps.appspot.com
