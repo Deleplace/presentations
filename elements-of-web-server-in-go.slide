@@ -8,7 +8,7 @@ Developer
 
 Some code will be displayed.
 
-* Closures
+* Closures and first-class functions
 
 * Simple chronometer
 
@@ -198,6 +198,14 @@ It is straightforward and convenient, but be very careful with concurrency!
 		}
 	}
 
+* Use -race in production
+
+- if you have many servers, enable race detector on one of them
+
+- or enable it on your server for a few hours
+
+Overhead : measure the performance penalty. It might be acceptable (e.g. +100%, +200%). Find as many concurrency bugs as possible.
+
 * Links : standard library
 
 .link https://golang.org/pkg/net/http/ Package *net/http*
@@ -208,8 +216,15 @@ very good for a wide range of HTTP servers needs
 
 includes WaitGroup, Mutex, etc.
 
+.link https://golang.org/pkg/text/template/ Package *text/template*
+.link https://golang.org/pkg/html/template/ Package *html/template*
+
+efficient (compiled) and safe templating.
+
 * Links : misc
 
 .link http://go-traps.appspot.com/ go-traps.appspot.com
 
 .link https://software.intel.com/en-us/blogs/2013/01/06/benign-data-races-what-could-possibly-go-wrong Benign data races: what could possibly go wrong?
+
+.link https://blog.golang.org/race-detector Introducing the Go Race Detector
