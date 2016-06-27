@@ -8,7 +8,7 @@ Developer
 
 Some code will be displayed.
 
-* Closures and first-class functions
+* First-class functions, and closures 
 
 * Simple chronometer
 
@@ -18,7 +18,7 @@ Some code will be displayed.
 
 	duration := time.Since(t)
 
-* Simple chronometer: with closure
+* Simple chronometer: with func argument
 
 	duration := clock(fetchData)
  
@@ -32,7 +32,7 @@ Some code will be displayed.
 # This is similar to Javascript closure, but with compile-time safety.
 # This is similar to Java Runnables and Callables, but requires less boilerplate.
 
-* Chronometer: a block of code?
+* Chronometer: time a block of code?
 
 	t := time.Now()
 
@@ -110,6 +110,15 @@ It is straightforward and convenient, but be very careful with concurrency!
 
 - Closures can *read* variables from outside their body
 - Closures can *write* variables from outside their body
+
+* Warning
+
+
+Concurrency and parallelism are *hard* and *subtle*.
+
+They are made easier in go, but there is still plenty of room to shoot self in the foot.
+
+.image ./elements-of-web-server-in-go/plane_right.jpg _ 600
 
 * Testing and data races
 
