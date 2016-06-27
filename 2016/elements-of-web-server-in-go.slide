@@ -8,6 +8,20 @@ Developer
 
 Some code will be displayed.
 
+* Cross-compilation
+
+* Cross-compilation
+
+This is the compilation script of one of our tools *patapon*, run from my linux workstation:
+
+	env GOOS=darwin  GOARCH=amd64 go build -o target/osx64/patapon
+	env GOOS=windows GOARCH=amd64 go build -o target/win64/patapon.exe
+	env GOOS=linux   GOARCH=amd64 go build -o target/linux64/patapon
+
+That's it. To ship, copy the 3 executables to shared folder.
+
+Executables are statically linked.
+
 * First-class functions, and closures 
 
 * Simple chronometer
