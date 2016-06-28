@@ -93,6 +93,10 @@ Important: call `wg.add` _before_ spawning the goroutines
 
 Must bind to a new variable at each loop iteration 
 
+* Example: page blocks from data sources
+
+.image ./elements-of-web-server-in-go/aggregate_page.png 580 _
+
 * Serial exec
 
 .play ./elements-of-web-server-in-go/serialexec.go  /START OMIT/,/END OMIT/
@@ -101,11 +105,7 @@ Must bind to a new variable at each loop iteration
 
 * Concurrent exec
 
-	RunConcurrent(
-		profile,
-		news,
-		weather,
-	)
+.play ./elements-of-web-server-in-go/concurrentexec.go  /START OMIT/,/END OMIT/
 
 .image ./elements-of-web-server-in-go/waterfall-concurrent.png
 
