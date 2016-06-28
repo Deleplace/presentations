@@ -66,24 +66,32 @@ Executables are statically linked.
 
 * Fork/Join
 
+
 * Utility goroutine spawner
 
-  // Concurrent launches funcs,
-  // and waits for their completion.
-  func RunConcurrent(funcs ...func()) {
-  	var wg sync.WaitGroup
-  	wg.Add(len(funcs))
-  	for _, f := range funcs {
-  		f := f
-  		go func() {
-  			f()
-  			wg.Done()
-  		}()
-  	}
-  	wg.Wait()
-  }
+.code ./elements-of-web-server-in-go/runconcurrent.go HLdecl
 
 You may often write such code to fit your needs.
+
+* Utility goroutine spawner
+
+.code ./elements-of-web-server-in-go/runconcurrent.go HLdecl
+
+Func arguments (variadic)
+
+* Utility goroutine spawner
+
+.code ./elements-of-web-server-in-go/runconcurrent.go HLwg
+
+Use a `sync.WaitGroup` to join at completion
+
+Important: call `wg.add` _before_ spawning the goroutines
+
+* Utility goroutine spawner
+
+.code ./elements-of-web-server-in-go/runconcurrent.go HLtrap
+
+Must bind to a new variable at each loop iteration 
 
 * Serial exec
 
