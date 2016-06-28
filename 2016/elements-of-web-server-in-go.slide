@@ -18,7 +18,9 @@ This is the compilation script of one of our tools *patapon*, run from my linux 
 	env GOOS=windows GOARCH=amd64 go build -o target/win64/patapon.exe
 	env GOOS=linux   GOARCH=amd64 go build -o target/linux64/patapon
 
-That's it. To ship, copy the 3 executables to shared folder.
+*That's*it.* 
+
+To ship, copy the 3 executables to shared folder.
 
 Executables are statically linked.
 
