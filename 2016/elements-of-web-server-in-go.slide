@@ -70,7 +70,7 @@ Executables are statically linked.
 
   // Concurrent launches funcs,
   // and waits for their completion.
-  func Concurrent(funcs ...func()) {
+  func RunConcurrent(funcs ...func()) {
   	var wg sync.WaitGroup
   	wg.Add(len(funcs))
   	for _, f := range funcs {
@@ -95,7 +95,7 @@ You may often write such code to fit your needs.
 
 * Concurrent exec
 
-	Concurrent(
+	RunConcurrent(
 		profile,
 		news,
 		weather,
@@ -116,7 +116,7 @@ It is straightforward and convenient, but be very careful with concurrency!
 
 * Wrap in closures
 
-	Concurrent(
+	RunConcurrent(
 		func() { perr = profile(currentuser) },
 		news,
 		func() { weather(city, time.Now()) },
@@ -246,7 +246,7 @@ efficient (compiled) and safe templating.
 
 * Links : misc
 
-.link http://go-traps.appspot.com/ go-traps.appspot.com
+.link http://go-traps.appspot.com/ Go-Traps
 
 .link https://software.intel.com/en-us/blogs/2013/01/06/benign-data-races-what-could-possibly-go-wrong Benign data races: what could possibly go wrong?
 
