@@ -237,6 +237,39 @@ They are made easier in go, but there is still plenty of room to shoot self in t
 
 Overhead : measure the performance penalty. It might be acceptable (e.g. +100%, +200%). Find as many concurrency bugs as possible.
 
+* Pprof
+
+* Pprof
+
+- CPU profiler
+
+- Memory profiler
+
+- Find and visualize bottlenecks
+
+Easy setup:
+
+	import "github.com/pkg/profile"
+
+	func main() {
+	    defer profile.Start().Stop()
+	    ...
+	}
+
+Then inspect the profile data (it's a file).
+
+* Pprof CPU profile
+
+.image ./elements-of-web-server-in-go/pprof_graph.png _ 1024
+
+* Pprof CPU profile
+
+.image ./elements-of-web-server-in-go/pprof_graph_rand.png _ 1024
+
+* Pprof CPU profile
+
+.image ./elements-of-web-server-in-go/pprof_graph_map.png _ 1024
+
 * Links : standard library
 
 .link https://golang.org/pkg/net/http/ Package *net/http*
