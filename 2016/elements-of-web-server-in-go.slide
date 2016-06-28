@@ -95,9 +95,7 @@ Must bind to a new variable at each loop iteration
 
 * Serial exec
 
-	profile()
-	news()
-	weather()
+.play ./elements-of-web-server-in-go/serialexec.go  /START OMIT/,/END OMIT/
 
 .image ./elements-of-web-server-in-go/waterfall-serial.png
 
