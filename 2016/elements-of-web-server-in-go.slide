@@ -87,7 +87,7 @@ Func arguments (variadic)
 
 Use a `sync.WaitGroup` to join at completion
 
-Important: call `wg.add` _before_ spawning the goroutines
+Important: call `wg.Add` _before_ spawning the goroutines
 
 * Utility goroutine spawner
 
