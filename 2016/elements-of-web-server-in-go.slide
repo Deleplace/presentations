@@ -274,7 +274,7 @@ Then inspect the profile data (it's a file).
 
 .link https://golang.org/pkg/net/http/ Package *net/http*
 
-very good for a wide range of HTTP servers needs
+very good for a wide range of HTTP server needs
 
 .link https://golang.org/pkg/sync/ Package *sync*
 
@@ -292,3 +292,9 @@ efficient (compiled) and safe templating.
 .link https://software.intel.com/en-us/blogs/2013/01/06/benign-data-races-what-could-possibly-go-wrong Benign data races: what could possibly go wrong?
 
 .link https://blog.golang.org/race-detector Introducing the Go Race Detector
+
+.link https://talks.golang.org/2013/advconc.slide Advanced Go Concurrency Patterns
+
+.link https://talks.golang.org/2013/highperf.slide High Performance Apps with Go on App Engine
+
+.link https://talks.golang.org/2016/applicative.slide Program your next server in Go
