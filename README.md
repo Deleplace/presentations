@@ -3,6 +3,10 @@ Slides.
 
 View online:
 
+2017
+
+- [Going concurrent in programming contests](https://github.com/Deleplace/presentations/blob/master/2017/concurrency-in-hurry.pdf)
+
 2016
 
 - [Elements of Web Server and concurrency (in go)](http://talks.godoc.org/github.com/Deleplace/presentations/2016/elements-of-web-server-in-go.slide)
