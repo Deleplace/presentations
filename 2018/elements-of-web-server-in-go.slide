@@ -349,17 +349,46 @@ xxx
 
 xxx
 
-* Deploy on Google App Engine 
+* Webapp on Google App Engine 
 
-xxx
+app.yaml
 
-* Deploy on AWS 
+	service: equalsums
+	runtime: go
+	api_version: go1
 
-xxx
+	handlers:
+	- url: /
+	  script: _go_app
 
-* Deploy on Heroku 
+webapp code 
 
-xxx
+	func init() {
+		http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+			// Your code here
+		})
+	}
+
+
+* Webapp on Google App Engine 
+
+Run local dev server 
+
+	$ goapp serve
+
+or 
+
+	$ dev_appserver.py .
+
+* Webapp on Google App Engine 
+
+Deploy 
+
+	$ goapp deploy -application=<PROJECT ID> -version=1
+
+or 
+
+	$ gcloud app deploy 
 
 * Links : standard library
 
