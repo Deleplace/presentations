@@ -189,11 +189,11 @@ They are made easier in go, but there is still plenty of room to shoot self in t
 		}
 	}
  
-	go test
+	$ go test
 	PASS
 	ok
  
-	go test
+	$ go test
 	--- FAIL: TestHandler (3.00s)
 		racy_handler_test.go:16: Expected 200 hits, got 194
 	FAIL
@@ -201,7 +201,7 @@ They are made easier in go, but there is still plenty of room to shoot self in t
 
 * Use the built-in race detector
 
-	go test -race
+	$ go test -race
 
 	==================
 	WARNING: DATA RACE
@@ -252,9 +252,19 @@ Overhead : measure the performance penalty. It might be acceptable (e.g. +100%, 
 
 * Benchmarks
 
+* Benchmarks
+
+In foobar_test.go :
+
 	func BenchmarkDoThis(b *testing.B) {
 		for i := 0; i < b.N; i++ {
 			DoThis()
+		}
+	}
+
+	func BenchmarkDoThat(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			DoThat()
 		}
 	}
 
@@ -263,6 +273,12 @@ Overhead : measure the performance penalty. It might be acceptable (e.g. +100%, 
 	func BenchmarkDoThis(b *testing.B) {
 		for i := 0; i < b.N; i++ {
 			DoThis()
+		}
+	}
+
+	func BenchmarkDoThat(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			DoThat()
 		}
 	}
  
@@ -273,6 +289,12 @@ Overhead : measure the performance penalty. It might be acceptable (e.g. +100%, 
 	func BenchmarkDoThis(b *testing.B) {
 		for i := 0; i < b.N; i++ {
 			DoThis()
+		}
+	}
+
+	func BenchmarkDoThat(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			DoThat()
 		}
 	}
  
@@ -281,8 +303,9 @@ Overhead : measure the performance penalty. It might be acceptable (e.g. +100%, 
 	goos: linux
 	goarch: amd64
 	BenchmarkDoThis-12          50000             27753 ns/op
+	BenchmarkDoThat-12          30000             51876 ns/op
 	PASS
-	ok      _/.../foobar   1.668s
+	ok      _/.../foobar   3.716s
 
 
 * Pprof
@@ -348,6 +371,8 @@ xxx
 * expvar
 
 xxx
+
+* Google App Engine
 
 * Webapp on Google App Engine 
 
