@@ -5,13 +5,12 @@ package main
 // See https://code.google.com/codejam/contest/1836486/dashboard#s=p2
 
 import (
-	//	"appengine"
 	"fmt"
 	"log"
 	"math/rand"
 	"net/http"
+	_ "net/http/pprof"
 	"sort"
-	//	"runtime"
 	"strconv"
 	"strings"
 )

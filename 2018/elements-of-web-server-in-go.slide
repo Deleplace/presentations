@@ -364,9 +364,20 @@ Nice algorithm uses :
 
 .image ./elements-of-web-server-in-go/pprof_heap_memory_graph.jpg _ 1024
 
-* net/pprof 
+* Pprof for your webapp
 
-xxx
+In your code :
+
+	import _ "net/http/pprof"
+
+Side-effect: 
+
+- registers HTTP handlers under /debug/pprof/
+- you can now retrieve live Pprof data
+
+E.g. to look at a 30-second CPU profile:
+
+	go tool pprof http://localhost:6060/debug/pprof/profile
 
 * expvar
 
