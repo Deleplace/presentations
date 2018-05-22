@@ -339,7 +339,7 @@ Nice algorithm uses :
 
 * Pprof memory profile
 
-xxx
+.image ./elements-of-web-server-in-go/pprof_heap_memory_graph.jpg _ 1024
 
 * net/pprof 
 
