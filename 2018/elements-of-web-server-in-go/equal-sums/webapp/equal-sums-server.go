@@ -5,6 +5,7 @@ package main
 // See https://code.google.com/codejam/contest/1836486/dashboard#s=p2
 
 import (
+	"expvar"
 	"fmt"
 	"log"
 	"math/rand"
@@ -29,6 +30,7 @@ func main() {
 		w.Header().Set("Content-Type", "text/plain; charset=utf-8")
 		w.Write([]byte("(Go) \n"))
 		w.Write([]byte(msg))
+		served.Add(1)
 	})
 
 	port := ":8080"
@@ -98,3 +100,6 @@ func int642string(ints []int64) []string {
 	}
 	return str
 }
+
+// Demonstrate expvar
+var served = expvar.NewInt("served")

@@ -381,7 +381,17 @@ E.g. to look at a 30-second CPU profile:
 
 * expvar
 
-xxx
+* expvar
+
+Expose public variables, for debug
+
+	import _ "expvar"
+
+Side-effect: memory stats are exposed at path /debug/vars
+
+Add a custom exposed var :
+
+	var served = expvar.NewInt("served")
 
 * Google App Engine
 
