@@ -464,3 +464,6 @@ efficient (compiled) and safe templating.
 .link https://talks.golang.org/2013/highperf.slide High Performance Apps with Go on App Engine
 
 .link https://talks.golang.org/2016/applicative.slide Program your next server in Go
+
+.link https://go-proverbs.github.io/ Go Proverbs
+
