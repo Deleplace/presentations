@@ -266,6 +266,30 @@ Easy to use:
 
 Then inspect the profile data (it's a file).
 
+* Example: Equal Sums
+
+Problem from _Google_ _Code_ _Jam_ 2012 : ❝Find 2 subsets having same sum❞
+
+.image ./elements-of-web-server-in-go/equal_sums_input.png _ 400
+
+* Example: Equal Sums
+
+Problem from _Google_ _Code_ _Jam_ 2012 : ❝Find 2 subsets having same sum❞
+
+.image ./elements-of-web-server-in-go/equal_sums_solution.png _ 400
+
+* Example: Equal Sums
+
+Problem from _Google_ _Code_ _Jam_ 2012 : ❝Find 2 subsets having same sum❞
+
+.image ./elements-of-web-server-in-go/equal_sums_solution.png _ 400
+
+Nice algorithm uses :
+
+- random
+
+- hashmap
+
 * Pprof CPU profile
 
 .image ./elements-of-web-server-in-go/pprof_graph.png _ 1024
