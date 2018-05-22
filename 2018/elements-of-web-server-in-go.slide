@@ -250,6 +250,41 @@ They are made easier in go, but there is still plenty of room to shoot self in t
 
 Overhead : measure the performance penalty. It might be acceptable (e.g. +100%, +200%). Find as many concurrency bugs as possible.
 
+* Benchmarks
+
+	func BenchmarkDoThis(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			DoThis()
+		}
+	}
+
+* Benchmarks
+
+	func BenchmarkDoThis(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			DoThis()
+		}
+	}
+ 
+	$ go test -bench=.
+
+* Benchmarks
+
+	func BenchmarkDoThis(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			DoThis()
+		}
+	}
+ 
+	$ go test -bench=.
+
+	goos: linux
+	goarch: amd64
+	BenchmarkDoThis-12          50000             27753 ns/op
+	PASS
+	ok      _/.../foobar   1.668s
+
+
 * Pprof
 
 * Pprof
