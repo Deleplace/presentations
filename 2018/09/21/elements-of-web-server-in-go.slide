@@ -11,6 +11,8 @@ Some code will be displayed.
 
 * Cross-compilation
 
+.background ./elements-of-web-server-in-go/background-gopher-top-right.png
+
 * Cross-compilation
 
 This is the compilation script of one of our tools *patapon*, run from my linux workstation:
@@ -26,6 +28,8 @@ To ship, copy the 3 executables to shared folder.
 Executables are statically linked.
 
 * First-class functions, and closures
+
+.background ./elements-of-web-server-in-go/background-gopher-top-right.png
 
 * Simple chronometer
 
@@ -69,6 +73,7 @@ Executables are statically linked.
 
 * Fork/Join
 
+.background ./elements-of-web-server-in-go/background-gopher-top-right.png
 
 * Serial execution
 
@@ -167,6 +172,8 @@ They are made easier in go, but there is still plenty of room to shoot self in t
 
 * Testing and data races
 
+.background ./elements-of-web-server-in-go/background-gopher-top-right.png
+
 * A simple server : hit counter
 
 	package main
@@ -262,6 +269,8 @@ Overhead : measure the performance penalty. It might be acceptable (e.g. +100%, 
 
 * Benchmarks
 
+.background ./elements-of-web-server-in-go/background-gopher-top-right.png
+
 * Benchmarks
 
 In foobar_test.go :
@@ -319,6 +328,8 @@ In foobar_test.go :
 
 
 * Pprof
+
+.background ./elements-of-web-server-in-go/background-gopher-top-right.png
 
 * Pprof
 
@@ -391,6 +402,8 @@ E.g. to look at a 30-second CPU profile:
 
 * expvar
 
+.background ./elements-of-web-server-in-go/background-gopher-top-right.png
+
 * expvar
 
 Expose public variables, for debug
@@ -435,6 +448,10 @@ efficient (compiled) and safe templating.
 .link https://go-proverbs.github.io/ Go Proverbs
 
 .background ./elements-of-web-server-in-go/background_QR-useful-links.png
+
+* Cloud
+
+.background ./elements-of-web-server-in-go/background-gopher-top-right.png
 
 * Public clouds
 
