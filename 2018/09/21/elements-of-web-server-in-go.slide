@@ -403,49 +403,6 @@ Add a custom exposed var :
 
 	var served = expvar.NewInt("served")
 
-* Google App Engine
-
-* Webapp on Google App Engine
-
-app.yaml
-
-	service: equalsums
-	runtime: go
-	api_version: go1
-
-	handlers:
-	- url: /
-	  script: _go_app
-
-webapp code
-
-	func init() {
-		http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-			// Your code here
-		})
-	}
-
-
-* Webapp on Google App Engine
-
-Run local dev server
-
-	$ goapp serve
-
-or
-
-	$ dev_appserver.py .
-
-* Webapp on Google App Engine
-
-Deploy
-
-	$ goapp deploy -application=<PROJECT ID> -version=1
-
-or
-
-	$ gcloud app deploy
-
 * Links : standard library
 
 .link https://golang.org/pkg/net/http/ Package *net/http*
