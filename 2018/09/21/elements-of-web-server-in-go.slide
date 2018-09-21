@@ -301,6 +301,8 @@ In foobar_test.go :
 		}
 	}
 
+ 
+
 	$ go test -bench=.
 
 * Benchmarks
