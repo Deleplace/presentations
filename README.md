@@ -5,7 +5,7 @@ View online:
 
 2019
 
-- [Swimming Pool Semaphores](http://35.239.85.154)
+- [Swimming Pool Semaphores](http://35.224.214.137:5050/)
   - [sources](https://github.com/Deleplace/samples/tree/master/semaphores)
 
 2017
