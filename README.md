@@ -3,6 +3,10 @@ Slides.
 
 View online:
 
+2019
+
+- [Swimming Pool Semaphores](http://35.239.85.154)
+
 2017
 
 - [Going concurrent in programming contests](https://github.com/Deleplace/presentations/blob/master/2017/concurrency-in-hurry.pdf)
