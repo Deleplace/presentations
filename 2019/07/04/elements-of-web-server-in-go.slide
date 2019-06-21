@@ -1,4 +1,4 @@
-Elements of Web Server, Concurrency and Tooling (in go)
+Elements of Web Server, Concurrency and Tooling in Go
 2019-07-04
 
 Valentin Deleplace
@@ -9,9 +9,135 @@ Happy path engineer for Google Cloud Platform
 
 Some code will be displayed.
 
+* Overview of Go
+
+* History
+
+- Designed at Google in 2007
+- Version 1.0 released in 2012
+- Version 1.12 released in 2019
+
+* Runtime
+
+- Compiled to native code
+- Statically typed
+- Garbage collector
+- Scheduler
+- Not a VM
+
 * What Go is for
 
-.image ./elements-of-web-server-in-go/What-Go-is-for.png
+.image ./elements-of-web-server-in-go/What-Go-is-for.svg
+
+* Paradigms
+
+Imperative?
+
+- Yes.
+
+Functional? 
+
+- No.
+
+Object-oriented? 
+
+- No.
+
+Generics? 
+
+- No.
+
+* Principles
+
+Simplicity
+
+- Each language feature should be easy to understand.
+
+Orthogonality
+
+- Go’s features should interact in predictable and consistent ways.
+- Types ∟ Functions ∟ Goroutines ∟ Channels ∟ ...
+
+Readability
+
+- Code should be comprehensible with little context.
+
+* Gofmt
+
+Nobody arguing about code formatting
+
+.background ./elements-of-web-server-in-go/mindblown.png
+
+* Goals
+
+- *Scalability*
+- Simplicity
+- Stability: Go 1 compatibility promise
+- Memory safety
+- Good concurrency
+- Good networking
+
+* Genericity
+
+- No user-defined generic types like `BinaryTree<Invoice>`
+- Built-in types *slice*, *map*, *chan* are generic
+- *Interfaces* for generic behavior
+
+* Objects
+
+- No class inheritance (no OOP)
+- Methods
+- Composition, embedding
+- Interfaces implicitly implemented
+
+* Concurrency
+
+- Excellent support
+- Goroutines are lighweight threads
+- Message passing through channels
+
+* Network
+
+- Excellent standard library
+- Creating a server is straightforward
+
+* Memory safety
+
+- Bound checking
+- Pointers
+- But no pointer arithmetic
+- Automatic garbage collection
+- Avoids a large class of *bugs*
+- Avoids a large class of *security* *leaks* 
+
+* Tradeoff
+
+.image ./elements-of-web-server-in-go/Language-speed-tradeoff.svg
+
+* Packages
+
+No cyclic dependency
+
+.background ./elements-of-web-server-in-go/Package-dependency.svg
+
+* Package management until 2018
+
+No versioning
+
+Breaking change == Make a new package for v2
+
+Vendoring
+
+* Modules
+
+Added in 2018
+
+Semantic Versioning
+
+Reproducible builds
+
+Proxy (Athens)
+
 
 * Cross-compilation
 
