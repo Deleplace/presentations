@@ -11,6 +11,8 @@ Some code will be displayed.
 
 * Overview of Go
 
+.background ./elements-of-web-server-in-go/hello.go.png
+
 * History
 
 - Designed at Google in 2007
@@ -53,16 +55,18 @@ Simplicity
 
 - Each language feature should be easy to understand.
 
+Readability
+
+- Code should be comprehensible with little context.
+
 Orthogonality
 
 - Go’s features should interact in predictable and consistent ways.
 - Types ∟ Functions ∟ Goroutines ∟ Channels ∟ ...
 
-Readability
-
-- Code should be comprehensible with little context.
-
 * Gofmt
+
+Unique code formatter
 
 Nobody arguing about code formatting
 
@@ -70,8 +74,8 @@ Nobody arguing about code formatting
 
 * Goals
 
-- *Scalability*
 - Simplicity
+- *Scalability*
 - Stability: Go 1 compatibility promise
 - Memory safety
 - Good concurrency
@@ -79,9 +83,11 @@ Nobody arguing about code formatting
 
 * Genericity
 
-- No user-defined generic types like `BinaryTree<Invoice>`
+- No user-defined generic types
 - Built-in types *slice*, *map*, *chan* are generic
 - *Interfaces* for generic behavior
+
+.background ./elements-of-web-server-in-go/Invoice.png
 
 * Objects
 
@@ -90,11 +96,17 @@ Nobody arguing about code formatting
 - Composition, embedding
 - Interfaces implicitly implemented
 
+.code ./elements-of-web-server-in-go/io.Reader.go
+
+.code ./elements-of-web-server-in-go/gzip.Reader.go
+
 * Concurrency
 
 - Excellent support
 - Goroutines are lighweight threads
 - Message passing through channels
+
+.image ./elements-of-web-server-in-go/channel.jpg
 
 * Network
 
@@ -105,7 +117,7 @@ Nobody arguing about code formatting
 
 - Bound checking
 - Pointers
-- But no pointer arithmetic
+- ...but no pointer arithmetic
 - Automatic garbage collection
 - Avoids a large class of *bugs*
 - Avoids a large class of *security* *leaks* 
