@@ -113,6 +113,8 @@ Nobody arguing about code formatting
 - Excellent standard library
 - Creating a server is straightforward
 
+.code ./elements-of-web-server-in-go/simple-webapp.go
+
 * Memory safety
 
 - Bound checking
