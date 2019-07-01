@@ -1,4 +1,4 @@
-package zip
+package gzip
 
 func NewReader(r io.Reader) (*Reader, error) { ... }
 
