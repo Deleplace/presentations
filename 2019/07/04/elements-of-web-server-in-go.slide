@@ -616,10 +616,11 @@ efficient (compiled) and safe templating.
 * Exercises
 
 .link https://play.golang.org/p/PRLrLX0JrZR Challenge 0
-.link https://play.golang.org/p/r54cQeWm5Ef Challenge 1
-.link https://play.golang.org/p/1CBt-rDGtHT Challenge 2
-.link https://play.golang.org/p/jbp2LIqknuE Challenge 3
-.link https://play.golang.org/p/93Pq07PE4U2 Challenge 4
+.link https://play.golang.org/p/r54cQeWm5Ef Challenge 1: Variable
+.link https://play.golang.org/p/1CBt-rDGtHT Challenge 2: Multiple return
+.link https://play.golang.org/p/jbp2LIqknuE Challenge 3: Slicing
+.link https://play.golang.org/p/93Pq07PE4U2 Challenge 4: Map
+.link https://play.golang.org/p/AIeKOlOlG_C Challenge 5: Channel
 
 * Contact
 
