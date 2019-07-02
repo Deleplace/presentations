@@ -568,22 +568,6 @@ E.g. to look at a 30-second CPU profile:
 
 	go tool pprof http://localhost:6060/debug/pprof/profile
 
-* expvar
-
-.background ./elements-of-web-server-in-go/background-gopher-top-right.png
-
-* expvar
-
-Expose public variables, for debug
-
-	import _ "expvar"
-
-Side-effect: memory stats are exposed at path /debug/vars
-
-Add a custom exposed var :
-
-	var served = expvar.NewInt("served")
-
 * Links : standard library
 
 .link https://golang.org/pkg/net/http/ Package *net/http*
