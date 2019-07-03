@@ -622,6 +622,10 @@ efficient (compiled) and safe templating.
 .link https://play.golang.org/p/93Pq07PE4U2 Challenge 4: Map
 .link https://play.golang.org/p/AIeKOlOlG_C Challenge 5: Channel
 
+* .
+
+.background ./elements-of-web-server-in-go/meetup-london.png
+
 * Contact
 
 .background ./elements-of-web-server-in-go/background_QR-twitter.png
