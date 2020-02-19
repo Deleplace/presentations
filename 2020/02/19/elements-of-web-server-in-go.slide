@@ -685,7 +685,7 @@ efficient (compiled) and safe templating.
 
 .link https://raw.githubusercontent.com/Deleplace/presentations/master/2018/09/21/elements-of-web-server-in-go/Go_in_the_clouds.png Many options :)
 
-* bit.ly/golang-challenges
+* bit.ly/go-challenges
 
 .link https://play.golang.org/p/IEmWk-y_Hjq Challenge 0
 .link https://play.golang.org/p/r54cQeWm5Ef Challenge 1: Variable
