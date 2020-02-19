@@ -1,4 +1,4 @@
-Elements of Web Server, Concurrency and Tooling in Go
+An overview of Go
 2020-02-19
 
 Valentin Deleplace
@@ -11,7 +11,7 @@ Some code will be displayed.
 
 * Overview of Go
 
-.background ./elements-of-web-server-in-go/hello.go.png
+.background ./an-overview-of-go/hello.go.png
 
 * History
 
@@ -29,7 +29,7 @@ Some code will be displayed.
 
 * What Go is for
 
-.image ./elements-of-web-server-in-go/go.dev.designed.png
+.image ./an-overview-of-go/go.dev.designed.png
 
 * Go is a tool
 
@@ -72,7 +72,7 @@ Unique code formatter
 
 Nobody arguing about code formatting
 
-.background ./elements-of-web-server-in-go/mindblown.png
+.background ./an-overview-of-go/mindblown.png
 
 * Goals
 
@@ -89,7 +89,7 @@ Nobody arguing about code formatting
 - Built-in types *slice*, *map*, *chan* are generic
 - *Interfaces* for generic behavior
 
-.background ./elements-of-web-server-in-go/Invoice.png
+.background ./an-overview-of-go/Invoice.png
 
 * Objects
 
@@ -98,9 +98,9 @@ Nobody arguing about code formatting
 - Composition, embedding
 - Interfaces implicitly implemented
 
-.code ./elements-of-web-server-in-go/io.Reader.go
+.code ./an-overview-of-go/io.Reader.go
 
-.code ./elements-of-web-server-in-go/gzip.Reader.go
+.code ./an-overview-of-go/gzip.Reader.go
 
 * Concurrency
 
@@ -108,14 +108,14 @@ Nobody arguing about code formatting
 - Goroutines are lighweight threads
 - Message passing through channels
 
-.image ./elements-of-web-server-in-go/channel.jpg
+.image ./an-overview-of-go/channel.jpg
 
 * Network
 
 - Excellent standard library
 - Creating a server is straightforward
 
-.code ./elements-of-web-server-in-go/simple-webapp.go
+.code ./an-overview-of-go/simple-webapp.go
 
 * Memory safety
 
@@ -128,13 +128,13 @@ Nobody arguing about code formatting
 
 * Tradeoff
 
-.image ./elements-of-web-server-in-go/Language-speed-tradeoff.svg
+.image ./an-overview-of-go/Language-speed-tradeoff.svg
 
 * Packages
 
 No cyclic dependency
 
-.background ./elements-of-web-server-in-go/Package-dependency.svg
+.background ./an-overview-of-go/Package-dependency.svg
 
 * Package management until 2018
 
@@ -157,7 +157,7 @@ Proxy (Athens)
 
 * Cross-compilation
 
-.background ./elements-of-web-server-in-go/background-gopher-top-right.png
+.background ./an-overview-of-go/background-gopher-top-right.png
 
 * Cross-compilation
 
@@ -177,39 +177,39 @@ Executables are statically linked.
 
 * 
 
-.background ./elements-of-web-server-in-go/comparison0.svg
+.background ./an-overview-of-go/comparison0.svg
 
 * 
 
-.background ./elements-of-web-server-in-go/comparison1.svg
+.background ./an-overview-of-go/comparison1.svg
 
 * 
 
-.background ./elements-of-web-server-in-go/comparison2.svg
+.background ./an-overview-of-go/comparison2.svg
 
 * 
 
-.background ./elements-of-web-server-in-go/comparison3.svg
+.background ./an-overview-of-go/comparison3.svg
 
 * 
 
-.background ./elements-of-web-server-in-go/comparison4.svg
+.background ./an-overview-of-go/comparison4.svg
 
 * 
 
-.background ./elements-of-web-server-in-go/comparison5.svg
+.background ./an-overview-of-go/comparison5.svg
 
 * 
 
-.background ./elements-of-web-server-in-go/comparison6.svg
+.background ./an-overview-of-go/comparison6.svg
 
 * 
 
-.background ./elements-of-web-server-in-go/comparison7.svg
+.background ./an-overview-of-go/comparison7.svg
 
 * 
 
-.background ./elements-of-web-server-in-go/comparison8.svg
+.background ./an-overview-of-go/comparison8.svg
 
 * Philosophy
 
@@ -245,7 +245,7 @@ Focus more on behavior
 
 * First-class functions, and closures
 
-.background ./elements-of-web-server-in-go/background-gopher-top-right.png
+.background ./an-overview-of-go/background-gopher-top-right.png
 
 * Simple chronometer
 
@@ -295,11 +295,11 @@ Focus more on behavior
 
 * Fork/Join
 
-.background ./elements-of-web-server-in-go/background-gopher-top-right.png
+.background ./an-overview-of-go/background-gopher-top-right.png
 
 * Serial execution
 
-.play ./elements-of-web-server-in-go/abcde_serialexec.go /START OMIT/,/END OMIT/
+.play ./an-overview-of-go/abcde_serialexec.go /START OMIT/,/END OMIT/
 
 .link https://play.golang.org/p/rvnHfKAkRL6 🐭
 
@@ -307,41 +307,41 @@ You have 5 tasks A, B, C, D, E.
 
 * Utility goroutine spawner
 
-.code ./elements-of-web-server-in-go/runconcurrent.go HLdecl
+.code ./an-overview-of-go/runconcurrent.go HLdecl
 
 You may often write such code to fit your needs.
 
 * Utility goroutine spawner
 
-.code ./elements-of-web-server-in-go/runconcurrent.go HLdecl
+.code ./an-overview-of-go/runconcurrent.go HLdecl
 
 Func arguments (variadic)
 
 * Utility goroutine spawner
 
-.code ./elements-of-web-server-in-go/runconcurrent.go HLwg
+.code ./an-overview-of-go/runconcurrent.go HLwg
 
 Use a `sync.WaitGroup` to join at completion
 
 Important: call `wg.Add` _before_ spawning the goroutines
 
-.play ./elements-of-web-server-in-go/abcde_concurrentexec_bug.go /START OMIT/,/END OMIT/
+.play ./an-overview-of-go/abcde_concurrentexec_bug.go /START OMIT/,/END OMIT/
 
 .link https://play.golang.org/p/fek68ng5lN_8 🐭
 
 * Utility goroutine spawner
 
-.code ./elements-of-web-server-in-go/runconcurrent-fix1.go HLtrap
+.code ./an-overview-of-go/runconcurrent-fix1.go HLtrap
 
 Must bind to a new variable at each loop iteration
 
-.play ./elements-of-web-server-in-go/abcde_concurrentexec_fix1.go /START OMIT/,/END OMIT/
+.play ./an-overview-of-go/abcde_concurrentexec_fix1.go /START OMIT/,/END OMIT/
 
 .link https://play.golang.org/p/QbBtD-ZFz7G 🐭
 
 * Utility goroutine spawner
 
-.code ./elements-of-web-server-in-go/runconcurrent-fix2.go HLtrap
+.code ./an-overview-of-go/runconcurrent-fix2.go HLtrap
 
 .link https://play.golang.org/p/TKm_gzkWB8M 🐭
 
@@ -349,7 +349,7 @@ Must bind to a new variable at each loop iteration
 
 * Utility goroutine spawner
 
-.code ./elements-of-web-server-in-go/runconcurrent-fix3.go HLtrap
+.code ./an-overview-of-go/runconcurrent-fix3.go HLtrap
 
 .link https://play.golang.org/p/vO_sYy7v67i 🐭
 
@@ -357,23 +357,23 @@ Must bind to a new variable at each loop iteration
 
 * Example: page blocks from data sources
 
-.image ./elements-of-web-server-in-go/aggregate_page.png 580 _
+.image ./an-overview-of-go/aggregate_page.png 580 _
 
 * Serial exec
 
-.play ./elements-of-web-server-in-go/serialexec.go  /START OMIT/,/END OMIT/
+.play ./an-overview-of-go/serialexec.go  /START OMIT/,/END OMIT/
 
 .link https://play.golang.org/p/zFJuKIt0Zdi 🐭
 
-.image ./elements-of-web-server-in-go/waterfall-serial.png
+.image ./an-overview-of-go/waterfall-serial.png
 
 * Concurrent exec
 
-.play ./elements-of-web-server-in-go/concurrentexec.go  /START OMIT/,/END OMIT/
+.play ./an-overview-of-go/concurrentexec.go  /START OMIT/,/END OMIT/
 
 .link https://play.golang.org/p/mjoxylCbTpX 🐭
 
-.image ./elements-of-web-server-in-go/waterfall-concurrent.png
+.image ./an-overview-of-go/waterfall-concurrent.png
 
 It is straightforward and convenient, but be very careful with concurrency!
 
@@ -406,11 +406,11 @@ Concurrency and parallelism are *hard* and *subtle*.
 
 They are made easier in go, but there is still plenty of room to shoot self in the foot.
 
-.image ./elements-of-web-server-in-go/plane_right.jpg _ 600
+.image ./an-overview-of-go/plane_right.jpg _ 600
 
 * Testing and data races
 
-.background ./elements-of-web-server-in-go/background-gopher-top-right.png
+.background ./an-overview-of-go/background-gopher-top-right.png
 
 * A simple server : hit counter
 
@@ -507,7 +507,7 @@ Overhead : measure the performance penalty. It might be acceptable (e.g. +100%, 
 
 * Benchmarks
 
-.background ./elements-of-web-server-in-go/background-gopher-top-right.png
+.background ./an-overview-of-go/background-gopher-top-right.png
 
 * Benchmarks
 
@@ -569,7 +569,7 @@ In foobar_test.go :
 
 * Pprof
 
-.background ./elements-of-web-server-in-go/background-gopher-top-right.png
+.background ./an-overview-of-go/background-gopher-top-right.png
 
 * Pprof
 
@@ -589,19 +589,19 @@ Then inspect the profile data (it's a file).
 
 Problem from _Google_ _Code_ _Jam_ 2012 : ❝Find 2 subsets having same sum❞
 
-.image ./elements-of-web-server-in-go/equal_sums_input.png _ 400
+.image ./an-overview-of-go/equal_sums_input.png _ 400
 
 * Example: Equal Sums
 
 Problem from _Google_ _Code_ _Jam_ 2012 : ❝Find 2 subsets having same sum❞
 
-.image ./elements-of-web-server-in-go/equal_sums_solution.png _ 400
+.image ./an-overview-of-go/equal_sums_solution.png _ 400
 
 * Example: Equal Sums
 
 Problem from _Google_ _Code_ _Jam_ 2012 : ❝Find 2 subsets having same sum❞
 
-.image ./elements-of-web-server-in-go/equal_sums_solution.png _ 400
+.image ./an-overview-of-go/equal_sums_solution.png _ 400
 
 Nice algorithm uses :
 
@@ -611,19 +611,19 @@ Nice algorithm uses :
 
 * Pprof CPU profile
 
-.image ./elements-of-web-server-in-go/pprof_graph.png _ 1024
+.image ./an-overview-of-go/pprof_graph.png _ 1024
 
 * Pprof CPU profile
 
-.image ./elements-of-web-server-in-go/pprof_graph_rand.png _ 1024
+.image ./an-overview-of-go/pprof_graph_rand.png _ 1024
 
 * Pprof CPU profile
 
-.image ./elements-of-web-server-in-go/pprof_graph_map.png _ 1024
+.image ./an-overview-of-go/pprof_graph_map.png _ 1024
 
 * Pprof memory profile
 
-.image ./elements-of-web-server-in-go/pprof_heap_memory_graph.jpg _ 1024
+.image ./an-overview-of-go/pprof_heap_memory_graph.jpg _ 1024
 
 * Pprof for your webapp
 
@@ -673,17 +673,17 @@ efficient (compiled) and safe templating.
 
 .link https://medium.com/@val_deleplace/go-code-refactoring-the-23x-performance-hunt-156746b522f7 Go code refactoring : the 23x performance hunt
 
-.background ./elements-of-web-server-in-go/background_QR-useful-links.png
+.background ./an-overview-of-go/background_QR-useful-links.png
 
 * Cloud
 
-.background ./elements-of-web-server-in-go/background-gopher-top-right.png
+.background ./an-overview-of-go/background-gopher-top-right.png
 
 * Public clouds
 
-.background ./elements-of-web-server-in-go/Go_in_the_clouds.png
+.background ./an-overview-of-go/Go_in_the_clouds.png
 
-.link https://raw.githubusercontent.com/Deleplace/presentations/master/2018/09/21/elements-of-web-server-in-go/Go_in_the_clouds.png Many options :)
+.link https://raw.githubusercontent.com/Deleplace/presentations/master/2018/09/21/an-overview-of-go/Go_in_the_clouds.png Many options :)
 
 * bit.ly/go-challenges
 
@@ -696,11 +696,11 @@ efficient (compiled) and safe templating.
 
 * 
 
-.image ./elements-of-web-server-in-go/meetup-paris.png
+.image ./an-overview-of-go/meetup-paris.png
 
 * Contact
 
-.background ./elements-of-web-server-in-go/background_QR-twitter.png
+.background ./an-overview-of-go/background_QR-twitter.png
 
 Twitter @val_deleplace
 
