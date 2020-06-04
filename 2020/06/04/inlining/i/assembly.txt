@@ -1,0 +1,1442 @@
+# _/home/deleplace/Documents/2020/06/inlining/i [_/home/deleplace/Documents/2020/06/inlining/i.test]
+"".grey1 STEXT nosplit size=106 args=0x20 locals=0x18
+	0x0000 00000 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:8)	TEXT	"".grey1(SB), NOSPLIT|ABIInternal, $24-32
+	0x0000 00000 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:8)	SUBQ	$24, SP
+	0x0004 00004 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:8)	MOVQ	BP, 16(SP)
+	0x0009 00009 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:8)	LEAQ	16(SP), BP
+	0x000e 00014 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:8)	FUNCDATA	$0, gclocals·1a65e721a2ccc325b382662e7ffee780(SB)
+	0x000e 00014 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:8)	FUNCDATA	$1, gclocals·69c1753bd5f81501d95132d08af04464(SB)
+	0x000e 00014 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:8)	FUNCDATA	$2, gclocals·568470801006e5c0dc3947ea998fe279(SB)
+	0x000e 00014 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:10)	PCDATA	$0, $0
+	0x000e 00014 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:10)	PCDATA	$1, $0
+	0x000e 00014 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:10)	MOVQ	"".c+48(SP), DX
+	0x0013 00019 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:10)	CMPQ	DX, $3
+	0x0017 00023 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:10)	JCS	95
+	0x0019 00025 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:10)	PCDATA	$0, $1
+	0x0019 00025 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:10)	PCDATA	$1, $1
+	0x0019 00025 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:10)	MOVQ	"".c+32(SP), CX
+	0x001e 00030 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:10)	XORL	AX, AX
+	0x0020 00032 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:10)	XORL	DX, DX
+	0x0022 00034 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:10)	JMP	46
+	0x0024 00036 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:10)	MOVBLZX	(CX)(AX*1), BX
+	0x0028 00040 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:10)	INCQ	AX
+	0x002b 00043 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:11)	ADDQ	BX, DX
+	0x002e 00046 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:10)	CMPQ	AX, $3
+	0x0032 00050 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:10)	JLT	36
+	0x0034 00052 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:13)	PCDATA	$0, $0
+	0x0034 00052 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:13)	MOVQ	$-6148914691236517205, AX
+	0x003e 00062 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:13)	MOVQ	DX, CX
+	0x0041 00065 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:13)	IMULQ	DX
+	0x0044 00068 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:13)	ADDQ	CX, DX
+	0x0047 00071 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:13)	SARQ	$63, CX
+	0x004b 00075 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:13)	SARQ	$1, DX
+	0x004e 00078 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:13)	SUBQ	CX, DX
+	0x0051 00081 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:14)	MOVB	DL, "".~r1+56(SP)
+	0x0055 00085 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:14)	MOVQ	16(SP), BP
+	0x005a 00090 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:14)	ADDQ	$24, SP
+	0x005e 00094 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:14)	RET
+	0x005f 00095 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:10)	MOVL	$3, CX
+	0x0064 00100 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:10)	CALL	runtime.panicSliceAcap(SB)
+	0x0069 00105 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:10)	XCHGL	AX, AX
+	0x0000 48 83 ec 18 48 89 6c 24 10 48 8d 6c 24 10 48 8b  H...H.l$.H.l$.H.
+	0x0010 54 24 30 48 83 fa 03 72 46 48 8b 4c 24 20 31 c0  T$0H...rFH.L$ 1.
+	0x0020 31 d2 eb 0a 0f b6 1c 01 48 ff c0 48 01 da 48 83  1.......H..H..H.
+	0x0030 f8 03 7c f0 48 b8 ab aa aa aa aa aa aa aa 48 89  ..|.H.........H.
+	0x0040 d1 48 f7 ea 48 01 ca 48 c1 f9 3f 48 d1 fa 48 29  .H..H..H..?H..H)
+	0x0050 ca 88 54 24 38 48 8b 6c 24 10 48 83 c4 18 c3 b9  ..T$8H.l$.H.....
+	0x0060 03 00 00 00 e8 00 00 00 00 90                    ..........
+	rel 101+4 t=8 runtime.panicSliceAcap+0
+"".BenchmarkGrey1 STEXT size=164 args=0x8 locals=0x48
+	0x0000 00000 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:17)	TEXT	"".BenchmarkGrey1(SB), ABIInternal, $72-8
+	0x0000 00000 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:17)	MOVQ	(TLS), CX
+	0x0009 00009 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:17)	CMPQ	SP, 16(CX)
+	0x000d 00013 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:17)	JLS	154
+	0x0013 00019 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:17)	SUBQ	$72, SP
+	0x0017 00023 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:17)	MOVQ	BP, 64(SP)
+	0x001c 00028 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:17)	LEAQ	64(SP), BP
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:17)	FUNCDATA	$0, gclocals·09b80ec389a9e6ac09cfa1cd3c45263d(SB)
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:17)	FUNCDATA	$1, gclocals·9fb7f0986f647f17cb53dda1484e0f7a(SB)
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:17)	FUNCDATA	$2, gclocals·f8244a831147876f4bf2671362211914(SB)
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:18)	PCDATA	$0, $0
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:18)	PCDATA	$1, $0
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:18)	CALL	"".randomColor(SB)
+	0x0026 00038 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:18)	MOVQ	8(SP), AX
+	0x002b 00043 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:18)	MOVQ	AX, "".c.len+40(SP)
+	0x0030 00048 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:18)	PCDATA	$0, $1
+	0x0030 00048 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:18)	MOVQ	(SP), CX
+	0x0034 00052 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:18)	PCDATA	$1, $1
+	0x0034 00052 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:18)	MOVQ	CX, "".c.ptr+56(SP)
+	0x0039 00057 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:18)	MOVQ	16(SP), DX
+	0x003e 00062 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:18)	MOVQ	DX, "".c.cap+48(SP)
+	0x0043 00067 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:18)	XORL	BX, BX
+	0x0045 00069 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:19)	JMP	130
+	0x0047 00071 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:19)	MOVQ	BX, "".i+32(SP)
+	0x004c 00076 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:20)	PCDATA	$0, $0
+	0x004c 00076 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:20)	MOVQ	CX, (SP)
+	0x0050 00080 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:20)	MOVQ	AX, 8(SP)
+	0x0055 00085 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:20)	MOVQ	DX, 16(SP)
+	0x005a 00090 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:20)	CALL	"".grey1(SB)
+	0x005f 00095 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:20)	MOVBLZX	24(SP), AX
+	0x0064 00100 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:20)	MOVB	AL, "".Sink(SB)
+	0x006a 00106 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:19)	MOVQ	"".i+32(SP), AX
+	0x006f 00111 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:19)	LEAQ	1(AX), BX
+	0x0073 00115 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:20)	MOVQ	"".c.len+40(SP), AX
+	0x0078 00120 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:20)	PCDATA	$0, $1
+	0x0078 00120 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:20)	MOVQ	"".c.ptr+56(SP), CX
+	0x007d 00125 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:20)	MOVQ	"".c.cap+48(SP), DX
+	0x0082 00130 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:19)	PCDATA	$0, $2
+	0x0082 00130 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:19)	MOVQ	"".b+80(SP), SI
+	0x0087 00135 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:19)	PCDATA	$0, $1
+	0x0087 00135 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:19)	CMPQ	264(SI), BX
+	0x008e 00142 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:19)	JGT	71
+	0x0090 00144 (<unknown line number>)	PCDATA	$0, $-2
+	0x0090 00144 (<unknown line number>)	PCDATA	$1, $-2
+	0x0090 00144 (<unknown line number>)	MOVQ	64(SP), BP
+	0x0095 00149 (<unknown line number>)	ADDQ	$72, SP
+	0x0099 00153 (<unknown line number>)	RET
+	0x009a 00154 (<unknown line number>)	NOP
+	0x009a 00154 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:17)	PCDATA	$1, $-1
+	0x009a 00154 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:17)	PCDATA	$0, $-1
+	0x009a 00154 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:17)	CALL	runtime.morestack_noctxt(SB)
+	0x009f 00159 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:17)	JMP	0
+	0x0000 64 48 8b 0c 25 00 00 00 00 48 3b 61 10 0f 86 87  dH..%....H;a....
+	0x0010 00 00 00 48 83 ec 48 48 89 6c 24 40 48 8d 6c 24  ...H..HH.l$@H.l$
+	0x0020 40 e8 00 00 00 00 48 8b 44 24 08 48 89 44 24 28  @.....H.D$.H.D$(
+	0x0030 48 8b 0c 24 48 89 4c 24 38 48 8b 54 24 10 48 89  H..$H.L$8H.T$.H.
+	0x0040 54 24 30 31 db eb 3b 48 89 5c 24 20 48 89 0c 24  T$01..;H.\$ H..$
+	0x0050 48 89 44 24 08 48 89 54 24 10 e8 00 00 00 00 0f  H.D$.H.T$.......
+	0x0060 b6 44 24 18 88 05 00 00 00 00 48 8b 44 24 20 48  .D$.......H.D$ H
+	0x0070 8d 58 01 48 8b 44 24 28 48 8b 4c 24 38 48 8b 54  .X.H.D$(H.L$8H.T
+	0x0080 24 30 48 8b 74 24 50 48 39 9e 08 01 00 00 7f b7  $0H.t$PH9.......
+	0x0090 48 8b 6c 24 40 48 83 c4 48 c3 e8 00 00 00 00 e9  H.l$@H..H.......
+	0x00a0 5c ff ff ff                                      \...
+	rel 5+4 t=16 TLS+0
+	rel 34+4 t=8 "".randomColor+0
+	rel 91+4 t=8 "".grey1+0
+	rel 102+4 t=15 "".Sink+0
+	rel 155+4 t=8 runtime.morestack_noctxt+0
+"".grey2 STEXT nosplit size=126 args=0x20 locals=0x18
+	0x0000 00000 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:24)	TEXT	"".grey2(SB), NOSPLIT|ABIInternal, $24-32
+	0x0000 00000 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:24)	SUBQ	$24, SP
+	0x0004 00004 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:24)	MOVQ	BP, 16(SP)
+	0x0009 00009 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:24)	LEAQ	16(SP), BP
+	0x000e 00014 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:24)	FUNCDATA	$0, gclocals·1a65e721a2ccc325b382662e7ffee780(SB)
+	0x000e 00014 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:24)	FUNCDATA	$1, gclocals·69c1753bd5f81501d95132d08af04464(SB)
+	0x000e 00014 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:24)	FUNCDATA	$2, gclocals·ebb0e8ce1793da18f0378b883cb3e122(SB)
+	0x000e 00014 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	PCDATA	$0, $0
+	0x000e 00014 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	PCDATA	$1, $0
+	0x000e 00014 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	MOVQ	"".c+40(SP), CX
+	0x0013 00019 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	TESTQ	CX, CX
+	0x0016 00022 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	JLS	118
+	0x0018 00024 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	PCDATA	$0, $1
+	0x0018 00024 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	PCDATA	$1, $1
+	0x0018 00024 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	MOVQ	"".c+32(SP), DX
+	0x001d 00029 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	MOVBLZX	(DX), BX
+	0x0020 00032 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:27)	CMPQ	CX, $1
+	0x0024 00036 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:27)	JLS	108
+	0x0026 00038 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:27)	MOVBLZX	1(DX), SI
+	0x002a 00042 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:27)	ADDQ	SI, BX
+	0x002d 00045 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:28)	CMPQ	CX, $2
+	0x0031 00049 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:28)	JLS	98
+	0x0033 00051 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:28)	PCDATA	$0, $0
+	0x0033 00051 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:28)	MOVBLZX	2(DX), CX
+	0x0037 00055 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:28)	ADDQ	BX, CX
+	0x003a 00058 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:29)	MOVQ	$-6148914691236517205, AX
+	0x0044 00068 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:29)	IMULQ	CX
+	0x0047 00071 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:29)	ADDQ	CX, DX
+	0x004a 00074 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:29)	SARQ	$1, DX
+	0x004d 00077 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:29)	SARQ	$63, CX
+	0x0051 00081 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:29)	SUBQ	CX, DX
+	0x0054 00084 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:30)	MOVB	DL, "".~r1+56(SP)
+	0x0058 00088 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:30)	MOVQ	16(SP), BP
+	0x005d 00093 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:30)	ADDQ	$24, SP
+	0x0061 00097 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:30)	RET
+	0x0062 00098 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:28)	MOVL	$2, AX
+	0x0067 00103 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:28)	CALL	runtime.panicIndex(SB)
+	0x006c 00108 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:27)	MOVL	$1, AX
+	0x0071 00113 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:27)	CALL	runtime.panicIndex(SB)
+	0x0076 00118 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	XORL	AX, AX
+	0x0078 00120 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	CALL	runtime.panicIndex(SB)
+	0x007d 00125 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	XCHGL	AX, AX
+	0x0000 48 83 ec 18 48 89 6c 24 10 48 8d 6c 24 10 48 8b  H...H.l$.H.l$.H.
+	0x0010 4c 24 28 48 85 c9 76 5e 48 8b 54 24 20 0f b6 1a  L$(H..v^H.T$ ...
+	0x0020 48 83 f9 01 76 46 0f b6 72 01 48 01 f3 48 83 f9  H...vF..r.H..H..
+	0x0030 02 76 2f 0f b6 4a 02 48 01 d9 48 b8 ab aa aa aa  .v/..J.H..H.....
+	0x0040 aa aa aa aa 48 f7 e9 48 01 ca 48 d1 fa 48 c1 f9  ....H..H..H..H..
+	0x0050 3f 48 29 ca 88 54 24 38 48 8b 6c 24 10 48 83 c4  ?H)..T$8H.l$.H..
+	0x0060 18 c3 b8 02 00 00 00 e8 00 00 00 00 b8 01 00 00  ................
+	0x0070 00 e8 00 00 00 00 31 c0 e8 00 00 00 00 90        ......1.......
+	rel 104+4 t=8 runtime.panicIndex+0
+	rel 114+4 t=8 runtime.panicIndex+0
+	rel 121+4 t=8 runtime.panicIndex+0
+"".BenchmarkGrey2 STEXT size=198 args=0x8 locals=0x20
+	0x0000 00000 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:33)	TEXT	"".BenchmarkGrey2(SB), ABIInternal, $32-8
+	0x0000 00000 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:33)	MOVQ	(TLS), CX
+	0x0009 00009 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:33)	CMPQ	SP, 16(CX)
+	0x000d 00013 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:33)	JLS	188
+	0x0013 00019 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:33)	SUBQ	$32, SP
+	0x0017 00023 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:33)	MOVQ	BP, 24(SP)
+	0x001c 00028 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:33)	LEAQ	24(SP), BP
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:33)	FUNCDATA	$0, gclocals·1a65e721a2ccc325b382662e7ffee780(SB)
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:33)	FUNCDATA	$1, gclocals·69c1753bd5f81501d95132d08af04464(SB)
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:33)	FUNCDATA	$2, gclocals·4ece90be9136044a5a074f3bfe79d08a(SB)
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:34)	PCDATA	$0, $0
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:34)	PCDATA	$1, $0
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:34)	CALL	"".randomColor(SB)
+	0x0026 00038 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:34)	MOVQ	8(SP), CX
+	0x002b 00043 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:34)	PCDATA	$0, $1
+	0x002b 00043 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:34)	MOVQ	(SP), AX
+	0x002f 00047 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:35)	PCDATA	$0, $2
+	0x002f 00047 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:35)	PCDATA	$1, $1
+	0x002f 00047 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:35)	MOVQ	"".b+40(SP), DX
+	0x0034 00052 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:35)	XORL	BX, BX
+	0x0036 00054 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:35)	JMP	112
+	0x0038 00056 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:28)	MOVBLZX	2(AX), DI
+	0x003c 00060 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:28)	ADDQ	DI, SI
+	0x003f 00063 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:34)	PCDATA	$0, $3
+	0x003f 00063 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:34)	MOVQ	AX, DI
+	0x0042 00066 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:29)	MOVQ	$-6148914691236517205, AX
+	0x004c 00076 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:33)	PCDATA	$0, $4
+	0x004c 00076 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:33)	MOVQ	DX, R8
+	0x004f 00079 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:29)	IMULQ	SI
+	0x0052 00082 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:29)	LEAQ	(DX)(SI*1), R9
+	0x0056 00086 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:29)	SARQ	$1, R9
+	0x0059 00089 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:29)	SARQ	$63, SI
+	0x005d 00093 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:29)	SUBQ	SI, R9
+	0x0060 00096 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:36)	MOVB	R9B, "".Sink(SB)
+	0x0067 00103 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:35)	INCQ	BX
+	0x006a 00106 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	PCDATA	$0, $5
+	0x006a 00106 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	MOVQ	DI, AX
+	0x006d 00109 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:35)	PCDATA	$0, $2
+	0x006d 00109 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:35)	MOVQ	R8, DX
+	0x0070 00112 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:35)	CMPQ	264(DX), BX
+	0x0077 00119 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:35)	JLE	150
+	0x0079 00121 (<unknown line number>)	NOP
+	0x0079 00121 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	TESTQ	CX, CX
+	0x007c 00124 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	JLS	180
+	0x007e 00126 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	MOVBLZX	(AX), SI
+	0x0081 00129 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:27)	CMPQ	CX, $1
+	0x0085 00133 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:27)	JLS	170
+	0x0087 00135 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:27)	MOVBLZX	1(AX), DI
+	0x008b 00139 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:27)	ADDQ	DI, SI
+	0x008e 00142 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:28)	CMPQ	CX, $2
+	0x0092 00146 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:28)	JHI	56
+	0x0094 00148 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:28)	JMP	160
+	0x0096 00150 (<unknown line number>)	PCDATA	$0, $-2
+	0x0096 00150 (<unknown line number>)	PCDATA	$1, $-2
+	0x0096 00150 (<unknown line number>)	MOVQ	24(SP), BP
+	0x009b 00155 (<unknown line number>)	ADDQ	$32, SP
+	0x009f 00159 (<unknown line number>)	RET
+	0x00a0 00160 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:28)	PCDATA	$0, $0
+	0x00a0 00160 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:28)	PCDATA	$1, $1
+	0x00a0 00160 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:28)	MOVL	$2, AX
+	0x00a5 00165 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:28)	CALL	runtime.panicIndex(SB)
+	0x00aa 00170 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:27)	MOVL	$1, AX
+	0x00af 00175 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:27)	CALL	runtime.panicIndex(SB)
+	0x00b4 00180 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	XORL	AX, AX
+	0x00b6 00182 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	CALL	runtime.panicIndex(SB)
+	0x00bb 00187 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	XCHGL	AX, AX
+	0x00bc 00188 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:26)	NOP
+	0x00bc 00188 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:33)	PCDATA	$1, $-1
+	0x00bc 00188 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:33)	PCDATA	$0, $-1
+	0x00bc 00188 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:33)	CALL	runtime.morestack_noctxt(SB)
+	0x00c1 00193 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:33)	JMP	0
+	0x0000 64 48 8b 0c 25 00 00 00 00 48 3b 61 10 0f 86 a9  dH..%....H;a....
+	0x0010 00 00 00 48 83 ec 20 48 89 6c 24 18 48 8d 6c 24  ...H.. H.l$.H.l$
+	0x0020 18 e8 00 00 00 00 48 8b 4c 24 08 48 8b 04 24 48  ......H.L$.H..$H
+	0x0030 8b 54 24 28 31 db eb 38 0f b6 78 02 48 01 fe 48  .T$(1..8..x.H..H
+	0x0040 89 c7 48 b8 ab aa aa aa aa aa aa aa 49 89 d0 48  ..H.........I..H
+	0x0050 f7 ee 4c 8d 0c 32 49 d1 f9 48 c1 fe 3f 49 29 f1  ..L..2I..H..?I).
+	0x0060 44 88 0d 00 00 00 00 48 ff c3 48 89 f8 4c 89 c2  D......H..H..L..
+	0x0070 48 39 9a 08 01 00 00 7e 1d 48 85 c9 76 36 0f b6  H9.....~.H..v6..
+	0x0080 30 48 83 f9 01 76 23 0f b6 78 01 48 01 fe 48 83  0H...v#..x.H..H.
+	0x0090 f9 02 77 a4 eb 0a 48 8b 6c 24 18 48 83 c4 20 c3  ..w...H.l$.H.. .
+	0x00a0 b8 02 00 00 00 e8 00 00 00 00 b8 01 00 00 00 e8  ................
+	0x00b0 00 00 00 00 31 c0 e8 00 00 00 00 90 e8 00 00 00  ....1...........
+	0x00c0 00 e9 3a ff ff ff                                ..:...
+	rel 5+4 t=16 TLS+0
+	rel 34+4 t=8 "".randomColor+0
+	rel 99+4 t=15 "".Sink+0
+	rel 166+4 t=8 runtime.panicIndex+0
+	rel 176+4 t=8 runtime.panicIndex+0
+	rel 183+4 t=8 runtime.panicIndex+0
+	rel 189+4 t=8 runtime.morestack_noctxt+0
+"".grey3 STEXT nosplit size=98 args=0x20 locals=0x18
+	0x0000 00000 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:40)	TEXT	"".grey3(SB), NOSPLIT|ABIInternal, $24-32
+	0x0000 00000 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:40)	SUBQ	$24, SP
+	0x0004 00004 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:40)	MOVQ	BP, 16(SP)
+	0x0009 00009 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:40)	LEAQ	16(SP), BP
+	0x000e 00014 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:40)	FUNCDATA	$0, gclocals·1a65e721a2ccc325b382662e7ffee780(SB)
+	0x000e 00014 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:40)	FUNCDATA	$1, gclocals·69c1753bd5f81501d95132d08af04464(SB)
+	0x000e 00014 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:40)	FUNCDATA	$2, gclocals·568470801006e5c0dc3947ea998fe279(SB)
+	0x000e 00014 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	PCDATA	$0, $0
+	0x000e 00014 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	PCDATA	$1, $0
+	0x000e 00014 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	MOVQ	"".c+40(SP), CX
+	0x0013 00019 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	CMPQ	CX, $2
+	0x0017 00023 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	JLS	87
+	0x0019 00025 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	PCDATA	$0, $1
+	0x0019 00025 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	PCDATA	$1, $1
+	0x0019 00025 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	MOVQ	"".c+32(SP), CX
+	0x001e 00030 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	MOVBLZX	2(CX), DX
+	0x0022 00034 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:43)	MOVBLZX	1(CX), BX
+	0x0026 00038 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:44)	PCDATA	$0, $0
+	0x0026 00038 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:44)	MOVBLZX	(CX), CX
+	0x0029 00041 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:43)	ADDQ	BX, DX
+	0x002c 00044 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:44)	ADDQ	DX, CX
+	0x002f 00047 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:45)	MOVQ	$-6148914691236517205, AX
+	0x0039 00057 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:45)	IMULQ	CX
+	0x003c 00060 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:45)	ADDQ	CX, DX
+	0x003f 00063 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:45)	SARQ	$1, DX
+	0x0042 00066 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:45)	SARQ	$63, CX
+	0x0046 00070 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:45)	SUBQ	CX, DX
+	0x0049 00073 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:46)	MOVB	DL, "".~r1+56(SP)
+	0x004d 00077 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:46)	MOVQ	16(SP), BP
+	0x0052 00082 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:46)	ADDQ	$24, SP
+	0x0056 00086 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:46)	RET
+	0x0057 00087 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	MOVL	$2, AX
+	0x005c 00092 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	CALL	runtime.panicIndex(SB)
+	0x0061 00097 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	XCHGL	AX, AX
+	0x0000 48 83 ec 18 48 89 6c 24 10 48 8d 6c 24 10 48 8b  H...H.l$.H.l$.H.
+	0x0010 4c 24 28 48 83 f9 02 76 3e 48 8b 4c 24 20 0f b6  L$(H...v>H.L$ ..
+	0x0020 51 02 0f b6 59 01 0f b6 09 48 01 da 48 01 d1 48  Q...Y....H..H..H
+	0x0030 b8 ab aa aa aa aa aa aa aa 48 f7 e9 48 01 ca 48  .........H..H..H
+	0x0040 d1 fa 48 c1 f9 3f 48 29 ca 88 54 24 38 48 8b 6c  ..H..?H)..T$8H.l
+	0x0050 24 10 48 83 c4 18 c3 b8 02 00 00 00 e8 00 00 00  $.H.............
+	0x0060 00 90                                            ..
+	rel 93+4 t=8 runtime.panicIndex+0
+"".BenchmarkGrey3 STEXT size=170 args=0x8 locals=0x20
+	0x0000 00000 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:49)	TEXT	"".BenchmarkGrey3(SB), ABIInternal, $32-8
+	0x0000 00000 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:49)	MOVQ	(TLS), CX
+	0x0009 00009 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:49)	CMPQ	SP, 16(CX)
+	0x000d 00013 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:49)	JLS	160
+	0x0013 00019 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:49)	SUBQ	$32, SP
+	0x0017 00023 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:49)	MOVQ	BP, 24(SP)
+	0x001c 00028 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:49)	LEAQ	24(SP), BP
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:49)	FUNCDATA	$0, gclocals·1a65e721a2ccc325b382662e7ffee780(SB)
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:49)	FUNCDATA	$1, gclocals·69c1753bd5f81501d95132d08af04464(SB)
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:49)	FUNCDATA	$2, gclocals·4ece90be9136044a5a074f3bfe79d08a(SB)
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:50)	PCDATA	$0, $0
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:50)	PCDATA	$1, $0
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:50)	CALL	"".randomColor(SB)
+	0x0026 00038 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:50)	MOVQ	8(SP), CX
+	0x002b 00043 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:50)	PCDATA	$0, $1
+	0x002b 00043 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:50)	MOVQ	(SP), AX
+	0x002f 00047 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:51)	PCDATA	$0, $2
+	0x002f 00047 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:51)	PCDATA	$1, $1
+	0x002f 00047 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:51)	MOVQ	"".b+40(SP), DX
+	0x0034 00052 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:51)	XORL	BX, BX
+	0x0036 00054 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:51)	JMP	122
+	0x0038 00056 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	MOVBLZX	2(AX), SI
+	0x003c 00060 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:43)	MOVBLZX	1(AX), DI
+	0x0040 00064 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:43)	ADDQ	DI, SI
+	0x0043 00067 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:44)	MOVBLZX	(AX), DI
+	0x0046 00070 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:44)	ADDQ	DI, SI
+	0x0049 00073 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:50)	PCDATA	$0, $3
+	0x0049 00073 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:50)	MOVQ	AX, DI
+	0x004c 00076 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:45)	MOVQ	$-6148914691236517205, AX
+	0x0056 00086 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:49)	PCDATA	$0, $4
+	0x0056 00086 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:49)	MOVQ	DX, R8
+	0x0059 00089 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:45)	IMULQ	SI
+	0x005c 00092 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:45)	LEAQ	(DX)(SI*1), R9
+	0x0060 00096 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:45)	SARQ	$1, R9
+	0x0063 00099 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:45)	SARQ	$63, SI
+	0x0067 00103 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:45)	SUBQ	SI, R9
+	0x006a 00106 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:52)	MOVB	R9B, "".Sink(SB)
+	0x0071 00113 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:51)	INCQ	BX
+	0x0074 00116 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	PCDATA	$0, $5
+	0x0074 00116 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	MOVQ	DI, AX
+	0x0077 00119 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:51)	PCDATA	$0, $2
+	0x0077 00119 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:51)	MOVQ	R8, DX
+	0x007a 00122 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:51)	CMPQ	264(DX), BX
+	0x0081 00129 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:51)	JLE	139
+	0x0083 00131 (<unknown line number>)	NOP
+	0x0083 00131 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	CMPQ	CX, $2
+	0x0087 00135 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	JHI	56
+	0x0089 00137 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	JMP	149
+	0x008b 00139 (<unknown line number>)	PCDATA	$0, $-2
+	0x008b 00139 (<unknown line number>)	PCDATA	$1, $-2
+	0x008b 00139 (<unknown line number>)	MOVQ	24(SP), BP
+	0x0090 00144 (<unknown line number>)	ADDQ	$32, SP
+	0x0094 00148 (<unknown line number>)	RET
+	0x0095 00149 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	PCDATA	$0, $0
+	0x0095 00149 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	PCDATA	$1, $1
+	0x0095 00149 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	MOVL	$2, AX
+	0x009a 00154 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	CALL	runtime.panicIndex(SB)
+	0x009f 00159 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	XCHGL	AX, AX
+	0x00a0 00160 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:42)	NOP
+	0x00a0 00160 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:49)	PCDATA	$1, $-1
+	0x00a0 00160 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:49)	PCDATA	$0, $-1
+	0x00a0 00160 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:49)	CALL	runtime.morestack_noctxt(SB)
+	0x00a5 00165 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:49)	JMP	0
+	0x0000 64 48 8b 0c 25 00 00 00 00 48 3b 61 10 0f 86 8d  dH..%....H;a....
+	0x0010 00 00 00 48 83 ec 20 48 89 6c 24 18 48 8d 6c 24  ...H.. H.l$.H.l$
+	0x0020 18 e8 00 00 00 00 48 8b 4c 24 08 48 8b 04 24 48  ......H.L$.H..$H
+	0x0030 8b 54 24 28 31 db eb 42 0f b6 70 02 0f b6 78 01  .T$(1..B..p...x.
+	0x0040 48 01 fe 0f b6 38 48 01 fe 48 89 c7 48 b8 ab aa  H....8H..H..H...
+	0x0050 aa aa aa aa aa aa 49 89 d0 48 f7 ee 4c 8d 0c 32  ......I..H..L..2
+	0x0060 49 d1 f9 48 c1 fe 3f 49 29 f1 44 88 0d 00 00 00  I..H..?I).D.....
+	0x0070 00 48 ff c3 48 89 f8 4c 89 c2 48 39 9a 08 01 00  .H..H..L..H9....
+	0x0080 00 7e 08 48 83 f9 02 77 af eb 0a 48 8b 6c 24 18  .~.H...w...H.l$.
+	0x0090 48 83 c4 20 c3 b8 02 00 00 00 e8 00 00 00 00 90  H.. ............
+	0x00a0 e8 00 00 00 00 e9 56 ff ff ff                    ......V...
+	rel 5+4 t=16 TLS+0
+	rel 34+4 t=8 "".randomColor+0
+	rel 109+4 t=15 "".Sink+0
+	rel 155+4 t=8 runtime.panicIndex+0
+	rel 161+4 t=8 runtime.morestack_noctxt+0
+"".randomColor STEXT size=225 args=0x18 locals=0x38
+	0x0000 00000 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:57)	TEXT	"".randomColor(SB), ABIInternal, $56-24
+	0x0000 00000 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:57)	MOVQ	(TLS), CX
+	0x0009 00009 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:57)	CMPQ	SP, 16(CX)
+	0x000d 00013 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:57)	JLS	215
+	0x0013 00019 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:57)	SUBQ	$56, SP
+	0x0017 00023 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:57)	MOVQ	BP, 48(SP)
+	0x001c 00028 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:57)	LEAQ	48(SP), BP
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:57)	FUNCDATA	$0, gclocals·9fb7f0986f647f17cb53dda1484e0f7a(SB)
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:57)	FUNCDATA	$1, gclocals·69c1753bd5f81501d95132d08af04464(SB)
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:57)	FUNCDATA	$2, gclocals·1cf923758aae2e428391d1783fe59973(SB)
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:59)	PCDATA	$0, $0
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:59)	PCDATA	$1, $0
+	0x0021 00033 (<unknown line number>)	NOP
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:59)	PCDATA	$0, $1
+	0x0021 00033 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:59)	MOVQ	math/rand.globalRand(SB), AX
+	0x0028 00040 ($GOROOT/src/math/rand/rand.go:329)	PCDATA	$0, $0
+	0x0028 00040 ($GOROOT/src/math/rand/rand.go:329)	MOVQ	AX, (SP)
+	0x002c 00044 ($GOROOT/src/math/rand/rand.go:329)	MOVQ	$256, 8(SP)
+	0x0035 00053 ($GOROOT/src/math/rand/rand.go:329)	CALL	math/rand.(*Rand).Intn(SB)
+	0x003a 00058 (<unknown line number>)	NOP
+	0x003a 00058 ($GOROOT/src/math/rand/rand.go:329)	MOVQ	16(SP), AX
+	0x003f 00063 ($GOROOT/src/math/rand/rand.go:329)	MOVQ	AX, "".~R0+40(SP)
+	0x0044 00068 ($GOROOT/src/math/rand/rand.go:329)	PCDATA	$0, $2
+	0x0044 00068 ($GOROOT/src/math/rand/rand.go:329)	MOVQ	math/rand.globalRand(SB), CX
+	0x004b 00075 ($GOROOT/src/math/rand/rand.go:329)	PCDATA	$0, $0
+	0x004b 00075 ($GOROOT/src/math/rand/rand.go:329)	MOVQ	CX, (SP)
+	0x004f 00079 ($GOROOT/src/math/rand/rand.go:329)	MOVQ	$256, 8(SP)
+	0x0058 00088 ($GOROOT/src/math/rand/rand.go:329)	CALL	math/rand.(*Rand).Intn(SB)
+	0x005d 00093 (<unknown line number>)	NOP
+	0x005d 00093 ($GOROOT/src/math/rand/rand.go:329)	MOVQ	16(SP), AX
+	0x0062 00098 ($GOROOT/src/math/rand/rand.go:329)	MOVQ	AX, "".~R0+32(SP)
+	0x0067 00103 ($GOROOT/src/math/rand/rand.go:329)	PCDATA	$0, $2
+	0x0067 00103 ($GOROOT/src/math/rand/rand.go:329)	MOVQ	math/rand.globalRand(SB), CX
+	0x006e 00110 ($GOROOT/src/math/rand/rand.go:329)	PCDATA	$0, $0
+	0x006e 00110 ($GOROOT/src/math/rand/rand.go:329)	MOVQ	CX, (SP)
+	0x0072 00114 ($GOROOT/src/math/rand/rand.go:329)	MOVQ	$256, 8(SP)
+	0x007b 00123 ($GOROOT/src/math/rand/rand.go:329)	CALL	math/rand.(*Rand).Intn(SB)
+	0x0080 00128 ($GOROOT/src/math/rand/rand.go:329)	MOVQ	16(SP), AX
+	0x0085 00133 ($GOROOT/src/math/rand/rand.go:329)	MOVQ	AX, "".~R0+24(SP)
+	0x008a 00138 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:58)	PCDATA	$0, $2
+	0x008a 00138 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:58)	LEAQ	type.[3]uint8(SB), CX
+	0x0091 00145 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:58)	PCDATA	$0, $0
+	0x0091 00145 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:58)	MOVQ	CX, (SP)
+	0x0095 00149 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:58)	CALL	runtime.newobject(SB)
+	0x009a 00154 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:58)	PCDATA	$0, $1
+	0x009a 00154 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:58)	MOVQ	8(SP), AX
+	0x009f 00159 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:59)	MOVQ	"".~R0+40(SP), CX
+	0x00a4 00164 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:59)	MOVB	CL, (AX)
+	0x00a6 00166 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:60)	MOVQ	"".~R0+32(SP), CX
+	0x00ab 00171 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:60)	MOVB	CL, 1(AX)
+	0x00ae 00174 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:61)	MOVQ	"".~R0+24(SP), CX
+	0x00b3 00179 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:61)	MOVB	CL, 2(AX)
+	0x00b6 00182 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:58)	PCDATA	$0, $0
+	0x00b6 00182 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:58)	PCDATA	$1, $1
+	0x00b6 00182 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:58)	MOVQ	AX, "".~r0+64(SP)
+	0x00bb 00187 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:58)	MOVQ	$3, "".~r0+72(SP)
+	0x00c4 00196 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:58)	MOVQ	$3, "".~r0+80(SP)
+	0x00cd 00205 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:58)	MOVQ	48(SP), BP
+	0x00d2 00210 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:58)	ADDQ	$56, SP
+	0x00d6 00214 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:58)	RET
+	0x00d7 00215 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:58)	NOP
+	0x00d7 00215 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:57)	PCDATA	$1, $-1
+	0x00d7 00215 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:57)	PCDATA	$0, $-1
+	0x00d7 00215 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:57)	CALL	runtime.morestack_noctxt(SB)
+	0x00dc 00220 (/home/deleplace/Documents/2020/06/inlining/i/inlining_test.go:57)	JMP	0
+	0x0000 64 48 8b 0c 25 00 00 00 00 48 3b 61 10 0f 86 c4  dH..%....H;a....
+	0x0010 00 00 00 48 83 ec 38 48 89 6c 24 30 48 8d 6c 24  ...H..8H.l$0H.l$
+	0x0020 30 48 8b 05 00 00 00 00 48 89 04 24 48 c7 44 24  0H......H..$H.D$
+	0x0030 08 00 01 00 00 e8 00 00 00 00 48 8b 44 24 10 48  ..........H.D$.H
+	0x0040 89 44 24 28 48 8b 0d 00 00 00 00 48 89 0c 24 48  .D$(H......H..$H
+	0x0050 c7 44 24 08 00 01 00 00 e8 00 00 00 00 48 8b 44  .D$..........H.D
+	0x0060 24 10 48 89 44 24 20 48 8b 0d 00 00 00 00 48 89  $.H.D$ H......H.
+	0x0070 0c 24 48 c7 44 24 08 00 01 00 00 e8 00 00 00 00  .$H.D$..........
+	0x0080 48 8b 44 24 10 48 89 44 24 18 48 8d 0d 00 00 00  H.D$.H.D$.H.....
+	0x0090 00 48 89 0c 24 e8 00 00 00 00 48 8b 44 24 08 48  .H..$.....H.D$.H
+	0x00a0 8b 4c 24 28 88 08 48 8b 4c 24 20 88 48 01 48 8b  .L$(..H.L$ .H.H.
+	0x00b0 4c 24 18 88 48 02 48 89 44 24 40 48 c7 44 24 48  L$..H.H.D$@H.D$H
+	0x00c0 03 00 00 00 48 c7 44 24 50 03 00 00 00 48 8b 6c  ....H.D$P....H.l
+	0x00d0 24 30 48 83 c4 38 c3 e8 00 00 00 00 e9 1f ff ff  $0H..8..........
+	0x00e0 ff                                               .
+	rel 5+4 t=16 TLS+0
+	rel 36+4 t=15 math/rand.globalRand+0
+	rel 54+4 t=8 math/rand.(*Rand).Intn+0
+	rel 71+4 t=15 math/rand.globalRand+0
+	rel 89+4 t=8 math/rand.(*Rand).Intn+0
+	rel 106+4 t=15 math/rand.globalRand+0
+	rel 124+4 t=8 math/rand.(*Rand).Intn+0
+	rel 141+4 t=15 type.[3]uint8+0
+	rel 150+4 t=8 runtime.newobject+0
+	rel 216+4 t=8 runtime.morestack_noctxt+0
+go.cuinfo.packagename._/home/deleplace/Documents/2020/06/inlining/i SDWARFINFO dupok size=0
+	0x0000 69 6e 6c 69 6e 69 6e 67                          inlining
+go.info.math/rand.Intn$abstract SDWARFINFO dupok size=27
+	0x0000 04 6d 61 74 68 2f 72 61 6e 64 2e 49 6e 74 6e 00  .math/rand.Intn.
+	0x0010 01 01 11 6e 00 00 00 00 00 00 00                 ...n.......
+	rel 22+4 t=28 go.info.int+0
+go.info."".grey2$abstract SDWARFINFO dupok size=84
+	0x0000 04 5f 2f 68 6f 6d 65 2f 64 65 6c 65 70 6c 61 63  ._/home/deleplac
+	0x0010 65 2f 44 6f 63 75 6d 65 6e 74 73 2f 32 30 32 30  e/Documents/2020
+	0x0020 2f 30 36 2f 69 6e 6c 69 6e 69 6e 67 2f 69 2e 67  /06/inlining/i.g
+	0x0030 72 65 79 32 00 01 01 11 63 00 00 00 00 00 00 0c  rey2....c.......
+	0x0040 73 75 6d 00 19 00 00 00 00 0c 61 76 67 00 1d 00  sum.......avg...
+	0x0050 00 00 00 00                                      ....
+	rel 59+4 t=28 go.info.[]uint8+0
+	rel 69+4 t=28 go.info.int+0
+	rel 79+4 t=28 go.info.int+0
+go.info."".grey3$abstract SDWARFINFO dupok size=84
+	0x0000 04 5f 2f 68 6f 6d 65 2f 64 65 6c 65 70 6c 61 63  ._/home/deleplac
+	0x0010 65 2f 44 6f 63 75 6d 65 6e 74 73 2f 32 30 32 30  e/Documents/2020
+	0x0020 2f 30 36 2f 69 6e 6c 69 6e 69 6e 67 2f 69 2e 67  /06/inlining/i.g
+	0x0030 72 65 79 33 00 01 01 11 63 00 00 00 00 00 00 0c  rey3....c.......
+	0x0040 73 75 6d 00 29 00 00 00 00 0c 61 76 67 00 2d 00  sum.).....avg.-.
+	0x0050 00 00 00 00                                      ....
+	rel 59+4 t=28 go.info.[]uint8+0
+	rel 69+4 t=28 go.info.int+0
+	rel 79+4 t=28 go.info.int+0
+go.loc."".grey1 SDWARFLOC size=210
+	0x0000 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0010 2e 00 00 00 00 00 00 00 44 00 00 00 00 00 00 00  ........D.......
+	0x0020 01 00 51 00 00 00 00 00 00 00 00 00 00 00 00 00  ..Q.............
+	0x0030 00 00 00 ff ff ff ff ff ff ff ff 00 00 00 00 00  ................
+	0x0040 00 00 00 51 00 00 00 00 00 00 00 5f 00 00 00 00  ...Q......._....
+	0x0050 00 00 00 01 00 51 00 00 00 00 00 00 00 00 00 00  .....Q..........
+	0x0060 00 00 00 00 00 00 ff ff ff ff ff ff ff ff 00 00  ................
+	0x0070 00 00 00 00 00 00 00 00 00 00 00 00 00 00 6a 00  ..............j.
+	0x0080 00 00 00 00 00 00 07 00 9c 93 08 91 10 93 08 00  ................
+	0x0090 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff  ................
+	0x00a0 ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00 28  ...............(
+	0x00b0 00 00 00 00 00 00 00 6a 00 00 00 00 00 00 00 01  .......j........
+	0x00c0 00 53 00 00 00 00 00 00 00 00 00 00 00 00 00 00  .S..............
+	0x00d0 00 00                                            ..
+	rel 8+8 t=1 "".grey1+0
+	rel 59+8 t=1 "".grey1+0
+	rel 110+8 t=1 "".grey1+0
+	rel 167+8 t=1 "".grey1+0
+go.info."".grey1 SDWARFINFO size=105
+	0x0000 03 22 22 2e 67 72 65 79 31 00 00 00 00 00 00 00  ."".grey1.......
+	0x0010 00 00 00 00 00 00 00 00 00 00 01 9c 00 00 00 00  ................
+	0x0020 01 0b 73 75 6d 00 09 00 00 00 00 00 00 00 00 0b  ..sum...........
+	0x0030 61 76 67 00 0d 00 00 00 00 00 00 00 00 10 63 00  avg...........c.
+	0x0040 00 08 00 00 00 00 00 00 00 00 0f 7e 72 31 00 01  ...........~r1..
+	0x0050 08 00 00 00 00 00 14 00 00 00 00 0b 76 00 0a 00  ............v...
+	0x0060 00 00 00 00 00 00 00 00 00                       .........
+	rel 10+8 t=1 "".grey1+0
+	rel 18+8 t=1 "".grey1+106
+	rel 28+4 t=29 gofile../home/deleplace/Documents/2020/06/inlining/i/inlining_test.go+0
+	rel 39+4 t=28 go.info.int+0
+	rel 43+4 t=28 go.loc."".grey1+0
+	rel 53+4 t=28 go.info.int+0
+	rel 57+4 t=28 go.loc."".grey1+51
+	rel 66+4 t=28 go.info.[]uint8+0
+	rel 70+4 t=28 go.loc."".grey1+102
+	rel 81+4 t=28 go.info.uint8+0
+	rel 87+4 t=28 go.range."".grey1+0
+	rel 95+4 t=28 go.info.uint8+0
+	rel 99+4 t=28 go.loc."".grey1+159
+go.range."".grey1 SDWARFRANGE size=64
+	0x0000 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0010 0e 00 00 00 00 00 00 00 34 00 00 00 00 00 00 00  ........4.......
+	0x0020 5f 00 00 00 00 00 00 00 6a 00 00 00 00 00 00 00  _.......j.......
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 8+8 t=1 "".grey1+0
+go.isstmt."".grey1 SDWARFMISC size=0
+	0x0000 08 0e 03 05 01 11 02 04 01 03 02 07 01 02 02 0a  ................
+	0x0010 01 13 02 04 01 14 02 01 00                       .........
+go.loc."".BenchmarkGrey1 SDWARFLOC size=265
+	0x0000 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0010 00 00 00 00 00 00 00 00 34 00 00 00 00 00 00 00  ........4.......
+	0x0020 07 00 93 08 50 93 08 93 08 34 00 00 00 00 00 00  ....P....4......
+	0x0030 00 3e 00 00 00 00 00 00 00 09 00 52 93 08 91 58  .>.........R...X
+	0x0040 93 08 93 08 3e 00 00 00 00 00 00 00 5f 00 00 00  ....>......._...
+	0x0050 00 00 00 00 0b 00 91 68 93 08 91 58 93 08 51 93  .......h...X..Q.
+	0x0060 08 5f 00 00 00 00 00 00 00 a4 00 00 00 00 00 00  ._..............
+	0x0070 00 0c 00 91 68 93 08 91 58 93 08 91 60 93 08 00  ....h...X...`...
+	0x0080 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff  ................
+	0x0090 ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00 00  ................
+	0x00a0 00 00 00 00 00 00 00 a4 00 00 00 00 00 00 00 01  ................
+	0x00b0 00 9c 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x00c0 00 00 ff ff ff ff ff ff ff ff 00 00 00 00 00 00  ................
+	0x00d0 00 00 4c 00 00 00 00 00 00 00 82 00 00 00 00 00  ..L.............
+	0x00e0 00 00 02 00 91 50 82 00 00 00 00 00 00 00 a4 00  .....P..........
+	0x00f0 00 00 00 00 00 00 01 00 53 00 00 00 00 00 00 00  ........S.......
+	0x0100 00 00 00 00 00 00 00 00 00                       .........
+	rel 8+8 t=1 "".BenchmarkGrey1+0
+	rel 151+8 t=1 "".BenchmarkGrey1+0
+	rel 202+8 t=1 "".BenchmarkGrey1+0
+go.info."".BenchmarkGrey1 SDWARFINFO size=98
+	0x0000 03 22 22 2e 42 65 6e 63 68 6d 61 72 6b 47 72 65  ."".BenchmarkGre
+	0x0010 79 31 00 00 00 00 00 00 00 00 00 00 00 00 00 00  y1..............
+	0x0020 00 00 00 01 9c 00 00 00 00 01 0b 63 00 12 00 00  ...........c....
+	0x0030 00 00 00 00 00 00 10 62 00 00 11 00 00 00 00 00  .......b........
+	0x0040 00 00 00 15 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0050 00 00 00 00 0b 69 00 13 00 00 00 00 00 00 00 00  .....i..........
+	0x0060 00 00                                            ..
+	rel 19+8 t=1 "".BenchmarkGrey1+0
+	rel 27+8 t=1 "".BenchmarkGrey1+164
+	rel 37+4 t=29 gofile../home/deleplace/Documents/2020/06/inlining/i/inlining_test.go+0
+	rel 46+4 t=28 go.info.[]uint8+0
+	rel 50+4 t=28 go.loc."".BenchmarkGrey1+0
+	rel 59+4 t=28 go.info.*testing.B+0
+	rel 63+4 t=28 go.loc."".BenchmarkGrey1+143
+	rel 68+8 t=1 "".BenchmarkGrey1+69
+	rel 76+8 t=1 "".BenchmarkGrey1+144
+	rel 88+4 t=28 go.info.int+0
+	rel 92+4 t=28 go.loc."".BenchmarkGrey1+194
+go.range."".BenchmarkGrey1 SDWARFRANGE size=0
+go.isstmt."".BenchmarkGrey1 SDWARFMISC size=0
+	0x0000 04 13 04 0e 03 05 01 1f 02 02 01 05 02 04 01 0a  ................
+	0x0010 02 05 01 0b 02 05 01 13 02 05 01 13 02 0a 00     ...............
+go.loc."".grey2 SDWARFLOC size=197
+	0x0000 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0010 00 00 00 00 00 00 00 00 7e 00 00 00 00 00 00 00  ........~.......
+	0x0020 07 00 9c 93 08 91 08 93 08 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 ff ff ff ff ff ff ff  ................
+	0x0040 ff 00 00 00 00 00 00 00 00 2d 00 00 00 00 00 00  .........-......
+	0x0050 00 3a 00 00 00 00 00 00 00 01 00 53 3a 00 00 00  .:.........S:...
+	0x0060 00 00 00 00 51 00 00 00 00 00 00 00 01 00 52 51  ....Q.........RQ
+	0x0070 00 00 00 00 00 00 00 6c 00 00 00 00 00 00 00 01  .......l........
+	0x0080 00 53 00 00 00 00 00 00 00 00 00 00 00 00 00 00  .S..............
+	0x0090 00 00 ff ff ff ff ff ff ff ff 00 00 00 00 00 00  ................
+	0x00a0 00 00 54 00 00 00 00 00 00 00 62 00 00 00 00 00  ..T.......b.....
+	0x00b0 00 00 01 00 51 00 00 00 00 00 00 00 00 00 00 00  ....Q...........
+	0x00c0 00 00 00 00 00                                   .....
+	rel 8+8 t=1 "".grey2+0
+	rel 65+8 t=1 "".grey2+0
+	rel 154+8 t=1 "".grey2+0
+go.info."".grey2 SDWARFINFO size=63
+	0x0000 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0010 00 00 00 00 00 01 9c 13 00 00 00 00 00 00 00 00  ................
+	0x0020 0f 7e 72 31 00 01 18 00 00 00 00 00 0e 00 00 00  .~r1............
+	0x0030 00 00 00 00 00 0e 00 00 00 00 00 00 00 00 00     ...............
+	rel 1+4 t=28 go.info."".grey2$abstract+0
+	rel 5+8 t=1 "".grey2+0
+	rel 13+8 t=1 "".grey2+126
+	rel 24+4 t=28 go.info."".grey2$abstract+55
+	rel 28+4 t=28 go.loc."".grey2+0
+	rel 39+4 t=28 go.info.uint8+0
+	rel 45+4 t=28 go.info."".grey2$abstract+63
+	rel 49+4 t=28 go.loc."".grey2+57
+	rel 54+4 t=28 go.info."".grey2$abstract+73
+	rel 58+4 t=28 go.loc."".grey2+146
+go.range."".grey2 SDWARFRANGE size=0
+go.isstmt."".grey2 SDWARFMISC size=0
+	0x0000 08 0e 03 05 01 0d 02 04 01 09 02 04 01 09 02 0a  ................
+	0x0010 01 10 02 04 01 25 02 01 00                       .....%...
+go.loc."".BenchmarkGrey2 SDWARFLOC size=540
+	0x0000 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0010 00 00 00 00 00 00 00 00 2f 00 00 00 00 00 00 00  ......../.......
+	0x0020 05 00 93 08 52 93 08 2f 00 00 00 00 00 00 00 4c  ....R../.......L
+	0x0030 00 00 00 00 00 00 00 06 00 50 93 08 52 93 08 4c  .........P..R..L
+	0x0040 00 00 00 00 00 00 00 7e 00 00 00 00 00 00 00 05  .......~........
+	0x0050 00 93 08 52 93 08 7e 00 00 00 00 00 00 00 a5 00  ...R..~.........
+	0x0060 00 00 00 00 00 00 06 00 50 93 08 52 93 08 a5 00  ........P..R....
+	0x0070 00 00 00 00 00 00 c6 00 00 00 00 00 00 00 05 00  ................
+	0x0080 93 08 52 93 08 00 00 00 00 00 00 00 00 00 00 00  ..R.............
+	0x0090 00 00 00 00 00 ff ff ff ff ff ff ff ff 00 00 00  ................
+	0x00a0 00 00 00 00 00 00 00 00 00 00 00 00 00 c6 00 00  ................
+	0x00b0 00 00 00 00 00 01 00 9c 00 00 00 00 00 00 00 00  ................
+	0x00c0 00 00 00 00 00 00 00 00 ff ff ff ff ff ff ff ff  ................
+	0x00d0 00 00 00 00 00 00 00 00 6a 00 00 00 00 00 00 00  ........j.......
+	0x00e0 c6 00 00 00 00 00 00 00 01 00 53 00 00 00 00 00  ..........S.....
+	0x00f0 00 00 00 00 00 00 00 00 00 00 00 ff ff ff ff ff  ................
+	0x0100 ff ff ff 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0110 00 00 00 2f 00 00 00 00 00 00 00 05 00 93 08 52  .../...........R
+	0x0120 93 08 2f 00 00 00 00 00 00 00 4c 00 00 00 00 00  ../.......L.....
+	0x0130 00 00 06 00 50 93 08 52 93 08 4c 00 00 00 00 00  ....P..R..L.....
+	0x0140 00 00 7e 00 00 00 00 00 00 00 05 00 93 08 52 93  ..~...........R.
+	0x0150 08 7e 00 00 00 00 00 00 00 a5 00 00 00 00 00 00  .~..............
+	0x0160 00 06 00 50 93 08 52 93 08 a5 00 00 00 00 00 00  ...P..R.........
+	0x0170 00 c6 00 00 00 00 00 00 00 05 00 93 08 52 93 08  .............R..
+	0x0180 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0190 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x01a0 3f 00 00 00 00 00 00 00 5d 00 00 00 00 00 00 00  ?.......].......
+	0x01b0 01 00 54 8e 00 00 00 00 00 00 00 96 00 00 00 00  ..T.............
+	0x01c0 00 00 00 01 00 54 a5 00 00 00 00 00 00 00 af 00  .....T..........
+	0x01d0 00 00 00 00 00 00 01 00 54 00 00 00 00 00 00 00  ........T.......
+	0x01e0 00 00 00 00 00 00 00 00 00 ff ff ff ff ff ff ff  ................
+	0x01f0 ff 00 00 00 00 00 00 00 00 60 00 00 00 00 00 00  .........`......
+	0x0200 00 c6 00 00 00 00 00 00 00 01 00 59 00 00 00 00  ...........Y....
+	0x0210 00 00 00 00 00 00 00 00 00 00 00 00              ............
+	rel 8+8 t=1 "".BenchmarkGrey2+0
+	rel 157+8 t=1 "".BenchmarkGrey2+0
+	rel 208+8 t=1 "".BenchmarkGrey2+0
+	rel 259+8 t=1 "".BenchmarkGrey2+0
+	rel 408+8 t=1 "".BenchmarkGrey2+0
+	rel 497+8 t=1 "".BenchmarkGrey2+0
+go.info."".BenchmarkGrey2 SDWARFINFO size=128
+	0x0000 03 22 22 2e 42 65 6e 63 68 6d 61 72 6b 47 72 65  ."".BenchmarkGre
+	0x0010 79 32 00 00 00 00 00 00 00 00 00 00 00 00 00 00  y2..............
+	0x0020 00 00 00 01 9c 00 00 00 00 01 0b 63 00 22 00 00  ...........c."..
+	0x0030 00 00 00 00 00 00 10 62 00 00 21 00 00 00 00 00  .......b..!.....
+	0x0040 00 00 00 14 00 00 00 00 0b 69 00 23 00 00 00 00  .........i.#....
+	0x0050 00 00 00 00 00 07 00 00 00 00 00 00 00 00 00 00  ................
+	0x0060 00 00 24 13 00 00 00 00 00 00 00 00 0e 00 00 00  ..$.............
+	0x0070 00 00 00 00 00 0e 00 00 00 00 00 00 00 00 00 00  ................
+	rel 19+8 t=1 "".BenchmarkGrey2+0
+	rel 27+8 t=1 "".BenchmarkGrey2+198
+	rel 37+4 t=29 gofile../home/deleplace/Documents/2020/06/inlining/i/inlining_test.go+0
+	rel 46+4 t=28 go.info.[]uint8+0
+	rel 50+4 t=28 go.loc."".BenchmarkGrey2+0
+	rel 59+4 t=28 go.info.*testing.B+0
+	rel 63+4 t=28 go.loc."".BenchmarkGrey2+149
+	rel 68+4 t=28 go.range."".BenchmarkGrey2+0
+	rel 76+4 t=28 go.info.int+0
+	rel 80+4 t=28 go.loc."".BenchmarkGrey2+200
+	rel 86+4 t=28 go.info."".grey2$abstract+0
+	rel 90+4 t=28 go.range."".BenchmarkGrey2+80
+	rel 94+4 t=29 gofile../home/deleplace/Documents/2020/06/inlining/i/inlining_test.go+0
+	rel 100+4 t=28 go.info."".grey2$abstract+55
+	rel 104+4 t=28 go.loc."".BenchmarkGrey2+251
+	rel 109+4 t=28 go.info."".grey2$abstract+63
+	rel 113+4 t=28 go.loc."".BenchmarkGrey2+400
+	rel 118+4 t=28 go.info."".grey2$abstract+73
+	rel 122+4 t=28 go.loc."".BenchmarkGrey2+489
+go.range."".BenchmarkGrey2 SDWARFRANGE size=208
+	0x0000 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0010 2f 00 00 00 00 00 00 00 38 00 00 00 00 00 00 00  /.......8.......
+	0x0020 60 00 00 00 00 00 00 00 6a 00 00 00 00 00 00 00  `.......j.......
+	0x0030 6d 00 00 00 00 00 00 00 79 00 00 00 00 00 00 00  m.......y.......
+	0x0040 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0050 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0060 38 00 00 00 00 00 00 00 3f 00 00 00 00 00 00 00  8.......?.......
+	0x0070 42 00 00 00 00 00 00 00 4c 00 00 00 00 00 00 00  B.......L.......
+	0x0080 4f 00 00 00 00 00 00 00 60 00 00 00 00 00 00 00  O.......`.......
+	0x0090 6a 00 00 00 00 00 00 00 6d 00 00 00 00 00 00 00  j.......m.......
+	0x00a0 79 00 00 00 00 00 00 00 96 00 00 00 00 00 00 00  y...............
+	0x00b0 a0 00 00 00 00 00 00 00 bc 00 00 00 00 00 00 00  ................
+	0x00c0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 8+8 t=1 "".BenchmarkGrey2+0
+	rel 88+8 t=1 "".BenchmarkGrey2+0
+go.isstmt."".BenchmarkGrey2 SDWARFMISC size=0
+	0x0000 04 13 04 0e 03 05 01 09 02 05 01 1b 02 03 01 0e  ................
+	0x0010 02 0a 01 06 02 07 01 02 02 03 01 05 02 04 01 09  ................
+	0x0020 02 04 01 29 02 0b 00                             ...)...
+go.loc."".grey3 SDWARFLOC size=178
+	0x0000 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0010 00 00 00 00 00 00 00 00 62 00 00 00 00 00 00 00  ........b.......
+	0x0020 07 00 9c 93 08 91 08 93 08 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 ff ff ff ff ff ff ff  ................
+	0x0040 ff 00 00 00 00 00 00 00 00 2c 00 00 00 00 00 00  .........,......
+	0x0050 00 2f 00 00 00 00 00 00 00 01 00 51 2f 00 00 00  ./.........Q/...
+	0x0060 00 00 00 00 46 00 00 00 00 00 00 00 01 00 52 00  ....F.........R.
+	0x0070 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff  ................
+	0x0080 ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00 49  ...............I
+	0x0090 00 00 00 00 00 00 00 57 00 00 00 00 00 00 00 01  .......W........
+	0x00a0 00 51 00 00 00 00 00 00 00 00 00 00 00 00 00 00  .Q..............
+	0x00b0 00 00                                            ..
+	rel 8+8 t=1 "".grey3+0
+	rel 65+8 t=1 "".grey3+0
+	rel 135+8 t=1 "".grey3+0
+go.info."".grey3 SDWARFINFO size=63
+	0x0000 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0010 00 00 00 00 00 01 9c 13 00 00 00 00 00 00 00 00  ................
+	0x0020 0f 7e 72 31 00 01 28 00 00 00 00 00 0e 00 00 00  .~r1..(.........
+	0x0030 00 00 00 00 00 0e 00 00 00 00 00 00 00 00 00     ...............
+	rel 1+4 t=28 go.info."".grey3$abstract+0
+	rel 5+8 t=1 "".grey3+0
+	rel 13+8 t=1 "".grey3+98
+	rel 24+4 t=28 go.info."".grey3$abstract+55
+	rel 28+4 t=28 go.loc."".grey3+0
+	rel 39+4 t=28 go.info.uint8+0
+	rel 45+4 t=28 go.info."".grey3$abstract+63
+	rel 49+4 t=28 go.loc."".grey3+57
+	rel 54+4 t=28 go.info."".grey3$abstract+73
+	rel 58+4 t=28 go.loc."".grey3+127
+go.range."".grey3 SDWARFRANGE size=0
+go.isstmt."".grey3 SDWARFMISC size=0
+	0x0000 08 0e 03 05 01 0f 02 07 01 03 02 0d 01 10 02 04  ................
+	0x0010 01 14 02 01 00                                   .....
+go.loc."".BenchmarkGrey3 SDWARFLOC size=408
+	0x0000 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0010 00 00 00 00 00 00 00 00 2f 00 00 00 00 00 00 00  ......../.......
+	0x0020 05 00 93 08 52 93 08 2f 00 00 00 00 00 00 00 56  ....R../.......V
+	0x0030 00 00 00 00 00 00 00 06 00 50 93 08 52 93 08 56  .........P..R..V
+	0x0040 00 00 00 00 00 00 00 aa 00 00 00 00 00 00 00 05  ................
+	0x0050 00 93 08 52 93 08 00 00 00 00 00 00 00 00 00 00  ...R............
+	0x0060 00 00 00 00 00 00 ff ff ff ff ff ff ff ff 00 00  ................
+	0x0070 00 00 00 00 00 00 00 00 00 00 00 00 00 00 aa 00  ................
+	0x0080 00 00 00 00 00 00 01 00 9c 00 00 00 00 00 00 00  ................
+	0x0090 00 00 00 00 00 00 00 00 00 ff ff ff ff ff ff ff  ................
+	0x00a0 ff 00 00 00 00 00 00 00 00 74 00 00 00 00 00 00  .........t......
+	0x00b0 00 aa 00 00 00 00 00 00 00 01 00 53 00 00 00 00  ...........S....
+	0x00c0 00 00 00 00 00 00 00 00 00 00 00 00 ff ff ff ff  ................
+	0x00d0 ff ff ff ff 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x00e0 00 00 00 00 2f 00 00 00 00 00 00 00 05 00 93 08  ..../...........
+	0x00f0 52 93 08 2f 00 00 00 00 00 00 00 56 00 00 00 00  R../.......V....
+	0x0100 00 00 00 06 00 50 93 08 52 93 08 56 00 00 00 00  .....P..R..V....
+	0x0110 00 00 00 aa 00 00 00 00 00 00 00 05 00 93 08 52  ...............R
+	0x0120 93 08 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0130 00 00 ff ff ff ff ff ff ff ff 00 00 00 00 00 00  ................
+	0x0140 00 00 43 00 00 00 00 00 00 00 67 00 00 00 00 00  ..C.......g.....
+	0x0150 00 00 01 00 54 00 00 00 00 00 00 00 00 00 00 00  ....T...........
+	0x0160 00 00 00 00 00 ff ff ff ff ff ff ff ff 00 00 00  ................
+	0x0170 00 00 00 00 00 6a 00 00 00 00 00 00 00 aa 00 00  .....j..........
+	0x0180 00 00 00 00 00 01 00 59 00 00 00 00 00 00 00 00  .......Y........
+	0x0190 00 00 00 00 00 00 00 00                          ........
+	rel 8+8 t=1 "".BenchmarkGrey3+0
+	rel 110+8 t=1 "".BenchmarkGrey3+0
+	rel 161+8 t=1 "".BenchmarkGrey3+0
+	rel 212+8 t=1 "".BenchmarkGrey3+0
+	rel 314+8 t=1 "".BenchmarkGrey3+0
+	rel 365+8 t=1 "".BenchmarkGrey3+0
+go.info."".BenchmarkGrey3 SDWARFINFO size=128
+	0x0000 03 22 22 2e 42 65 6e 63 68 6d 61 72 6b 47 72 65  ."".BenchmarkGre
+	0x0010 79 33 00 00 00 00 00 00 00 00 00 00 00 00 00 00  y3..............
+	0x0020 00 00 00 01 9c 00 00 00 00 01 0b 63 00 32 00 00  ...........c.2..
+	0x0030 00 00 00 00 00 00 10 62 00 00 31 00 00 00 00 00  .......b..1.....
+	0x0040 00 00 00 14 00 00 00 00 0b 69 00 33 00 00 00 00  .........i.3....
+	0x0050 00 00 00 00 00 07 00 00 00 00 00 00 00 00 00 00  ................
+	0x0060 00 00 34 13 00 00 00 00 00 00 00 00 0e 00 00 00  ..4.............
+	0x0070 00 00 00 00 00 0e 00 00 00 00 00 00 00 00 00 00  ................
+	rel 19+8 t=1 "".BenchmarkGrey3+0
+	rel 27+8 t=1 "".BenchmarkGrey3+170
+	rel 37+4 t=29 gofile../home/deleplace/Documents/2020/06/inlining/i/inlining_test.go+0
+	rel 46+4 t=28 go.info.[]uint8+0
+	rel 50+4 t=28 go.loc."".BenchmarkGrey3+0
+	rel 59+4 t=28 go.info.*testing.B+0
+	rel 63+4 t=28 go.loc."".BenchmarkGrey3+102
+	rel 68+4 t=28 go.range."".BenchmarkGrey3+0
+	rel 76+4 t=28 go.info.int+0
+	rel 80+4 t=28 go.loc."".BenchmarkGrey3+153
+	rel 86+4 t=28 go.info."".grey3$abstract+0
+	rel 90+4 t=28 go.range."".BenchmarkGrey3+80
+	rel 94+4 t=29 gofile../home/deleplace/Documents/2020/06/inlining/i/inlining_test.go+0
+	rel 100+4 t=28 go.info."".grey3$abstract+55
+	rel 104+4 t=28 go.loc."".BenchmarkGrey3+204
+	rel 109+4 t=28 go.info."".grey3$abstract+63
+	rel 113+4 t=28 go.loc."".BenchmarkGrey3+306
+	rel 118+4 t=28 go.info."".grey3$abstract+73
+	rel 122+4 t=28 go.loc."".BenchmarkGrey3+357
+go.range."".BenchmarkGrey3 SDWARFRANGE size=208
+	0x0000 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0010 2f 00 00 00 00 00 00 00 38 00 00 00 00 00 00 00  /.......8.......
+	0x0020 6a 00 00 00 00 00 00 00 74 00 00 00 00 00 00 00  j.......t.......
+	0x0030 77 00 00 00 00 00 00 00 83 00 00 00 00 00 00 00  w...............
+	0x0040 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0050 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0060 38 00 00 00 00 00 00 00 49 00 00 00 00 00 00 00  8.......I.......
+	0x0070 4c 00 00 00 00 00 00 00 56 00 00 00 00 00 00 00  L.......V.......
+	0x0080 59 00 00 00 00 00 00 00 6a 00 00 00 00 00 00 00  Y.......j.......
+	0x0090 74 00 00 00 00 00 00 00 77 00 00 00 00 00 00 00  t.......w.......
+	0x00a0 83 00 00 00 00 00 00 00 8b 00 00 00 00 00 00 00  ................
+	0x00b0 95 00 00 00 00 00 00 00 a0 00 00 00 00 00 00 00  ................
+	0x00c0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 8+8 t=1 "".BenchmarkGrey3+0
+	rel 88+8 t=1 "".BenchmarkGrey3+0
+go.isstmt."".BenchmarkGrey3 SDWARFMISC size=0
+	0x0000 04 13 04 0e 03 05 01 09 02 05 01 08 02 04 01 03  ................
+	0x0010 02 03 01 13 02 03 01 0e 02 0a 01 06 02 07 01 02  ................
+	0x0020 02 04 01 18 02 0b 00                             .......
+go.loc."".randomColor SDWARFLOC size=0
+go.info."".randomColor SDWARFINFO size=142
+	0x0000 03 22 22 2e 72 61 6e 64 6f 6d 43 6f 6c 6f 72 00  ."".randomColor.
+	0x0010 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0020 01 9c 00 00 00 00 01 0a 7e 52 30 00 3d 00 00 00  ........~R0.=...
+	0x0030 00 00 0a 7e 52 30 00 3c 00 00 00 00 00 0a 7e 52  ...~R0.<......~R
+	0x0040 30 00 3b 00 00 00 00 00 0f 7e 72 30 00 01 39 00  0.;......~r0..9.
+	0x0050 00 00 00 00 07 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0060 00 3b 00 07 00 00 00 00 00 00 00 00 00 00 00 00  .;..............
+	0x0070 3c 00 06 00 00 00 00 00 00 00 00 00 00 00 00 00  <...............
+	0x0080 00 00 00 00 00 00 00 00 00 00 00 3d 00 00        ...........=..
+	rel 16+8 t=1 "".randomColor+0
+	rel 24+8 t=1 "".randomColor+225
+	rel 34+4 t=29 gofile../home/deleplace/Documents/2020/06/inlining/i/inlining_test.go+0
+	rel 45+4 t=28 go.info.int+0
+	rel 56+4 t=28 go.info.int+0
+	rel 67+4 t=28 go.info.int+0
+	rel 79+4 t=28 go.info.[]uint8+0
+	rel 85+4 t=28 go.info.math/rand.Intn$abstract+0
+	rel 89+4 t=28 go.range."".randomColor+0
+	rel 93+4 t=29 gofile../home/deleplace/Documents/2020/06/inlining/i/inlining_test.go+0
+	rel 100+4 t=28 go.info.math/rand.Intn$abstract+0
+	rel 104+4 t=28 go.range."".randomColor+64
+	rel 108+4 t=29 gofile../home/deleplace/Documents/2020/06/inlining/i/inlining_test.go+0
+	rel 115+4 t=28 go.info.math/rand.Intn$abstract+0
+	rel 119+8 t=1 "".randomColor+103
+	rel 127+8 t=1 "".randomColor+138
+	rel 135+4 t=29 gofile../home/deleplace/Documents/2020/06/inlining/i/inlining_test.go+0
+go.range."".randomColor SDWARFRANGE size=128
+	0x0000 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0010 28 00 00 00 00 00 00 00 3a 00 00 00 00 00 00 00  (.......:.......
+	0x0020 3a 00 00 00 00 00 00 00 44 00 00 00 00 00 00 00  :.......D.......
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00  ................
+	0x0050 44 00 00 00 00 00 00 00 5d 00 00 00 00 00 00 00  D.......].......
+	0x0060 5d 00 00 00 00 00 00 00 67 00 00 00 00 00 00 00  ].......g.......
+	0x0070 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 8+8 t=1 "".randomColor+0
+	rel 72+8 t=1 "".randomColor+0
+go.isstmt."".randomColor SDWARFMISC size=0
+	0x0000 04 13 04 0e 03 0b 01 09 02 05 01 1e 02 05 01 1e  ................
+	0x0010 02 05 01 0a 02 07 01 04 02 05 01 05 02 05 01 02  ................
+	0x0020 02 05 01 03 02 05 01 03 02 05 01 1c 02 0a 00     ...............
+""..inittask SNOPTRDATA size=40
+	0x0000 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00  ................
+	0x0010 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0020 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 math/rand..inittask+0
+	rel 32+8 t=1 testing..inittask+0
+"".Sink SNOPTRBSS size=1
+runtime.gcbits.01 SRODATA dupok size=1
+	0x0000 01                                               .
+type..namedata.*[]uint8- SRODATA dupok size=11
+	0x0000 00 00 08 2a 5b 5d 75 69 6e 74 38                 ...*[]uint8
+type.*[]uint8 SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 a5 8e d0 69 00 08 08 36 00 00 00 00 00 00 00 00  ...i...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[]uint8-+0
+	rel 48+8 t=1 type.[]uint8+0
+type.[]uint8 SRODATA dupok size=56
+	0x0000 18 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 df 7e 2e 38 02 08 08 17 00 00 00 00 00 00 00 00  .~.8............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+0
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[]uint8-+0
+	rel 44+4 t=6 type.*[]uint8+0
+	rel 48+8 t=1 type.uint8+0
+type..hashfunc3 SRODATA dupok size=16
+	0x0000 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00  ................
+	rel 0+8 t=1 runtime.memhash_varlen+0
+type..eqfunc3 SRODATA dupok size=16
+	0x0000 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00  ................
+	rel 0+8 t=1 runtime.memequal_varlen+0
+type..alg3 SRODATA dupok size=16
+	0x0000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 0+8 t=1 type..hashfunc3+0
+	rel 8+8 t=1 type..eqfunc3+0
+type..namedata.*[3]uint8- SRODATA dupok size=12
+	0x0000 00 00 09 2a 5b 33 5d 75 69 6e 74 38              ...*[3]uint8
+type.*[3]uint8 SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 69 04 66 6c 00 08 08 36 00 00 00 00 00 00 00 00  i.fl...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[3]uint8-+0
+	rel 48+8 t=1 type.[3]uint8+0
+runtime.gcbits. SRODATA dupok size=0
+type.[3]uint8 SRODATA dupok size=72
+	0x0000 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0010 c2 b9 52 dd 02 01 01 11 00 00 00 00 00 00 00 00  ..R.............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 03 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 type..alg3+0
+	rel 32+8 t=1 runtime.gcbits.+0
+	rel 40+4 t=5 type..namedata.*[3]uint8-+0
+	rel 44+4 t=6 type.*[3]uint8+0
+	rel 48+8 t=1 type.uint8+0
+	rel 56+8 t=1 type.[]uint8+0
+type..importpath.math/rand. SRODATA dupok size=12
+	0x0000 00 00 09 6d 61 74 68 2f 72 61 6e 64              ...math/rand
+type..importpath.testing. SRODATA dupok size=10
+	0x0000 00 00 07 74 65 73 74 69 6e 67                    ...testing
+gclocals·1a65e721a2ccc325b382662e7ffee780 SRODATA dupok size=10
+	0x0000 02 00 00 00 01 00 00 00 01 00                    ..........
+gclocals·69c1753bd5f81501d95132d08af04464 SRODATA dupok size=8
+	0x0000 02 00 00 00 00 00 00 00                          ........
+gclocals·568470801006e5c0dc3947ea998fe279 SRODATA dupok size=10
+	0x0000 02 00 00 00 02 00 00 00 00 02                    ..........
+gclocals·09b80ec389a9e6ac09cfa1cd3c45263d SRODATA dupok size=10
+	0x0000 02 00 00 00 01 00 00 00 01 01                    ..........
+gclocals·9fb7f0986f647f17cb53dda1484e0f7a SRODATA dupok size=10
+	0x0000 02 00 00 00 01 00 00 00 00 01                    ..........
+gclocals·f8244a831147876f4bf2671362211914 SRODATA dupok size=11
+	0x0000 03 00 00 00 06 00 00 00 00 02 22                 .........."
+gclocals·ebb0e8ce1793da18f0378b883cb3e122 SRODATA dupok size=10
+	0x0000 02 00 00 00 03 00 00 00 00 04                    ..........
+gclocals·4ece90be9136044a5a074f3bfe79d08a SRODATA dupok size=14
+	0x0000 06 00 00 00 08 00 00 00 00 01 05 44 c0 81        ...........D..
+gclocals·1cf923758aae2e428391d1783fe59973 SRODATA dupok size=11
+	0x0000 03 00 00 00 02 00 00 00 00 01 02                 ...........
+# _/home/deleplace/Documents/2020/06/inlining/i.test
+"".init.0 STEXT size=90 args=0x0 locals=0x8
+	0x0000 00000 (/tmp/go-build222921528/b001/_testmain.go:38)	TEXT	"".init.0(SB), ABIInternal, $8-0
+	0x0000 00000 (/tmp/go-build222921528/b001/_testmain.go:38)	MOVQ	(TLS), CX
+	0x0009 00009 (/tmp/go-build222921528/b001/_testmain.go:38)	CMPQ	SP, 16(CX)
+	0x000d 00013 (/tmp/go-build222921528/b001/_testmain.go:38)	JLS	83
+	0x000f 00015 (/tmp/go-build222921528/b001/_testmain.go:38)	SUBQ	$8, SP
+	0x0013 00019 (/tmp/go-build222921528/b001/_testmain.go:38)	MOVQ	BP, (SP)
+	0x0017 00023 (/tmp/go-build222921528/b001/_testmain.go:38)	LEAQ	(SP), BP
+	0x001b 00027 (/tmp/go-build222921528/b001/_testmain.go:38)	FUNCDATA	$0, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x001b 00027 (/tmp/go-build222921528/b001/_testmain.go:38)	FUNCDATA	$1, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x001b 00027 (/tmp/go-build222921528/b001/_testmain.go:38)	FUNCDATA	$2, gclocals·33cdeccccebe80329f1fdbee7f5874cb(SB)
+	0x001b 00027 (/tmp/go-build222921528/b001/_testmain.go:39)	PCDATA	$0, $0
+	0x001b 00027 (/tmp/go-build222921528/b001/_testmain.go:39)	PCDATA	$1, $0
+	0x001b 00027 (/tmp/go-build222921528/b001/_testmain.go:39)	MOVQ	$0, testing/internal/testdeps.ImportPath+8(SB)
+	0x0026 00038 (/tmp/go-build222921528/b001/_testmain.go:39)	PCDATA	$0, $-2
+	0x0026 00038 (/tmp/go-build222921528/b001/_testmain.go:39)	PCDATA	$1, $-2
+	0x0026 00038 (/tmp/go-build222921528/b001/_testmain.go:39)	CMPL	runtime.writeBarrier(SB), $0
+	0x002d 00045 (/tmp/go-build222921528/b001/_testmain.go:39)	JNE	67
+	0x002f 00047 (/tmp/go-build222921528/b001/_testmain.go:39)	MOVQ	$0, testing/internal/testdeps.ImportPath(SB)
+	0x003a 00058 (/tmp/go-build222921528/b001/_testmain.go:40)	MOVQ	(SP), BP
+	0x003e 00062 (/tmp/go-build222921528/b001/_testmain.go:40)	ADDQ	$8, SP
+	0x0042 00066 (/tmp/go-build222921528/b001/_testmain.go:40)	RET
+	0x0043 00067 (/tmp/go-build222921528/b001/_testmain.go:39)	LEAQ	testing/internal/testdeps.ImportPath(SB), DI
+	0x004a 00074 (/tmp/go-build222921528/b001/_testmain.go:39)	XORL	AX, AX
+	0x004c 00076 (/tmp/go-build222921528/b001/_testmain.go:39)	CALL	runtime.gcWriteBarrier(SB)
+	0x0051 00081 (/tmp/go-build222921528/b001/_testmain.go:39)	JMP	58
+	0x0053 00083 (/tmp/go-build222921528/b001/_testmain.go:39)	NOP
+	0x0053 00083 (/tmp/go-build222921528/b001/_testmain.go:38)	PCDATA	$1, $-1
+	0x0053 00083 (/tmp/go-build222921528/b001/_testmain.go:38)	PCDATA	$0, $-1
+	0x0053 00083 (/tmp/go-build222921528/b001/_testmain.go:38)	CALL	runtime.morestack_noctxt(SB)
+	0x0058 00088 (/tmp/go-build222921528/b001/_testmain.go:38)	JMP	0
+	0x0000 64 48 8b 0c 25 00 00 00 00 48 3b 61 10 76 44 48  dH..%....H;a.vDH
+	0x0010 83 ec 08 48 89 2c 24 48 8d 2c 24 48 c7 05 00 00  ...H.,$H.,$H....
+	0x0020 00 00 00 00 00 00 83 3d 00 00 00 00 00 75 14 48  .......=.....u.H
+	0x0030 c7 05 00 00 00 00 00 00 00 00 48 8b 2c 24 48 83  ..........H.,$H.
+	0x0040 c4 08 c3 48 8d 3d 00 00 00 00 31 c0 e8 00 00 00  ...H.=....1.....
+	0x0050 00 eb e7 e8 00 00 00 00 eb a6                    ..........
+	rel 5+4 t=16 TLS+0
+	rel 30+4 t=15 testing/internal/testdeps.ImportPath+4
+	rel 40+4 t=15 runtime.writeBarrier+-1
+	rel 50+4 t=15 testing/internal/testdeps.ImportPath+-4
+	rel 70+4 t=15 testing/internal/testdeps.ImportPath+0
+	rel 77+4 t=8 runtime.gcWriteBarrier+0
+	rel 84+4 t=8 runtime.morestack_noctxt+0
+"".main STEXT size=412 args=0x0 locals=0x60
+	0x0000 00000 (/tmp/go-build222921528/b001/_testmain.go:44)	TEXT	"".main(SB), ABIInternal, $96-0
+	0x0000 00000 (/tmp/go-build222921528/b001/_testmain.go:44)	MOVQ	(TLS), CX
+	0x0009 00009 (/tmp/go-build222921528/b001/_testmain.go:44)	CMPQ	SP, 16(CX)
+	0x000d 00013 (/tmp/go-build222921528/b001/_testmain.go:44)	JLS	402
+	0x0013 00019 (/tmp/go-build222921528/b001/_testmain.go:44)	SUBQ	$96, SP
+	0x0017 00023 (/tmp/go-build222921528/b001/_testmain.go:44)	MOVQ	BP, 88(SP)
+	0x001c 00028 (/tmp/go-build222921528/b001/_testmain.go:44)	LEAQ	88(SP), BP
+	0x0021 00033 (/tmp/go-build222921528/b001/_testmain.go:44)	FUNCDATA	$0, gclocals·f14a5bc6d08bc46424827f54d2e3f8ed(SB)
+	0x0021 00033 (/tmp/go-build222921528/b001/_testmain.go:44)	FUNCDATA	$1, gclocals·b9a645ea6a8804bdf2e082fa899446d3(SB)
+	0x0021 00033 (/tmp/go-build222921528/b001/_testmain.go:44)	FUNCDATA	$2, gclocals·a6fe0088dc9eb0d04a7e2354f4d3bae0(SB)
+	0x0021 00033 (/tmp/go-build222921528/b001/_testmain.go:46)	PCDATA	$0, $0
+	0x0021 00033 (/tmp/go-build222921528/b001/_testmain.go:46)	PCDATA	$1, $0
+	0x0021 00033 (/tmp/go-build222921528/b001/_testmain.go:46)	MOVQ	"".benchmarks+16(SB), AX
+	0x0028 00040 (/tmp/go-build222921528/b001/_testmain.go:46)	MOVQ	AX, "".benchmarks.cap+56(SP)
+	0x002d 00045 (/tmp/go-build222921528/b001/_testmain.go:46)	MOVQ	"".tests+16(SB), CX
+	0x0034 00052 (/tmp/go-build222921528/b001/_testmain.go:46)	MOVQ	CX, "".tests.cap+24(SP)
+	0x0039 00057 (/tmp/go-build222921528/b001/_testmain.go:46)	MOVQ	"".tests+8(SB), DX
+	0x0040 00064 (/tmp/go-build222921528/b001/_testmain.go:46)	MOVQ	DX, "".tests.len+16(SP)
+	0x0045 00069 (/tmp/go-build222921528/b001/_testmain.go:46)	PCDATA	$0, $1
+	0x0045 00069 (/tmp/go-build222921528/b001/_testmain.go:46)	MOVQ	"".tests(SB), BX
+	0x004c 00076 (/tmp/go-build222921528/b001/_testmain.go:46)	PCDATA	$0, $0
+	0x004c 00076 (/tmp/go-build222921528/b001/_testmain.go:46)	PCDATA	$1, $1
+	0x004c 00076 (/tmp/go-build222921528/b001/_testmain.go:46)	MOVQ	BX, "".tests.ptr+64(SP)
+	0x0051 00081 (/tmp/go-build222921528/b001/_testmain.go:46)	MOVQ	"".benchmarks+8(SB), SI
+	0x0058 00088 (/tmp/go-build222921528/b001/_testmain.go:46)	MOVQ	SI, "".benchmarks.len+48(SP)
+	0x005d 00093 (/tmp/go-build222921528/b001/_testmain.go:46)	PCDATA	$0, $2
+	0x005d 00093 (/tmp/go-build222921528/b001/_testmain.go:46)	MOVQ	"".benchmarks(SB), DI
+	0x0064 00100 (/tmp/go-build222921528/b001/_testmain.go:46)	PCDATA	$0, $0
+	0x0064 00100 (/tmp/go-build222921528/b001/_testmain.go:46)	PCDATA	$1, $2
+	0x0064 00100 (/tmp/go-build222921528/b001/_testmain.go:46)	MOVQ	DI, "".benchmarks.ptr+80(SP)
+	0x0069 00105 (/tmp/go-build222921528/b001/_testmain.go:46)	MOVQ	"".examples+8(SB), R8
+	0x0070 00112 (/tmp/go-build222921528/b001/_testmain.go:46)	MOVQ	R8, "".examples.len+32(SP)
+	0x0075 00117 (/tmp/go-build222921528/b001/_testmain.go:46)	MOVQ	"".examples+16(SB), R9
+	0x007c 00124 (/tmp/go-build222921528/b001/_testmain.go:46)	MOVQ	R9, "".examples.cap+40(SP)
+	0x0081 00129 (<unknown line number>)	NOP
+	0x0081 00129 (/tmp/go-build222921528/b001/_testmain.go:46)	PCDATA	$0, $3
+	0x0081 00129 (/tmp/go-build222921528/b001/_testmain.go:46)	MOVQ	"".examples(SB), R10
+	0x0088 00136 (/tmp/go-build222921528/b001/_testmain.go:46)	PCDATA	$0, $0
+	0x0088 00136 (/tmp/go-build222921528/b001/_testmain.go:46)	PCDATA	$1, $3
+	0x0088 00136 (/tmp/go-build222921528/b001/_testmain.go:46)	MOVQ	R10, "".examples.ptr+72(SP)
+	0x008d 00141 ($GOROOT/src/testing/testing.go:1078)	CALL	testing.Init(SB)
+	0x0092 00146 ($GOROOT/src/testing/testing.go:1079)	PCDATA	$0, $4
+	0x0092 00146 ($GOROOT/src/testing/testing.go:1079)	LEAQ	type.testing.M(SB), AX
+	0x0099 00153 ($GOROOT/src/testing/testing.go:1079)	PCDATA	$0, $0
+	0x0099 00153 ($GOROOT/src/testing/testing.go:1079)	MOVQ	AX, (SP)
+	0x009d 00157 ($GOROOT/src/testing/testing.go:1079)	CALL	runtime.newobject(SB)
+	0x00a2 00162 ($GOROOT/src/testing/testing.go:1079)	PCDATA	$0, $4
+	0x00a2 00162 ($GOROOT/src/testing/testing.go:1079)	MOVQ	8(SP), AX
+	0x00a7 00167 ($GOROOT/src/testing/testing.go:1079)	PCDATA	$0, $5
+	0x00a7 00167 ($GOROOT/src/testing/testing.go:1079)	LEAQ	go.itab.testing/internal/testdeps.TestDeps,testing.testDeps(SB), CX
+	0x00ae 00174 ($GOROOT/src/testing/testing.go:1079)	PCDATA	$0, $4
+	0x00ae 00174 ($GOROOT/src/testing/testing.go:1079)	MOVQ	CX, (AX)
+	0x00b1 00177 ($GOROOT/src/testing/testing.go:1079)	PCDATA	$0, $5
+	0x00b1 00177 ($GOROOT/src/testing/testing.go:1079)	LEAQ	runtime.zerobase(SB), CX
+	0x00b8 00184 ($GOROOT/src/testing/testing.go:1079)	PCDATA	$0, $4
+	0x00b8 00184 ($GOROOT/src/testing/testing.go:1079)	MOVQ	CX, 8(AX)
+	0x00bc 00188 ($GOROOT/src/testing/testing.go:1079)	MOVQ	"".tests.len+16(SP), CX
+	0x00c1 00193 ($GOROOT/src/testing/testing.go:1079)	MOVQ	CX, 24(AX)
+	0x00c5 00197 ($GOROOT/src/testing/testing.go:1079)	MOVQ	"".tests.cap+24(SP), CX
+	0x00ca 00202 ($GOROOT/src/testing/testing.go:1079)	MOVQ	CX, 32(AX)
+	0x00ce 00206 ($GOROOT/src/testing/testing.go:1079)	PCDATA	$0, $-2
+	0x00ce 00206 ($GOROOT/src/testing/testing.go:1079)	PCDATA	$1, $-2
+	0x00ce 00206 ($GOROOT/src/testing/testing.go:1079)	CMPL	runtime.writeBarrier(SB), $0
+	0x00d5 00213 ($GOROOT/src/testing/testing.go:1079)	JNE	377
+	0x00db 00219 ($GOROOT/src/testing/testing.go:1079)	MOVQ	"".tests.ptr+64(SP), CX
+	0x00e0 00224 ($GOROOT/src/testing/testing.go:1079)	MOVQ	CX, 16(AX)
+	0x00e4 00228 ($GOROOT/src/testing/testing.go:1079)	PCDATA	$0, $4
+	0x00e4 00228 ($GOROOT/src/testing/testing.go:1079)	PCDATA	$1, $4
+	0x00e4 00228 ($GOROOT/src/testing/testing.go:1079)	MOVQ	"".benchmarks.len+48(SP), CX
+	0x00e9 00233 ($GOROOT/src/testing/testing.go:1079)	MOVQ	CX, 48(AX)
+	0x00ed 00237 ($GOROOT/src/testing/testing.go:1079)	MOVQ	"".benchmarks.cap+56(SP), CX
+	0x00f2 00242 ($GOROOT/src/testing/testing.go:1079)	MOVQ	CX, 56(AX)
+	0x00f6 00246 ($GOROOT/src/testing/testing.go:1079)	PCDATA	$0, $-2
+	0x00f6 00246 ($GOROOT/src/testing/testing.go:1079)	PCDATA	$1, $-2
+	0x00f6 00246 ($GOROOT/src/testing/testing.go:1079)	CMPL	runtime.writeBarrier(SB), $0
+	0x00fd 00253 ($GOROOT/src/testing/testing.go:1079)	JNE	355
+	0x00ff 00255 ($GOROOT/src/testing/testing.go:1079)	MOVQ	"".benchmarks.ptr+80(SP), CX
+	0x0104 00260 ($GOROOT/src/testing/testing.go:1079)	MOVQ	CX, 40(AX)
+	0x0108 00264 ($GOROOT/src/testing/testing.go:1079)	PCDATA	$0, $4
+	0x0108 00264 ($GOROOT/src/testing/testing.go:1079)	PCDATA	$1, $5
+	0x0108 00264 ($GOROOT/src/testing/testing.go:1079)	MOVQ	"".examples.len+32(SP), CX
+	0x010d 00269 ($GOROOT/src/testing/testing.go:1079)	MOVQ	CX, 72(AX)
+	0x0111 00273 ($GOROOT/src/testing/testing.go:1079)	MOVQ	"".examples.cap+40(SP), CX
+	0x0116 00278 ($GOROOT/src/testing/testing.go:1079)	MOVQ	CX, 80(AX)
+	0x011a 00282 ($GOROOT/src/testing/testing.go:1079)	PCDATA	$0, $-2
+	0x011a 00282 ($GOROOT/src/testing/testing.go:1079)	PCDATA	$1, $-2
+	0x011a 00282 ($GOROOT/src/testing/testing.go:1079)	CMPL	runtime.writeBarrier(SB), $0
+	0x0121 00289 ($GOROOT/src/testing/testing.go:1079)	JNE	333
+	0x0123 00291 ($GOROOT/src/testing/testing.go:1079)	MOVQ	"".examples.ptr+72(SP), CX
+	0x0128 00296 ($GOROOT/src/testing/testing.go:1079)	MOVQ	CX, 64(AX)
+	0x012c 00300 (/tmp/go-build222921528/b001/_testmain.go:48)	PCDATA	$0, $0
+	0x012c 00300 (/tmp/go-build222921528/b001/_testmain.go:48)	PCDATA	$1, $0
+	0x012c 00300 (/tmp/go-build222921528/b001/_testmain.go:48)	MOVQ	AX, (SP)
+	0x0130 00304 (/tmp/go-build222921528/b001/_testmain.go:48)	CALL	testing.(*M).Run(SB)
+	0x0135 00309 (/tmp/go-build222921528/b001/_testmain.go:48)	MOVQ	8(SP), AX
+	0x013a 00314 (/tmp/go-build222921528/b001/_testmain.go:48)	MOVQ	AX, (SP)
+	0x013e 00318 (/tmp/go-build222921528/b001/_testmain.go:48)	CALL	os.Exit(SB)
+	0x0143 00323 (/tmp/go-build222921528/b001/_testmain.go:50)	MOVQ	88(SP), BP
+	0x0148 00328 (/tmp/go-build222921528/b001/_testmain.go:50)	ADDQ	$96, SP
+	0x014c 00332 (/tmp/go-build222921528/b001/_testmain.go:50)	RET
+	0x014d 00333 ($GOROOT/src/testing/testing.go:1079)	PCDATA	$0, $-2
+	0x014d 00333 ($GOROOT/src/testing/testing.go:1079)	PCDATA	$1, $-2
+	0x014d 00333 ($GOROOT/src/testing/testing.go:1079)	LEAQ	64(AX), DI
+	0x0151 00337 ($GOROOT/src/testing/testing.go:1079)	MOVQ	AX, CX
+	0x0154 00340 ($GOROOT/src/testing/testing.go:1079)	MOVQ	"".examples.ptr+72(SP), AX
+	0x0159 00345 ($GOROOT/src/testing/testing.go:1079)	CALL	runtime.gcWriteBarrier(SB)
+	0x015e 00350 (/tmp/go-build222921528/b001/_testmain.go:48)	MOVQ	CX, AX
+	0x0161 00353 ($GOROOT/src/testing/testing.go:1079)	JMP	300
+	0x0163 00355 ($GOROOT/src/testing/testing.go:1079)	LEAQ	40(AX), DI
+	0x0167 00359 ($GOROOT/src/testing/testing.go:1079)	MOVQ	AX, CX
+	0x016a 00362 ($GOROOT/src/testing/testing.go:1079)	MOVQ	"".benchmarks.ptr+80(SP), AX
+	0x016f 00367 ($GOROOT/src/testing/testing.go:1079)	CALL	runtime.gcWriteBarrier(SB)
+	0x0174 00372 ($GOROOT/src/testing/testing.go:1079)	MOVQ	CX, AX
+	0x0177 00375 ($GOROOT/src/testing/testing.go:1079)	JMP	264
+	0x0179 00377 ($GOROOT/src/testing/testing.go:1079)	LEAQ	16(AX), DI
+	0x017d 00381 ($GOROOT/src/testing/testing.go:1079)	MOVQ	AX, CX
+	0x0180 00384 ($GOROOT/src/testing/testing.go:1079)	MOVQ	"".tests.ptr+64(SP), AX
+	0x0185 00389 ($GOROOT/src/testing/testing.go:1079)	CALL	runtime.gcWriteBarrier(SB)
+	0x018a 00394 ($GOROOT/src/testing/testing.go:1079)	MOVQ	CX, AX
+	0x018d 00397 ($GOROOT/src/testing/testing.go:1079)	JMP	228
+	0x0192 00402 ($GOROOT/src/testing/testing.go:1079)	NOP
+	0x0192 00402 (/tmp/go-build222921528/b001/_testmain.go:44)	PCDATA	$1, $-1
+	0x0192 00402 (/tmp/go-build222921528/b001/_testmain.go:44)	PCDATA	$0, $-1
+	0x0192 00402 (/tmp/go-build222921528/b001/_testmain.go:44)	CALL	runtime.morestack_noctxt(SB)
+	0x0197 00407 (/tmp/go-build222921528/b001/_testmain.go:44)	JMP	0
+	0x0000 64 48 8b 0c 25 00 00 00 00 48 3b 61 10 0f 86 7f  dH..%....H;a....
+	0x0010 01 00 00 48 83 ec 60 48 89 6c 24 58 48 8d 6c 24  ...H..`H.l$XH.l$
+	0x0020 58 48 8b 05 00 00 00 00 48 89 44 24 38 48 8b 0d  XH......H.D$8H..
+	0x0030 00 00 00 00 48 89 4c 24 18 48 8b 15 00 00 00 00  ....H.L$.H......
+	0x0040 48 89 54 24 10 48 8b 1d 00 00 00 00 48 89 5c 24  H.T$.H......H.\$
+	0x0050 40 48 8b 35 00 00 00 00 48 89 74 24 30 48 8b 3d  @H.5....H.t$0H.=
+	0x0060 00 00 00 00 48 89 7c 24 50 4c 8b 05 00 00 00 00  ....H.|$PL......
+	0x0070 4c 89 44 24 20 4c 8b 0d 00 00 00 00 4c 89 4c 24  L.D$ L......L.L$
+	0x0080 28 4c 8b 15 00 00 00 00 4c 89 54 24 48 e8 00 00  (L......L.T$H...
+	0x0090 00 00 48 8d 05 00 00 00 00 48 89 04 24 e8 00 00  ..H......H..$...
+	0x00a0 00 00 48 8b 44 24 08 48 8d 0d 00 00 00 00 48 89  ..H.D$.H......H.
+	0x00b0 08 48 8d 0d 00 00 00 00 48 89 48 08 48 8b 4c 24  .H......H.H.H.L$
+	0x00c0 10 48 89 48 18 48 8b 4c 24 18 48 89 48 20 83 3d  .H.H.H.L$.H.H .=
+	0x00d0 00 00 00 00 00 0f 85 9e 00 00 00 48 8b 4c 24 40  ...........H.L$@
+	0x00e0 48 89 48 10 48 8b 4c 24 30 48 89 48 30 48 8b 4c  H.H.H.L$0H.H0H.L
+	0x00f0 24 38 48 89 48 38 83 3d 00 00 00 00 00 75 64 48  $8H.H8.=.....udH
+	0x0100 8b 4c 24 50 48 89 48 28 48 8b 4c 24 20 48 89 48  .L$PH.H(H.L$ H.H
+	0x0110 48 48 8b 4c 24 28 48 89 48 50 83 3d 00 00 00 00  HH.L$(H.HP.=....
+	0x0120 00 75 2a 48 8b 4c 24 48 48 89 48 40 48 89 04 24  .u*H.L$HH.H@H..$
+	0x0130 e8 00 00 00 00 48 8b 44 24 08 48 89 04 24 e8 00  .....H.D$.H..$..
+	0x0140 00 00 00 48 8b 6c 24 58 48 83 c4 60 c3 48 8d 78  ...H.l$XH..`.H.x
+	0x0150 40 48 89 c1 48 8b 44 24 48 e8 00 00 00 00 48 89  @H..H.D$H.....H.
+	0x0160 c8 eb c9 48 8d 78 28 48 89 c1 48 8b 44 24 50 e8  ...H.x(H..H.D$P.
+	0x0170 00 00 00 00 48 89 c8 eb 8f 48 8d 78 10 48 89 c1  ....H....H.x.H..
+	0x0180 48 8b 44 24 40 e8 00 00 00 00 48 89 c8 e9 52 ff  H.D$@.....H...R.
+	0x0190 ff ff e8 00 00 00 00 e9 64 fe ff ff              ........d...
+	rel 5+4 t=16 TLS+0
+	rel 36+4 t=15 "".benchmarks+16
+	rel 48+4 t=15 "".tests+16
+	rel 60+4 t=15 "".tests+8
+	rel 72+4 t=15 "".tests+0
+	rel 84+4 t=15 "".benchmarks+8
+	rel 96+4 t=15 "".benchmarks+0
+	rel 108+4 t=15 "".examples+8
+	rel 120+4 t=15 "".examples+16
+	rel 132+4 t=15 "".examples+0
+	rel 142+4 t=8 testing.Init+0
+	rel 149+4 t=15 type.testing.M+0
+	rel 158+4 t=8 runtime.newobject+0
+	rel 170+4 t=15 go.itab.testing/internal/testdeps.TestDeps,testing.testDeps+0
+	rel 180+4 t=15 runtime.zerobase+0
+	rel 208+4 t=15 runtime.writeBarrier+-1
+	rel 248+4 t=15 runtime.writeBarrier+-1
+	rel 284+4 t=15 runtime.writeBarrier+-1
+	rel 305+4 t=8 testing.(*M).Run+0
+	rel 319+4 t=8 os.Exit+0
+	rel 346+4 t=8 runtime.gcWriteBarrier+0
+	rel 368+4 t=8 runtime.gcWriteBarrier+0
+	rel 390+4 t=8 runtime.gcWriteBarrier+0
+	rel 403+4 t=8 runtime.morestack_noctxt+0
+go.cuinfo.packagename.main SDWARFINFO dupok size=0
+	0x0000 6d 61 69 6e                                      main
+go.info."".init.0 SDWARFINFO size=35
+	0x0000 03 22 22 2e 69 6e 69 74 2e 30 00 00 00 00 00 00  ."".init.0......
+	0x0010 00 00 00 00 00 00 00 00 00 00 00 01 9c 00 00 00  ................
+	0x0020 00 01 00                                         ...
+	rel 11+8 t=1 "".init.0+0
+	rel 19+8 t=1 "".init.0+90
+	rel 29+4 t=29 gofile.._testmain.go+0
+go.range."".init.0 SDWARFRANGE size=0
+go.isstmt."".init.0 SDWARFMISC size=0
+go.info."".main SDWARFINFO size=33
+	0x0000 03 22 22 2e 6d 61 69 6e 00 00 00 00 00 00 00 00  ."".main........
+	0x0010 00 00 00 00 00 00 00 00 00 01 9c 00 00 00 00 01  ................
+	0x0020 00                                               .
+	rel 9+8 t=1 "".main+0
+	rel 17+8 t=1 "".main+412
+	rel 27+4 t=29 gofile.._testmain.go+0
+go.range."".main SDWARFRANGE size=0
+go.isstmt."".main SDWARFMISC size=0
+go.string."BenchmarkGrey1" SRODATA dupok size=14
+	0x0000 42 65 6e 63 68 6d 61 72 6b 47 72 65 79 31        BenchmarkGrey1
+go.string."BenchmarkGrey2" SRODATA dupok size=14
+	0x0000 42 65 6e 63 68 6d 61 72 6b 47 72 65 79 32        BenchmarkGrey2
+go.string."BenchmarkGrey3" SRODATA dupok size=14
+	0x0000 42 65 6e 63 68 6d 61 72 6b 47 72 65 79 33        BenchmarkGrey3
+""..inittask SNOPTRDATA size=64
+	0x0000 00 00 00 00 00 00 00 00 04 00 00 00 00 00 00 00  ................
+	0x0010 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 24+8 t=1 os..inittask+0
+	rel 32+8 t=1 testing..inittask+0
+	rel 40+8 t=1 testing/internal/testdeps..inittask+0
+	rel 48+8 t=1 _/home/deleplace/Documents/2020/06/inlining/i..inittask+0
+	rel 56+8 t=1 "".init.0+0
+"".tests SDATA size=24
+	0x0000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0010 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=1 ""..stmp_0+0
+"".benchmarks SDATA size=24
+	0x0000 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00  ................
+	0x0010 03 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=1 ""..stmp_1+0
+"".examples SDATA size=24
+	0x0000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0010 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=1 ""..stmp_2+0
+""..stmp_0 SNOPTRBSS size=0
+""..stmp_1 SDATA size=72
+	0x0000 00 00 00 00 00 00 00 00 0e 00 00 00 00 00 00 00  ................
+	0x0010 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0020 0e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 0e 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=1 go.string."BenchmarkGrey1"+0
+	rel 16+8 t=1 _/home/deleplace/Documents/2020/06/inlining/i.BenchmarkGrey1·f+0
+	rel 24+8 t=1 go.string."BenchmarkGrey2"+0
+	rel 40+8 t=1 _/home/deleplace/Documents/2020/06/inlining/i.BenchmarkGrey2·f+0
+	rel 48+8 t=1 go.string."BenchmarkGrey3"+0
+	rel 64+8 t=1 _/home/deleplace/Documents/2020/06/inlining/i.BenchmarkGrey3·f+0
+""..stmp_2 SNOPTRBSS size=0
+_/home/deleplace/Documents/2020/06/inlining/i.BenchmarkGrey1·f SRODATA dupok size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=1 _/home/deleplace/Documents/2020/06/inlining/i.BenchmarkGrey1+0
+_/home/deleplace/Documents/2020/06/inlining/i.BenchmarkGrey2·f SRODATA dupok size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=1 _/home/deleplace/Documents/2020/06/inlining/i.BenchmarkGrey2+0
+_/home/deleplace/Documents/2020/06/inlining/i.BenchmarkGrey3·f SRODATA dupok size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=1 _/home/deleplace/Documents/2020/06/inlining/i.BenchmarkGrey3+0
+runtime.gcbits.01 SRODATA dupok size=1
+	0x0000 01                                               .
+type..namedata.*[]testing.InternalExample- SRODATA dupok size=29
+	0x0000 00 00 1a 2a 5b 5d 74 65 73 74 69 6e 67 2e 49 6e  ...*[]testing.In
+	0x0010 74 65 72 6e 61 6c 45 78 61 6d 70 6c 65           ternalExample
+type.*[]testing.InternalExample SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 18 26 a7 0d 00 08 08 36 00 00 00 00 00 00 00 00  .&.....6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[]testing.InternalExample-+0
+	rel 48+8 t=1 type.[]testing.InternalExample+0
+type.[]testing.InternalExample SRODATA dupok size=56
+	0x0000 18 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 6f c1 a3 4a 02 08 08 17 00 00 00 00 00 00 00 00  o..J............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+0
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[]testing.InternalExample-+0
+	rel 44+4 t=6 type.*[]testing.InternalExample+0
+	rel 48+8 t=1 type.testing.InternalExample+0
+type..namedata.*[0]testing.InternalExample- SRODATA dupok size=30
+	0x0000 00 00 1b 2a 5b 30 5d 74 65 73 74 69 6e 67 2e 49  ...*[0]testing.I
+	0x0010 6e 74 65 72 6e 61 6c 45 78 61 6d 70 6c 65        nternalExample
+type.*[0]testing.InternalExample SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 bb 8d c8 a8 00 08 08 36 00 00 00 00 00 00 00 00  .......6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[0]testing.InternalExample-+0
+	rel 48+8 t=1 type.[0]testing.InternalExample+0
+runtime.gcbits. SRODATA dupok size=0
+type.[0]testing.InternalExample SRODATA dupok size=72
+	0x0000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0010 6a ae b6 6c 02 08 08 11 00 00 00 00 00 00 00 00  j..l............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+0
+	rel 32+8 t=1 runtime.gcbits.+0
+	rel 40+4 t=5 type..namedata.*[0]testing.InternalExample-+0
+	rel 44+4 t=6 type.*[0]testing.InternalExample+0
+	rel 48+8 t=1 type.testing.InternalExample+0
+	rel 56+8 t=1 type.[]testing.InternalExample+0
+type..namedata.*[]testing.InternalTest- SRODATA dupok size=26
+	0x0000 00 00 17 2a 5b 5d 74 65 73 74 69 6e 67 2e 49 6e  ...*[]testing.In
+	0x0010 74 65 72 6e 61 6c 54 65 73 74                    ternalTest
+type.*[]testing.InternalTest SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 86 a7 c8 95 00 08 08 36 00 00 00 00 00 00 00 00  .......6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[]testing.InternalTest-+0
+	rel 48+8 t=1 type.[]testing.InternalTest+0
+type.[]testing.InternalTest SRODATA dupok size=56
+	0x0000 18 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 9b 85 d1 58 02 08 08 17 00 00 00 00 00 00 00 00  ...X............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+0
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[]testing.InternalTest-+0
+	rel 44+4 t=6 type.*[]testing.InternalTest+0
+	rel 48+8 t=1 type.testing.InternalTest+0
+type..namedata.*[0]testing.InternalTest- SRODATA dupok size=27
+	0x0000 00 00 18 2a 5b 30 5d 74 65 73 74 69 6e 67 2e 49  ...*[0]testing.I
+	0x0010 6e 74 65 72 6e 61 6c 54 65 73 74                 nternalTest
+type.*[0]testing.InternalTest SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 67 9c d1 53 00 08 08 36 00 00 00 00 00 00 00 00  g..S...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[0]testing.InternalTest-+0
+	rel 48+8 t=1 type.[0]testing.InternalTest+0
+type.[0]testing.InternalTest SRODATA dupok size=72
+	0x0000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0010 4f 5b 8d 04 02 08 08 11 00 00 00 00 00 00 00 00  O[..............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+0
+	rel 32+8 t=1 runtime.gcbits.+0
+	rel 40+4 t=5 type..namedata.*[0]testing.InternalTest-+0
+	rel 44+4 t=6 type.*[0]testing.InternalTest+0
+	rel 48+8 t=1 type.testing.InternalTest+0
+	rel 56+8 t=1 type.[]testing.InternalTest+0
+type..namedata.*[]testing.InternalBenchmark- SRODATA dupok size=31
+	0x0000 00 00 1c 2a 5b 5d 74 65 73 74 69 6e 67 2e 49 6e  ...*[]testing.In
+	0x0010 74 65 72 6e 61 6c 42 65 6e 63 68 6d 61 72 6b     ternalBenchmark
+type.*[]testing.InternalBenchmark SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 11 07 eb 4a 00 08 08 36 00 00 00 00 00 00 00 00  ...J...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[]testing.InternalBenchmark-+0
+	rel 48+8 t=1 type.[]testing.InternalBenchmark+0
+type.[]testing.InternalBenchmark SRODATA dupok size=56
+	0x0000 18 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 27 c0 28 56 02 08 08 17 00 00 00 00 00 00 00 00  '.(V............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+0
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[]testing.InternalBenchmark-+0
+	rel 44+4 t=6 type.*[]testing.InternalBenchmark+0
+	rel 48+8 t=1 type.testing.InternalBenchmark+0
+type..namedata.*[3]testing.InternalBenchmark- SRODATA dupok size=32
+	0x0000 00 00 1d 2a 5b 33 5d 74 65 73 74 69 6e 67 2e 49  ...*[3]testing.I
+	0x0010 6e 74 65 72 6e 61 6c 42 65 6e 63 68 6d 61 72 6b  nternalBenchmark
+type.*[3]testing.InternalBenchmark SRODATA dupok size=56
+	0x0000 08 00 00 00 00 00 00 00 08 00 00 00 00 00 00 00  ................
+	0x0010 55 7f eb 30 00 08 08 36 00 00 00 00 00 00 00 00  U..0...6........
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+80
+	rel 32+8 t=1 runtime.gcbits.01+0
+	rel 40+4 t=5 type..namedata.*[3]testing.InternalBenchmark-+0
+	rel 48+8 t=1 type.[3]testing.InternalBenchmark+0
+runtime.gcbits.6d01 SRODATA dupok size=2
+	0x0000 6d 01                                            m.
+type.[3]testing.InternalBenchmark SRODATA dupok size=72
+	0x0000 48 00 00 00 00 00 00 00 48 00 00 00 00 00 00 00  H.......H.......
+	0x0010 4d c2 2b 67 02 08 08 11 00 00 00 00 00 00 00 00  M.+g............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 03 00 00 00 00 00 00 00                          ........
+	rel 24+8 t=1 runtime.algarray+0
+	rel 32+8 t=1 runtime.gcbits.6d01+0
+	rel 40+4 t=5 type..namedata.*[3]testing.InternalBenchmark-+0
+	rel 44+4 t=6 type.*[3]testing.InternalBenchmark+0
+	rel 48+8 t=1 type.testing.InternalBenchmark+0
+	rel 56+8 t=1 type.[]testing.InternalBenchmark+0
+go.itab.testing/internal/testdeps.TestDeps,testing.testDeps SRODATA dupok size=80
+	0x0000 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0010 bc e9 24 31 00 00 00 00 00 00 00 00 00 00 00 00  ..$1............
+	0x0020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0030 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	0x0040 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+	rel 0+8 t=1 type.testing.testDeps+0
+	rel 8+8 t=1 type.testing/internal/testdeps.TestDeps+0
+	rel 24+8 t=1 testing/internal/testdeps.(*TestDeps).ImportPath+0
+	rel 32+8 t=1 testing/internal/testdeps.(*TestDeps).MatchString+0
+	rel 40+8 t=1 testing/internal/testdeps.(*TestDeps).StartCPUProfile+0
+	rel 48+8 t=1 testing/internal/testdeps.(*TestDeps).StartTestLog+0
+	rel 56+8 t=1 testing/internal/testdeps.(*TestDeps).StopCPUProfile+0
+	rel 64+8 t=1 testing/internal/testdeps.(*TestDeps).StopTestLog+0
+	rel 72+8 t=1 testing/internal/testdeps.(*TestDeps).WriteProfileTo+0
+go.itablink.testing/internal/testdeps.TestDeps,testing.testDeps SRODATA dupok size=8
+	0x0000 00 00 00 00 00 00 00 00                          ........
+	rel 0+8 t=1 go.itab.testing/internal/testdeps.TestDeps,testing.testDeps+0
+type..importpath._/home/deleplace/Documents/2020/06/inlining/i. SRODATA dupok size=48
+	0x0000 00 00 2d 5f 2f 68 6f 6d 65 2f 64 65 6c 65 70 6c  ..-_/home/delepl
+	0x0010 61 63 65 2f 44 6f 63 75 6d 65 6e 74 73 2f 32 30  ace/Documents/20
+	0x0020 32 30 2f 30 36 2f 69 6e 6c 69 6e 69 6e 67 2f 69  20/06/inlining/i
+type..importpath.os. SRODATA dupok size=5
+	0x0000 00 00 02 6f 73                                   ...os
+type..importpath.testing. SRODATA dupok size=10
+	0x0000 00 00 07 74 65 73 74 69 6e 67                    ...testing
+type..importpath.testing/internal/testdeps. SRODATA dupok size=28
+	0x0000 00 00 19 74 65 73 74 69 6e 67 2f 69 6e 74 65 72  ...testing/inter
+	0x0010 6e 61 6c 2f 74 65 73 74 64 65 70 73              nal/testdeps
+gclocals·33cdeccccebe80329f1fdbee7f5874cb SRODATA dupok size=8
+	0x0000 01 00 00 00 00 00 00 00                          ........
+gclocals·f14a5bc6d08bc46424827f54d2e3f8ed SRODATA dupok size=8
+	0x0000 06 00 00 00 00 00 00 00                          ........
+gclocals·b9a645ea6a8804bdf2e082fa899446d3 SRODATA dupok size=14
+	0x0000 06 00 00 00 03 00 00 00 00 01 05 07 06 02        ..............
+gclocals·a6fe0088dc9eb0d04a7e2354f4d3bae0 SRODATA dupok size=20
+	0x0000 06 00 00 00 0a 00 00 00 00 00 08 00 40 00 00 02  ............@...
+	0x0010 01 00 03 00                                      ....
+testing: warning: no tests to run
+PASS
+ok  	_/home/deleplace/Documents/2020/06/inlining/i	0.014s
