@@ -1,0 +1,906 @@
+An overview of Go
+2020-07-24
+
+Valentin Deleplace
+Happy path engineer for Google Cloud Platform
+@val_deleplace
+
+: Hello, my name is Valentin 
+: I'm a Developer Advocate for GCP, and an enthusiastic Gopher :)
+
+* Warning
+
+Some code will be displayed.
+
+: Today I will show some Go code. But not only code.
+
+* Overview of Go
+
+.background ./an-overview-of-go/hello.go.png
+
+: For example, this is what a Hello World program looks like in Go.
+
+* About me 
+
+- Java web dev for 10+ years 
+- Discovered Go in 2012
+- Deployed Go apps on App Engine in 2013
+- Used Go for web development, command line tools, data processing...
+- Joined Google as a Cloud DA in 2017
+- ...and never stopped using Go as main daily language!
+
+: A few words about myself!
+
+: I've studied Computer Science and experimented with many languages.
+
+: I've always had a preference for high-level, expressive languages that take care of memory management for me, and offer nice abstractions for concurrency, networking, etc.
+
+: After using Java professionaly for many years, I pulled myself away from OOP and embraced Go, which was... different.
+
+* History
+
+- Designed at Google in 2007
+- Version 1.0 released in 2012
+- Version 1.14 released in 2020
+
+: Go is not a new language anymore.
+
+: It's been mature and ready for Production for many years now.
+
+* Runtime
+
+- Compiled to native code
+- Statically typed
+- Garbage collector
+- Scheduler
+- Not a VM
+
+: Go is a compiled language. I can't overemphasize how precious it is for me to be Statically typed, and to have a GC.
+
+: Static types mean that I can trust the arguments of my functions. Errors of typing are typically discovered during compilation, not at runtime when crashing or misbehaving.
+
+: Garbage collection means that I can be more productive by not having to deal myself with proper deallocation.
+: And automatic memory safety in general lets me avoid a large class of security vulnerabilities. I feel strongly about this fact: in most cases, manual memory management is just not worth it.
+
+* What Go is for
+
+.image ./an-overview-of-go/go.dev.designed.png
+
+: Go has become the de-facto language of cloud infrastructure.
+: Think of Kubernetes, Docker, Istio, etc.
+
+: But it's *also* an excellent general-purpose language.
+
+* Go is a tool
+
+: "Go is a tool" means that we should feel free to use it when appropriate, but not in a dogmatic way. 
+
+: It plays nicely in heterogeneous environments, for examples micro-services using various technologies and languages.
+: There's no reason to go "Full Go" and prevent your team from using another language. Just use the best tool for the job!
+
+* Paradigms
+
+Imperative?
+
+- Yes.
+
+Functional? 
+
+- No.
+
+Object-oriented? 
+
+- No.
+
+Generics? 
+
+- No.
+
+: Go clearly belongs to the family of the "C" language, like Java and C++, for the syntax and the imperative style.
+
+: It's definitely not multi-paradigm, and so a Go codebase tends to keep some homogeneity.
+
+* Principles
+
+Simplicity
+
+- Each language feature should be easy to understand.
+
+Readability
+
+- Code should be comprehensible with little context.
+
+Orthogonality
+
+- Go’s features should interact in predictable and consistent ways.
+- Types ∟ Functions ∟ Goroutines ∟ Channels ∟ ...
+
+: All new languages try to be as simple as possible. Go takes this concern very seriously by having a limited set of features, and make sure that all features play nicely with each other.
+: The language itself is almost "fixed", which means that the bar to add any new keyword or new concept to the language is extremely high.
+
+* Gofmt
+
+Unique code formatter
+
+Nobody arguing about code formatting
+
+.background ./an-overview-of-go/mindblown.png
+
+: Go has a unique code style formatter. Does it produce a good style?
+
+: Yes. No. It doesn't matter! What matters is that **everybody** uses the same formatter,
+: and **nobody** is wasting time in convincing others about the best placement of the opening curly brace.
+
+: _This_ turns out to be a huge productivity booster. I love it!
+
+* Goals
+
+- Simplicity
+- Scalability
+- Stability: Go 1 compatibility promise
+- Memory safety
+- Good concurrency
+- Good networking
+
+: Here are a few core goals of the the Go project as a whole (i.e. the language itself, the stdlib, the tooling, the philosophy, and the community).
+
+: The language is extremely stable and backward compatible in the sense that a valid Go program written in 2020 will still be valid in 2030; you will still be able to compile it and execute it.
+
+: Scalability is an important goal and it's multi-dimensional. It's about being able to leverage more CPU cores, more memory, more instances in a cloud environment, but also more teammates when the codebase grows.
+
+* Genericity
+
+- No user-defined generic types
+- Built-in types *slice*, *map*, *chan* are generic
+- *Interfaces* for generic behavior
+
+: If you come from Java like me, you might be surprised that Go currently doesn't let you define generic types and generic functions. It only has 3 or 4 built-in generic structures, e.g. maps and slices.
+: This means that if you come up with your own super-optimized implementation of a Binary Tree container, then you can't have it accommodate an arbitrary item type, while still enforcing compile-time safety.
+: It turns out that Gophers don't miss generics that much, and are still able to write amazing software.
+
+.background ./an-overview-of-go/Invoice.png
+
+* Objects
+
+- No class inheritance
+- Methods
+- Composition, embedding
+- Interfaces implicitly implemented
+
+.code ./an-overview-of-go/io.Reader.go
+
+.code ./an-overview-of-go/gzip.Reader.go
+
+: Data structure types and processings are "orthogonal", with an emphasis on behaviors, rather than taxonomy. We're less interested in what objects *are*, and more interested in what objects *do*.
+
+: Interfaces in Go are very similar to interfaces in Java. They are a powerful abstraction and can often be used 
+: in lieu of inheritance or generics.
+
+* Concurrency
+
+- Excellent support
+- Goroutines are lighweight threads
+- Message passing through channels
+
+.image ./an-overview-of-go/channel.jpg
+
+: It is extremely useful that concurrency primitives are core to the language. Writing correct concurrent code is a difficult challenge in general, and it is made easier by Go's simple memory model, which is based on Tony Hoare's CSP (which stands for "Communicating Sequential Processes").
+
+: Writing *sequential* code is fine, and most often it's the best thing to do. There exists several reasons why we may want to write concurrent code. For example, if we have some heavy computations to perform, and 64 CPU cores, then it makes sense to use many cores in parallel. But it's not always about the CPU! For example when a goroutine is writing to the filesystem, or waiting for a network responses... then it's very useful to have other goroutine continue their work.
+
+* Network
+
+- Excellent standard library
+- Creating a server is straightforward
+
+.code ./an-overview-of-go/simple-webapp.go
+
+: The stlib comes "batteries included" when it comes to deploy HTTP handlers, generate JSON, etc.
+
+: Writing an HTTP server is effectively just a few lines of code.
+
+* Memory safety
+
+- Bound checking
+- Pointers
+- ...but no pointer arithmetic
+- Automatic garbage collection
+- Avoids a large class of *bugs*
+- Avoids a large class of *security* *leaks* 
+
+: As I mentioned, Go is a memory-safe language, which is useful to prevent security vulnerabilities.
+: You keep control of some important aspects of the memory layout of your objects. However, you can't access arbitrary memory beyond slice capacity, or via pointer value modification.
+
+* Tradeoff
+
+.image ./an-overview-of-go/Language-speed-tradeoff.svg
+
+: A language ecosystem always needs to make tradeoff between conflicting goals.
+
+: For example Go tends to be pretty good at there 3 kinds of "speed", and in particular it has a super-fast compiler. 
+
+#* Packages
+#
+#No cyclic dependency
+#
+#.background ./an-overview-of-go/Package-dependency.svg
+
+* Package management until 2018
+
+No versioning
+
+Breaking change == Make a new package for v2
+
+Vendoring
+
+: In the early days, package management was often achieved with vendoring.
+
+: Vendoring consists in copying a dependency inside a subfolder of your project, keeping your build reproducible, and letting you plan to upgrade the dependency on your own schedule.
+
+* Modules
+
+Added in 2018
+
+Semantic Versioning
+
+Reproducible builds
+
+Proxy (Athens)
+
+: Then came Go modules. With modules, library authors have to follow the rules of semantic versioning. As a library user, you will typically let the tooling resolve the exact version of each dependency in order to satisfy your build.
+
+* Cross-compilation
+
+.background ./an-overview-of-go/background-gopher-top-right.png
+
+: Cross-compilation is one of my favorite features. 
+
+* Cross-compilation
+
+This is the compilation script of one of our tools *patapon*, run from my linux workstation:
+
+	env GOOS=darwin  GOARCH=amd64 go build -o target/osx64/patapon
+	env GOOS=windows GOARCH=amd64 go build -o target/win64/patapon.exe
+	env GOOS=linux   GOARCH=amd64 go build -o target/linux64/patapon
+
+*That's*it.*
+
+To ship, copy the 3 executables to shared folder.
+
+Executables are statically linked.
+
+: Some of my colleagues have a Windows workstation, some have a Mac. And of course our prod runs on Linux.
+
+: When I compile Patapon, I need to ship a distinct executable for each of these platforms. No problem! From my workstation, or from any CI/CD, I can cross-compile to other target platforms with simple command lines.
+
+#* Comparison with other languages
+#
+#* 
+#
+#.background ./an-overview-of-go/comparison0.svg
+#
+#* 
+#
+#.background ./an-overview-of-go/comparison1.svg
+#
+#* 
+#
+#.background ./an-overview-of-go/comparison2.svg
+#
+#* 
+#
+#.background ./an-overview-of-go/comparison3.svg
+#
+#* 
+#
+#.background ./an-overview-of-go/comparison4.svg
+#
+#* 
+#
+#.background ./an-overview-of-go/comparison5.svg
+#
+#* 
+#
+#.background ./an-overview-of-go/comparison6.svg
+#
+#* 
+#
+#.background ./an-overview-of-go/comparison7.svg
+#
+#* 
+#
+#.background ./an-overview-of-go/comparison8.svg
+
+* Philosophy
+
+: A few more words about the philosophy of Go, and then I'll show some code. I promise!
+
+* Less is more
+
+- Short language spec
+- Few keywords
+- Few concepts
+- Resist being everything for everyone
+
+: "Less is more" means that a "smaller language" incurs a smaller cognitive burden to the developers, and enables them to be more productive.
+: It means that having only extremely carefully designed language features, that play well with each other, enables the Go team to keep improving the runtime, the GC, and the core stdlib.
+: It means that some restrictions in how packages work (no cyclic dependency is possible) enable the compiler to be more performant.
+: Etc.
+
+* Clear is better than clever
+
+- Readability matters
+- Explicit loops
+- Explicit error handling
+
+: Go code is expected to be read by the compiler, but also by human peers (including yourself in 6 months). It's always formatted the same way, it's not always concise, it's sometimes repetitive, and even boring.
+
+: And this is good, actually! Boring code does what it says it does. No surprises. And hopefully less bugs.
+
+* No OOP
+
+Focus less on clever hierarchy of types
+
+- No inheritance
+- Encourage composition 
+- Embedding
+
+Focus more on behavior 
+
+- Interfaces
+
+: As I already mentioned, Go is not what we usually call "Object-Oriented".
+: You define methods on your types, and you implement interfaces. This is usually enough in terms of abstractions.
+
+* No DRY
+
+"A little copying is better than a little dependency"
+
+- Decoupled packages 
+- No cycles in dependency graph
+- Sometimes it's okay to copy and paste
+
+: This one is a little surprising: We don't try too much to adhere to the "Don't Repeat Yourself" mantra.
+: Sometimes the same function will be written twice, for 2 slightly different types of arguments.
+: Sometimes the same utility function will be copy-pasted in 2 different package, in order to break a dependency relationship.
+: There are always tradeoff, and in Go we tend to lean towards as little *coupling* as possible.
+
+* Concurrency
+
+"Don't communicate by sharing memory, share memory by communicating"
+
+- Channels
+
+: This is an advice for proper concurrent programming. 
+: It's tempting to regard the memory as a large whiteboard that goroutines will be allowed to read and write when the acquire locks (e.g. mutexes).
+: But instead we are encouraged to write sequential agents managing their own local objects, and *sharing* them with other agents when needed, using channels.
+: Channels are bidirectional pipes for communication and synchronization. They are one of the core features that are unique to Go.
+
+* Philosophy
+
+.link https://go-proverbs.github.io/ go-proverbs.github.io
+
+: You can find many bits of unexpected wisdom in this Go proverbs list on GitHub.
+
+* First-class functions, and closures
+
+.background ./an-overview-of-go/background-gopher-top-right.png
+
+: And now, as promises, some actual lines of code!
+
+: Go supports anonymous functions and closures. Let's have a look with an example.
+
+* Simple chronometer
+
+	t := time.Now()
+
+	fetchData()
+
+	duration := time.Since(t)
+
+.link https://play.golang.org/p/2Y3w9zJRVcO 🐭
+
+: I have a function *fetchData* and I want to know how much time it takes.
+: The traditional way of doing this is to look at the clock just before the function is run, then again just after the function has executed, and substract the two values to compute the execution duration.
+: In my slides, each of these weird little rodent icons is a link to the Go online playground. If you browse the slides after my talk, you will be able to actually execute everything, from your browser.
+
+* Simple chronometer: with func argument
+
+	duration := clock(fetchData)
+
+	func clock(f func()) time.Duration {
+		t := time.Now()
+		f()
+		return time.Since(t)
+	}
+
+.link https://play.golang.org/p/Q8GmtvS3PI2 🐭
+
+: We can encapsulate this logic in a function "clock" that takes a function as argument.
+: Its job is to execute the function and return the execution duration.
+: It accepts any function having this exact signature: zero arguments, and zero return values.
+: This is similar to Javascript closures, but with compile-time safety.
+: This is also similar to Java Runnables and Callables, but requires less boilerplate code.
+
+* Chronometer: time a block of code?
+
+	t := time.Now()
+
+	for _, r := range resources {
+		fetch(r)
+	}
+
+	duration := time.Since(t)
+
+: Now if the instructions that I want to time are not a function, but arbitrary lines of code, like this FOR loop.
+: This is not a proper parameter for my "clock" function. What should I do?
+
+* Wrap code in a closure
+
+	duration := clock(func() {
+		for _, r := range resources {
+			fetch(r)
+		}
+	})
+
+.link https://play.golang.org/p/oA5Zn1Wfzrv 🐭
+
+: The solution is to create an anonymous function containing the loop, and pass it as an argument.
+: It's important to be able to use anonymous functions on-the-fly like this, for scope reasons. It's not always possible to declare a new top-level named functions that would have access to the same local variables of our current scope.
+
+* Fork/Join
+
+.background ./an-overview-of-go/background-gopher-top-right.png
+
+: Have you ever heard of the "Fork/Join model"?
+: It's an obscure word for a common job: "Launch several tasks concurrently, and wait for them all to complete".
+
+* Serial execution
+
+.play ./an-overview-of-go/abcde_serialexec.go /START OMIT/,/END OMIT/
+
+.link https://play.golang.org/p/rvnHfKAkRL6 🐭
+
+You have 5 tasks A, B, C, D, E.
+
+: Let's say you need to execute 5 tasks A B C D E, which are all independant from each other.
+: This is what the code looks like when you run them <b>sequentially</b>.
+: When I click the [RUN] button, what happens is that my local code is sent to the Go Playground server, which ompiles it, executes it, and streams the output back to my browser.
+: This is not a simulation, this is actually my code executed server-side.
+
+* Utility goroutine spawner
+
+.code ./an-overview-of-go/runconcurrent.go HLdecl
+
+You may often write such code to fit your needs.
+
+: To run them concurrently, I create this helper function. Let's see what it does.
+
+* Utility goroutine spawner
+
+.code ./an-overview-of-go/runconcurrent.go HLdecl
+
+Func arguments (variadic)
+
+: First, it takes an arbitrary number of functions as arguments. This is called a <b>variadic</b> parameter. Such a parameter is effectively a list of things that I want to execute concurrently.
+: Of course this is possible only if the taks are independent, i.e. if they don't depend on the result of the previous task.
+
+* Utility goroutine spawner
+
+.code ./an-overview-of-go/runconcurrent.go HLwg
+
+Use a `sync.WaitGroup` to join at completion
+
+: The WaitGroup is a synchronization device that is perfect to implement a Fork/Join. It contains an internal counter that will eventually reach zero, at which point the calling goroutine will resume its own execution. There are only 3 methods to know about:
+: "Add" to specify the number of tasks. This is the initial value of the counter. "Done" when a task has completed. It decrements the counter. And "Wait" which is blocking until the counter has reached value zero.
+: The keyword "go" here tells the runtime to launch a new goroutine for this function. A goroutine is a lightweight thread.
+
+#Important: call `wg.Add` _before_ spawning the goroutines
+
+.play ./an-overview-of-go/abcde_concurrentexec_bug.go /START OMIT/,/END OMIT/
+
+.link https://play.golang.org/p/fek68ng5lN_8 🐭
+
+* Utility goroutine spawner
+
+.code ./an-overview-of-go/runconcurrent-fix1.go HLtrap
+
+Must bind to a new variable at each loop iteration
+
+.play ./an-overview-of-go/abcde_concurrentexec_fix1.go /START OMIT/,/END OMIT/
+
+.link https://play.golang.org/p/QbBtD-ZFz7G 🐭
+
+: To fix this, we must make sure that each goroutine properly *captures* the current value of loop variables.
+: To achieve this, we pass the loop variable f as an argument of the anonymous function. This is a scope solution to a scope issue.
+: Let's run again... this time, each function has been executed exactly once. Of course, there is no guarantee about their exact ordering, as they were run *concurrently*.
+
+#* Utility goroutine spawner
+#
+#.code ./an-overview-of-go/runconcurrent-fix2.go HLtrap
+#
+#.link https://play.golang.org/p/TKm_gzkWB8M 🐭
+#
+#Must bind to a new variable at each loop iteration
+#
+#* Utility goroutine spawner
+#
+#.code ./an-overview-of-go/runconcurrent-fix3.go HLtrap
+#
+#.link https://play.golang.org/p/vO_sYy7v67i 🐭
+#
+#Must bind to a new variable at each loop iteration
+
+* Example: page blocks from data sources
+
+.image ./an-overview-of-go/aggregate_page.png 580 _
+
+: Now, a more concrete usage of concurrency. Let's say I'm the admin of... a great... 20th century looking website.
+: All the HTML is generated server-side, using 3 data sources: 1 for the currently logged User Profile, 1 to display the weahter forecast on the left bar, and 1 to display the news on the right.
+
+* Serial exec
+
+.play ./an-overview-of-go/serialexec.go  /START OMIT/,/END OMIT/
+
+.link https://play.golang.org/p/zFJuKIt0Zdi 🐭
+
+.image ./an-overview-of-go/waterfall-serial.png
+
+: In my server handler, fetching all the fresh data sequentially takes a time proportional to the sum of the services latencies.
+: This is actually the bottleneck of my server handler: generating and serving HTML is very fast, and waiting for my 3 data sources accounts for almost 100% of the service time (which is the server latency when handling one incoming HTTP request).
+: Let's execute theses 3 funcs sequentially... the total latency is indeed 6 seconds. Not really great for a single page!
+
+* Concurrent exec
+
+.play ./an-overview-of-go/concurrentexec.go  /START OMIT/,/END OMIT/
+
+.link https://play.golang.org/p/mjoxylCbTpX 🐭
+
+.image ./an-overview-of-go/waterfall-concurrent.png
+
+: Now we're using our nice utility function RunConcurrent. The total latency should in theory be roughly equal to the latency of the slowest service, which happens to be the weather forecast.
+: Let's try it... yes, we fetched everything in only 3s. That's twice as fast as the sequential version. Good job!
+: Let me emphasize that we gain this speedup EVEN IF OUR SERVER HAS A SINGLE CPU CORE. Thanks to concurrency, we're waiting for several network responses simultaneously, effectively parallelizing some work.
+: The Fork/Join exercise is straightforward and convenient in this case, but in general be very careful with concurrency!
+
+* What if my services don't have the same signature?
+
+
+	func profile(username string) error {...}
+
+	func news() {...}
+
+	func weather(city string, day time.Time) {...}
+
+: If my 3 services' functions have various signatures, then unfortunately it's not possible to pass them as arguments of RunConcurrent.
+: I'll pause for a second and let you think of a possible solution. PAUSE 3 SECONDS
+: Obviously, we need some kind of adapter. Let's wrap the calls in anonymous functions!
+
+* Wrap in closures
+
+	RunConcurrent(
+		func() { perr = profile(currentuser) },
+		news,
+		func() { weather(city, time.Now()) },
+	)
+
+.link https://play.golang.org/p/4RcpneYjNd6 🐭
+
+- Closures can *read* variables from outside their body
+- Closures can *write* variables from outside their body
+
+: In the first closure (which has the exact signature expected by RunConcurrent), a local variable <b>perr</b> declared somewhere above takes the error return value of func "profile".
+: In the last closure, we pass the local variable <b>city</b> declared somewhere above as argument of func "weather"
+: As the middle function "news" already has the expected signature, we dont need to wrap it at all.
+
+* Warning
+
+Concurrency and parallelism are *hard* and *subtle*.
+
+They are made easier in go, but there is still plenty of room to shoot self in the foot.
+
+.image ./an-overview-of-go/plane_right.jpg _ 600
+
+: This is my general Public Service Announcement about concurrency.
+: Concurrent code is more difficult to write, more difficult to read, and much more difficult to reason about, than sequential code.
+: If you have the opportunity to achieve a job with sequential code, maybe you don't need concurrency at all.
+
+* Testing and data races
+
+.background ./an-overview-of-go/background-gopher-top-right.png
+
+* A simple server : hit counter
+
+	package main
+
+	import "net/http"
+
+	func main() {
+		http.HandleFunc("/", h)
+		http.ListenAndServe(":7070", nil)
+	}
+
+	var count int = 0
+
+	func h(w http.ResponseWriter, r *http.Request) {
+		count++
+	}
+
+* Test the handler concurrently
+
+
+	func TestHandler(t *testing.T) {
+		count = 0
+		for i := 0; i < 200; i++ {
+			go h(nil, nil)
+		}
+
+		time.Sleep(3 * time.Second)
+		if count != 200 {
+			t.Errorf("Expected %d hits, got %d", 200, count)
+		}
+	}
+
+	$ go test
+	PASS
+	ok
+
+	$ go test
+	--- FAIL: TestHandler (3.00s)
+		racy_handler_test.go:16: Expected 200 hits, got 194
+	FAIL
+
+
+* Use the built-in race detector
+
+	$ go test -race
+
+	==================
+	WARNING: DATA RACE
+	Read by goroutine 8:
+	  racy_server.go:13 +0x30
+
+	Previous write by goroutine 7:
+	  racy_server.go:13 +0x4c
+
+	Goroutine 8 (running) created at:
+	  racy_handler_test.go:12 +0x86
+	  testing.tRunner()
+	      /usr/local/go/src/testing/testing.go:473 +0xdc
+
+	Goroutine 7 (finished) created at:
+	  racy_handler_test.go:12 +0x86
+	  testing.tRunner()
+	      /usr/local/go/src/testing/testing.go:473 +0xdc
+	==================
+	--- FAIL: TestHandler (3.01s)
+	racy_handler_test.go:16: Expected 200 hits, got 162
+	FAIL
+
+
+* Test the server concurrently
+
+
+	func TestServer(t *testing.T) {
+		count = 0
+		go main()
+		for i := 0; i < 200; i++ {
+			go http.Get("http://localhost:7070/")
+		}
+
+		time.Sleep(3 * time.Second)
+		if count != 200 {
+			t.Errorf("Expected %d hits, got %d", 200, count)
+		}
+	}
+
+* Use -race in production
+
+- if you have many servers, enable race detector on one of them
+
+- or enable it on your server for a few hours
+
+Overhead : measure the performance penalty. It might be acceptable (e.g. +100%, +200%). Find as many concurrency bugs as possible.
+
+* Benchmarks
+
+.background ./an-overview-of-go/background-gopher-top-right.png
+
+* Benchmarks
+
+In foobar_test.go :
+
+	func BenchmarkDoThis(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			DoThis()
+		}
+	}
+
+	func BenchmarkDoThat(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			DoThat()
+		}
+	}
+
+* Benchmarks
+
+	func BenchmarkDoThis(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			DoThis()
+		}
+	}
+
+	func BenchmarkDoThat(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			DoThat()
+		}
+	}
+
+ 
+
+	$ go test -bench=.
+
+* Benchmarks
+
+	func BenchmarkDoThis(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			DoThis()
+		}
+	}
+
+	func BenchmarkDoThat(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			DoThat()
+		}
+	}
+
+	$ go test -bench=.
+
+	goos: linux
+	goarch: amd64
+	BenchmarkDoThis-12          50000             27753 ns/op
+	BenchmarkDoThat-12          30000             51876 ns/op
+	PASS
+	ok      _/.../foobar   3.716s
+
+
+* Pprof
+
+.background ./an-overview-of-go/background-gopher-top-right.png
+
+* Pprof
+
+- CPU profiler
+
+- Memory profiler
+
+- Find and visualize bottlenecks
+
+Easy to use:
+
+	$ go test -cpuprofile cpu.prof
+
+Then inspect the profile data (it's a file).
+
+* Example: Equal Sums
+
+Problem from _Google_ _Code_ _Jam_ 2012 : ❝Find 2 subsets having same sum❞
+
+.image ./an-overview-of-go/equal_sums_input.png _ 400
+
+* Example: Equal Sums
+
+Problem from _Google_ _Code_ _Jam_ 2012 : ❝Find 2 subsets having same sum❞
+
+.image ./an-overview-of-go/equal_sums_solution.png _ 400
+
+* Example: Equal Sums
+
+Problem from _Google_ _Code_ _Jam_ 2012 : ❝Find 2 subsets having same sum❞
+
+.image ./an-overview-of-go/equal_sums_solution.png _ 400
+
+Nice algorithm uses :
+
+- random
+
+- hashmap
+
+* Pprof CPU profile
+
+.image ./an-overview-of-go/pprof_graph.png _ 1024
+
+* Pprof CPU profile
+
+.image ./an-overview-of-go/pprof_graph_rand.png _ 1024
+
+* Pprof CPU profile
+
+.image ./an-overview-of-go/pprof_graph_map.png _ 1024
+
+* Pprof memory profile
+
+.image ./an-overview-of-go/pprof_heap_memory_graph.jpg _ 1024
+
+* Pprof for your webapp
+
+In your code :
+
+	import _ "net/http/pprof"
+
+Side-effect:
+
+- registers HTTP handlers under /debug/pprof/
+- you can now retrieve live Pprof data
+
+E.g. to look at a 30-second CPU profile:
+
+	go tool pprof http://localhost:6060/debug/pprof/profile
+
+* Links : standard library
+
+.link https://golang.org/pkg/net/http/ Package *net/http*
+
+very good for a wide range of HTTP server needs
+
+.link https://golang.org/pkg/sync/ Package *sync*
+
+includes WaitGroup, Mutex, etc.
+
+.link https://golang.org/pkg/text/template/ Package *text/template*
+.link https://golang.org/pkg/html/template/ Package *html/template*
+
+efficient (compiled) and safe templating.
+
+* Links : misc
+
+.link http://go-traps.appspot.com/ Go-Traps
+
+.link https://software.intel.com/en-us/blogs/2013/01/06/benign-data-races-what-could-possibly-go-wrong Benign data races: what could possibly go wrong?
+
+.link https://blog.golang.org/race-detector Introducing the Go Race Detector
+
+.link https://talks.golang.org/2013/advconc.slide Advanced Go Concurrency Patterns
+
+.link https://talks.golang.org/2013/highperf.slide High Performance Apps with Go on App Engine
+
+.link https://talks.golang.org/2016/applicative.slide Program your next server in Go
+
+.link https://go-proverbs.github.io/ Go Proverbs
+
+.link https://medium.com/@val_deleplace/go-code-refactoring-the-23x-performance-hunt-156746b522f7 Go code refactoring : the 23x performance hunt
+
+.background ./an-overview-of-go/background_QR-useful-links.png
+
+* Cloud
+
+.background ./an-overview-of-go/background-gopher-top-right.png
+
+* Public clouds
+
+.background ./an-overview-of-go/Go_in_the_clouds.png
+
+.link https://raw.githubusercontent.com/Deleplace/presentations/master/2018/09/21/an-overview-of-go/Go_in_the_clouds.png Many options :)
+
+* bit.ly/go-challenges
+
+.link https://play.golang.org/p/IEmWk-y_Hjq Challenge 0
+.link https://play.golang.org/p/r54cQeWm5Ef Challenge 1: Variable
+.link https://play.golang.org/p/1CBt-rDGtHT Challenge 2: Multiple return
+.link https://play.golang.org/p/jbp2LIqknuE Challenge 3: Slicing
+.link https://play.golang.org/p/93Pq07PE4U2 Challenge 4: Map
+.link https://play.golang.org/p/AIeKOlOlG_C Challenge 5: Channel
+
+* 
+
+.image ./an-overview-of-go/meetup-paris.png
+
+* Contact
+
+.background ./an-overview-of-go/background_QR-twitter.png
+
+Twitter @val_deleplace
+
+Medium @val_deleplace
+
+GitHub @Deleplace
