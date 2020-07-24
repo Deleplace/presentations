@@ -173,8 +173,7 @@ Nobody arguing about code formatting
 
 : Data structure types and processings are "orthogonal", with an emphasis on behaviors, rather than taxonomy. We're less interested in what objects *are*, and more interested in what objects *do*.
 
-: Interfaces in Go are very similar to interfaces in Java. They are a powerful abstraction and can often be used 
-: in lieu of inheritance or generics.
+: Interfaces in Go are very similar to interfaces in Java. They are a powerful abstraction and can often be used in lieu of inheritance or generics.
 
 * Concurrency
 
@@ -186,7 +185,7 @@ Nobody arguing about code formatting
 
 : It is extremely useful that concurrency primitives are core to the language. Writing correct concurrent code is a difficult challenge in general, and it is made easier by Go's simple memory model, which is based on Tony Hoare's CSP (which stands for "Communicating Sequential Processes").
 
-: Writing *sequential* code is fine, and most often it's the best thing to do. There exists several reasons why we may want to write concurrent code. For example, if we have some heavy computations to perform, and 64 CPU cores, then it makes sense to use many cores in parallel. But it's not always about the CPU! For example when a goroutine is writing to the filesystem, or waiting for a network responses... then it's very useful to have other goroutine continue their work.
+: Writing *sequential* code is fine, and most often it's the best thing to do. There exists several reasons why we may want to write concurrent code. For example, if we have some heavy computations to perform, and 64 CPU cores, then it makes sense to use many cores in parallel. But it's not always about the CPU! For example when a goroutine is writing to the filesystem, or waiting for a network response... then it's very useful to have other goroutines continue their work.
 
 * Network
 
@@ -269,6 +268,8 @@ To ship, copy the 3 executables to shared folder.
 
 Executables are statically linked.
 
+: This is an actual example from a few years ago. I'm writing a command line tool named "Patapon".
+
 : Some of my colleagues have a Windows workstation, some have a Mac. And of course our prod runs on Linux.
 
 : When I compile Patapon, I need to ship a distinct executable for each of these platforms. No problem! From my workstation, or from any CI/CD, I can cross-compile to other target platforms with simple command lines.
@@ -323,7 +324,7 @@ Executables are statically linked.
 - Resist being everything for everyone
 
 : "Less is more" means that a "smaller language" incurs a smaller cognitive burden to the developers, and enables them to be more productive.
-: It means that having only extremely carefully designed language features, that play well with each other, enables the Go team to keep improving the runtime, the GC, and the core stdlib.
+: It means that having only extremely carefully designed language features, that play well with each other, enables the Go team at Google to keep improving the runtime, the GC, and the core stdlib.
 : It means that some restrictions in how packages work (no cyclic dependency is possible) enable the compiler to be more performant.
 : Etc.
 
@@ -362,8 +363,8 @@ Focus more on behavior
 
 : This one is a little surprising: We don't try too much to adhere to the "Don't Repeat Yourself" mantra.
 : Sometimes the same function will be written twice, for 2 slightly different types of arguments.
-: Sometimes the same utility function will be copy-pasted in 2 different package, in order to break a dependency relationship.
-: There are always tradeoff, and in Go we tend to lean towards as little *coupling* as possible.
+: Sometimes the same utility function will be copy-pasted in 2 different packages, in order to break a dependency relationship.
+: There are always tradeoffs, and in Go we tend to lean towards as little *coupling* as possible.
 
 * Concurrency
 
@@ -386,7 +387,7 @@ Focus more on behavior
 
 .background ./an-overview-of-go/background-gopher-top-right.png
 
-: And now, as promises, some actual lines of code!
+: And now, as promised, some actual lines of code!
 
 : Go supports anonymous functions and closures. Let's have a look with an example.
 
@@ -446,7 +447,7 @@ Focus more on behavior
 .link https://play.golang.org/p/oA5Zn1Wfzrv 🐭
 
 : The solution is to create an anonymous function containing the loop, and pass it as an argument.
-: It's important to be able to use anonymous functions on-the-fly like this, for scope reasons. It's not always possible to declare a new top-level named functions that would have access to the same local variables of our current scope.
+: It's important to be able to use anonymous functions on-the-fly like this, for scope reasons. It's not always possible to declare a new top-level named function that would have access to the same local variables of our current scope.
 
 * Fork/Join
 
@@ -465,7 +466,7 @@ You have 5 tasks A, B, C, D, E.
 
 : Let's say you need to execute 5 tasks A B C D E, which are all independant from each other.
 : This is what the code looks like when you run them <b>sequentially</b>.
-: When I click the [RUN] button, what happens is that my local code is sent to the Go Playground server, which ompiles it, executes it, and streams the output back to my browser.
+: When I click the [RUN] button, what happens is that my local code is sent to the Go Playground server, which compiles it, executes it, and streams the output back to my browser.
 : This is not a simulation, this is actually my code executed server-side.
 
 * Utility goroutine spawner
@@ -474,7 +475,7 @@ You have 5 tasks A, B, C, D, E.
 
 You may often write such code to fit your needs.
 
-: To run them concurrently, I create this helper function. Let's see what it does.
+: To run them concurrently, I create this helper function "RunConcurrent". Let's see what it does.
 
 * Utility goroutine spawner
 
@@ -483,7 +484,7 @@ You may often write such code to fit your needs.
 Func arguments (variadic)
 
 : First, it takes an arbitrary number of functions as arguments. This is called a <b>variadic</b> parameter. Such a parameter is effectively a list of things that I want to execute concurrently.
-: Of course this is possible only if the taks are independent, i.e. if they don't depend on the result of the previous task.
+: Of course this is possible only if the tasks are independent, i.e. if they don't depend on the result of the previous task.
 
 * Utility goroutine spawner
 
@@ -609,6 +610,10 @@ They are made easier in go, but there is still plenty of room to shoot self in t
 
 .background ./an-overview-of-go/background-gopher-top-right.png
 
+: For example, a data race condition is a nasty bug where 2 goroutines are writing to and reading from a variable in memory, without proper synchronization.
+: When this happens, the behavior is undefined. This means that the program may crash, or and may behave correctly 99% of the time and silently produces wrong results 1% of the time.
+: As an illustration, let's have a look at the Testing tooling.
+
 * A simple server : hit counter
 
 	package main
@@ -626,8 +631,11 @@ They are made easier in go, but there is still plenty of room to shoot self in t
 		count++
 	}
 
-* Test the handler concurrently
+: This very simple web server has a global variable <b>count</b> and a single handler <b>h</b> which increments the variable.
+: Incrementing is actually not an atomic operation, it consists of 1 read operation and then 1 write operation. And I can't see any explicit synchronization in this code!
+: The standard library web server is able to accept many requests concurrently, so I strongly suspect that we may have a data race problem here.
 
+* Test the handler concurrently
 
 	func TestHandler(t *testing.T) {
 		count = 0
@@ -641,6 +649,8 @@ They are made easier in go, but there is still plenty of room to shoot self in t
 		}
 	}
 
+ 
+
 	$ go test
 	PASS
 	ok
@@ -650,6 +660,11 @@ They are made easier in go, but there is still plenty of room to shoot self in t
 		racy_handler_test.go:16: Expected 200 hits, got 194
 	FAIL
 
+: A unit test is a function whose name starts with "Test", and which accepts a single argument of type "testing.T".
+: Running this test once will call the handler 200 times. When I run the test with the command "go test", I see that it succeeds and I open a bottle of champagne.
+: However if I run the same test a second time, now it's failing because the counter doesn't have the expected value. This is a flaky test! Not very fun, as you may trust it and ship very buggy code to production.
+: Actually it's not the fault of the test itself. It's the handler which is flaky and needs to be fixed.
+: BTW sleeping for 3 seconds in the hope that it will be enough to process 200 requests is a very very bad practice. You should in theory be able to launch 200 requests and properly wait for them all to complete. E.g use a WaitGroup! WaitGroups are not the only option, there exist other good synchronization devices. 
 
 * Use the built-in race detector
 
@@ -677,9 +692,11 @@ They are made easier in go, but there is still plenty of room to shoot self in t
 	racy_handler_test.go:16: Expected 200 hits, got 162
 	FAIL
 
+: The Testing tooling comes with an extremely powerful feature called the Data Race Detector.
+: By creating a specially instrumented compiled version of your code, it's able to detect when a variable was accessed by 2 goroutines without proper synchronization, and shout a big WARNING with the two incriminated LOCs.
+: This is actually awesome! Don't think that you just have a handful of harmless data races, as there is no such thing. Concurrency bugs need to be hunted and fixed.
 
 * Test the server concurrently
-
 
 	func TestServer(t *testing.T) {
 		count = 0
@@ -694,6 +711,9 @@ They are made easier in go, but there is still plenty of room to shoot self in t
 		}
 	}
 
+: In the previous example we were directly testing the handler function, which was kind of a shortcut compared to the real client-server experience.
+: With a little extra code we can test the equivalent scenario by actually launching 200 HTTP requests, not just 200 function calls.
+
 * Use -race in production
 
 - if you have many servers, enable race detector on one of them
@@ -702,9 +722,14 @@ They are made easier in go, but there is still plenty of room to shoot self in t
 
 Overhead : measure the performance penalty. It might be acceptable (e.g. +100%, +200%). Find as many concurrency bugs as possible.
 
+: The Race Detector is not enabled by default in production executables and test executables, because it incurs a quite large overhead in memory and runtime.
+: However, detecting race conditions is so precious that you may use it in production. For example if you have a fleet of 12 instances serving requests, then it makes sense to have the Race Detector enabled on just one of them, and keep gathering the WARNINGS even after the code has shipped to production.
+
 * Benchmarks
 
 .background ./an-overview-of-go/background-gopher-top-right.png
+
+: Benchmarks are another one of my favorite tooling features. A Benchmark is like a Test, except that it will be run many times in order to precisely measure its duration.
 
 * Benchmarks
 
@@ -721,6 +746,9 @@ In foobar_test.go :
 			DoThat()
 		}
 	}
+
+: This is what 2 benchmarks look like.
+: 1 is for benchmarking function "DoThis", and the other one is for benchmarking "DoThat".
 
 * Benchmarks
 
@@ -740,6 +768,8 @@ In foobar_test.go :
 
 	$ go test -bench=.
 
+: And this is the command line to launch the benchmarks: one extra flag in the "go test" command.
+
 * Benchmarks
 
 	func BenchmarkDoThis(b *testing.B) {
@@ -754,6 +784,8 @@ In foobar_test.go :
 		}
 	}
 
+ 
+
 	$ go test -bench=.
 
 	goos: linux
@@ -763,10 +795,15 @@ In foobar_test.go :
 	PASS
 	ok      _/.../foobar   3.716s
 
+: This output tells us that function "DoThis" was execute 50K times, and took 28 micro-seconds on average.
+: Function "DoThat" was executed 30K times and took 52 micro-seconds on average.
+: In this case we discovered that DoThis is twice as fast as DoThat. So if they are 2 implementations of the same task needed inside the critical path of your software, then for Performance reasons you will choose DoThis.
 
 * Pprof
 
 .background ./an-overview-of-go/background-gopher-top-right.png
+
+: Another amazing piece of performance analysis tool provided in the standard Go tooling is a profiler called Pprof.
 
 * Pprof
 
@@ -822,20 +859,20 @@ Nice algorithm uses :
 
 .image ./an-overview-of-go/pprof_heap_memory_graph.jpg _ 1024
 
-* Pprof for your webapp
-
-In your code :
-
-	import _ "net/http/pprof"
-
-Side-effect:
-
-- registers HTTP handlers under /debug/pprof/
-- you can now retrieve live Pprof data
-
-E.g. to look at a 30-second CPU profile:
-
-	go tool pprof http://localhost:6060/debug/pprof/profile
+#* Pprof for your webapp
+#
+#In your code :
+#
+#	import _ "net/http/pprof"
+#
+#Side-effect:
+#
+#- registers HTTP handlers under /debug/pprof/
+#- you can now retrieve live Pprof data
+#
+#E.g. to look at a 30-second CPU profile:
+#
+#	go tool pprof http://localhost:6060/debug/pprof/profile
 
 * Links : standard library
 
