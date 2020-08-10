@@ -874,22 +874,22 @@ Nice algorithm uses :
 #
 #	go tool pprof http://localhost:6060/debug/pprof/profile
 
-* Links : standard library
+#* Links : standard library
+#
+#.link https://golang.org/pkg/net/http/ Package *net/http*
+#
+#very good for a wide range of HTTP server needs
+#
+#.link https://golang.org/pkg/sync/ Package *sync*
+#
+#includes WaitGroup, Mutex, etc.
+#
+#.link https://golang.org/pkg/text/template/ Package *text/template*
+#.link https://golang.org/pkg/html/template/ Package *html/template*
+#
+#efficient (compiled) and safe templating.
 
-.link https://golang.org/pkg/net/http/ Package *net/http*
-
-very good for a wide range of HTTP server needs
-
-.link https://golang.org/pkg/sync/ Package *sync*
-
-includes WaitGroup, Mutex, etc.
-
-.link https://golang.org/pkg/text/template/ Package *text/template*
-.link https://golang.org/pkg/html/template/ Package *html/template*
-
-efficient (compiled) and safe templating.
-
-* Links : misc
+* Links
 
 .link http://go-traps.appspot.com/ Go-Traps
 
@@ -907,9 +907,13 @@ efficient (compiled) and safe templating.
 
 .link https://medium.com/@val_deleplace/go-code-refactoring-the-23x-performance-hunt-156746b522f7 Go code refactoring : the 23x performance hunt
 
-.background ./an-overview-of-go/background_QR-useful-links.png
+#.background ./an-overview-of-go/background_QR-useful-links.png
 
 * Cloud
+
+: What about Cloud?
+: In one hand, Go is the language of cloud infrastructure. But this is not so important!
+: What matters is that you, as a Cloud user, feel welcome deploying software written in Go.
 
 .background ./an-overview-of-go/background-gopher-top-right.png
 
@@ -917,9 +921,68 @@ efficient (compiled) and safe templating.
 
 .background ./an-overview-of-go/Go_in_the_clouds.png
 
-.link https://raw.githubusercontent.com/Deleplace/presentations/master/2018/09/21/an-overview-of-go/Go_in_the_clouds.png Many options :)
+Many options :)
 
-* bit.ly/go-challenges
+: The good news is, all major clouds make it easy to code in Go, whether your prefer Serverless (i.e. Platform-as-a-Service), or Infrastructure-as-a-service with VMs or containers.
+
+* War stories
+
+: Here are a few projects in which I've been involved, which all use Go as their main language.
+
+* War stories
+
+Programming-Idioms.org
+
+Since 2013
+
+App Engine, Cloud Datastore
+
+.image ./an-overview-of-go/programming-idioms.png
+
+* War stories
+
+coolmaze.io
+
+Since 2016
+
+App Engine, Cloud Storage, Pusher.com, Android, iOS
+
+.image ./an-overview-of-go/cool-maze.png
+
+* War stories
+
+3D textures encoder
+
+2017
+
+- C++ tool rewritten in Go
+- ~3x speedup before any optimization
+
+.image ./an-overview-of-go/texture-encoder.png
+
+* War stories
+
+Google Cloud DevRel secret internal tool
+
+Since 2016
+
+App Engine, Cloud SQL
+
+.image ./an-overview-of-go/secret-internal-tool.png
+
+: For this one I can't share all the details, but it's basically about managing developer relations activity without spreadsheets.
+
+* Jump in!
+
+A Tour of Go: 
+
+.link https://tour.golang.org/ tour.golang.org
+
+\...an amazing interactive resource for beginners
+
+* Jump in!
+
+bit.ly/go-challenges
 
 .link https://play.golang.org/p/IEmWk-y_Hjq Challenge 0
 .link https://play.golang.org/p/r54cQeWm5Ef Challenge 1: Variable
@@ -928,16 +991,34 @@ efficient (compiled) and safe templating.
 .link https://play.golang.org/p/93Pq07PE4U2 Challenge 4: Map
 .link https://play.golang.org/p/AIeKOlOlG_C Challenge 5: Channel
 
-* 
+* Jump in!
 
-.image ./an-overview-of-go/meetup-paris.png
+Meetups nearby
 
-* Contact
+# .image ./an-overview-of-go/meetup-paris.png
 
-.background ./an-overview-of-go/background_QR-twitter.png
+- meetup.com/ChicaGoLang/
+- meetup.com/Go-Remote-Meetup/ (based in Chicago)
+- meetup.com/Women-Who-Go-Chicago/
+
+: There are hundreds of Go users group around the world, including several in Illinois.
+: Meetups are a great way to stop procrastinating and actually get in touch with a new subject.
+
+* Thank you :)
+
+#.background ./an-overview-of-go/background_QR-twitter.png
+
+Valentin Deleplace
+
+Happy path engineer for Google Cloud
 
 Twitter @val_deleplace
 
 Medium @val_deleplace
 
 GitHub @Deleplace
+
+This presentation:
+.link https://talks.godoc.org/github.com/Deleplace/presentations/2020/07/24/an-overview-of-go.slide talks.godoc.org/github.com/Deleplace/presentations/2020/07/24/an-overview-of-go.slide
+
+* __________blank________________
