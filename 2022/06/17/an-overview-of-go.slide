@@ -6,7 +6,7 @@ Happy path engineer for Google Cloud Platform
 @val_deleplace
 
 : Hello, my name is Valentin 
-: I'm a Developer Advocate for GCP, and an enthusiastic Gopher :)
+: I'm a Developer Advocate for Google Cloud, and I've been using Go as my daily programming language for over 8 years now.
 
 * Warning
 
@@ -22,12 +22,15 @@ Some code will be displayed.
 
 * About me 
 
-- Java web dev for 10+ years 
-- Discovered Go in 2012
-- Deployed Go apps on App Engine in 2013
-- Used Go for web development, command line tools, data processing...
-- Joined Google as a Cloud DA in 2017
-- ...and never stopped using Go as main daily language!
+#- Java web dev for 10+ years 
+#- Discovered Go in 2012
+#- Deployed Go apps on App Engine in 2013
+#- Used Go for web development, command line tools, data processing...
+#- Joined Google as a Cloud DA in 2017
+#- ...and never stopped using Go as main daily language!
+
+.image ./an-overview-of-go/valentin.png 560 _
+
 
 : A few words about myself!
 
@@ -37,7 +40,7 @@ Some code will be displayed.
 
 : After using Java professionaly for many years, I pulled myself away from OOP and embraced Go, which was... different.
 
-* History
+* History of Go
 
 - Designed at Google in 2007
 - Version 1.0 released in 2012
@@ -146,7 +149,7 @@ Nobody arguing about code formatting
 
 : Here are a few core goals of the the Go project as a whole (i.e. the language itself, the stdlib, the tooling, the philosophy, and the community).
 
-: The language is extremely stable and backward compatible in the sense that a valid Go program written in 2020 will still be valid in 2030; you will still be able to compile it and execute it.
+: The language is extremely stable and backward compatible in the sense that a valid Go program written in 2022 will still be valid in 2030; you will still be able to compile it and execute it.
 
 : Scalability is an important goal and it's multi-dimensional. It's about being able to leverage more CPU cores, more memory, more instances in a cloud environment, but also more teammates when the codebase grows.
 
@@ -218,7 +221,7 @@ Nobody arguing about code formatting
 
 : A language ecosystem always needs to make tradeoff between conflicting goals.
 
-: For example Go tends to be pretty good at there 3 kinds of "speed", and in particular it has a super-fast compiler. 
+: For example Go tends to be pretty good at these 3 kinds of "velocity", and in particular it has a super-fast compiler. 
 
 #* Packages
 #
@@ -236,7 +239,7 @@ Vendoring
 
 : In the early days, package management was often achieved with vendoring.
 
-: Vendoring consists in copying a dependency inside a subfolder of your project, keeping your build reproducible, and letting you plan to upgrade the dependency on your own schedule.
+: Vendoring consists of copying a dependency inside a subfolder of your project, keeping your build reproducible, and letting you plan to upgrade the dependency on your own schedule.
 
 * Modules
 
@@ -271,9 +274,9 @@ To ship, copy the 4 executables to shared folder.
 
 Executables are statically linked.
 
-: This is an actual example from a few years ago. I'm writing a command line tool named "Patapon".
+: This is an actual example from a few years ago (I just added 1 target for M1 processors). I'm writing a command line tool named "Patapon".
 
-: Some of my colleagues have a Windows workstation, some have a Mac. And of course our prod runs on Linux.
+: Some of my colleagues have a Windows workstation, some have a Mac. And of course our production servers runs on Linux.
 
 : When I compile Patapon, I need to ship a distinct executable for each of these platforms. No problem! From my workstation, or from any CI/CD, I can cross-compile to other target platforms with simple command lines.
 
@@ -354,7 +357,7 @@ Focus more on behavior
 - Interfaces
 
 : As I already mentioned, Go is not what we usually call "Object-Oriented".
-: You define methods on your types, and you implement interfaces. This is usually enough in terms of abstractions.
+: You use simple data structures like slices and maps. You define methods on your types, and you implement interfaces. This is usually enough in terms of abstractions.
 
 * No DRY
 
@@ -376,7 +379,7 @@ Focus more on behavior
 - Channels
 
 : This is an advice for proper concurrent programming. 
-: It's tempting to regard the memory as a large whiteboard that goroutines will be allowed to read and write when the acquire locks (e.g. mutexes).
+: It's tempting to regard the memory as a large whiteboard that goroutines will be allowed to read and write when they acquire locks (e.g. mutexes).
 : But instead we are encouraged to write sequential agents managing their own local objects, and *sharing* them with other agents when needed, using channels.
 : Channels are bidirectional pipes for communication and synchronization. They are one of the core features that are unique to Go.
 
