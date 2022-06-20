@@ -38,7 +38,7 @@ Some code will be displayed.
 
 : I've always had a preference for high-level, expressive languages that take care of memory management for me, and offer nice abstractions for concurrency, networking, etc.
 
-: After using Java professionaly for many years, I pulled myself away from OOP and embraced Go, which was... different.
+: After using Java professionaly for many years, I pulled myself away from OOP and embraced Go, which was... different. Later in 2017, I joined Google Cloud as a Developer Advocate.
 
 * History of Go
 
@@ -825,17 +825,26 @@ Easy to use:
 
 Then inspect the profile data (it's a file).
 
+: Pprof is a profiler. It collects profile data at runtime, during the execution of a program or a test or a benchmark. It works by sampling: every few μs, it inspects the current call stack of one goroutine.
+: Then, we can visualize the profile, and see which function called which other functions, and how much time was spent in each.
+
 * Example: Equal Sums
 
 Problem from _Google_ _Code_ _Jam_ 2012 : ❝Find 2 subsets having same sum❞
 
 .image ./an-overview-of-go/equal_sums_input.png _ 400
 
+: Let's take this actual algorithm problem from Google Code Jam from 10 years ago.
+: You take a set of integer numbers as input, and you need to find 2 different subsets that have the have sum.
+
 * Example: Equal Sums
 
 Problem from _Google_ _Code_ _Jam_ 2012 : ❝Find 2 subsets having same sum❞
 
 .image ./an-overview-of-go/equal_sums_solution.png _ 400
+
+: Here you can see, this RED potato turns out to have the same sum as the GREEN potato: 2743.
+: Solving this problem efficiently is actually not trivial, as the number of distinct subsets is exponential: for a set of N numbers, we have 2^N subsets.
 
 * Example: Equal Sums
 
@@ -848,6 +857,8 @@ Nice algorithm uses :
 - random
 
 - hashmap
+
+: It is interesting to observe that a completely stochastic approach works very well here: take a random subset, compute its sum, keep it in memory, and repeat, until a duplicate is found.
 
 * Pprof CPU profile
 
@@ -964,7 +975,7 @@ App Engine, Cloud Storage, Pusher.com, Android, iOS
 - C++ tool rewritten in Go
 - ~3x speedup before any optimization
 
-.image ./an-overview-of-go/texture-encoder.png
+.image ./an-overview-of-go/texture-encoder.png 300 _
 
 * War stories
 
@@ -1003,7 +1014,7 @@ Meetups nearby
 
 .image ./an-overview-of-go/meetup-amsterdam.png
 
-: There are hundreds of Go users group around the world, including several in Illinois.
+: There are hundreds of Go users group around the world, including several in the Netherlands and in Sweden.
 : Meetups are a great way to stop procrastinating and actually get in touch with a new subject.
 
 * Thank you :)
