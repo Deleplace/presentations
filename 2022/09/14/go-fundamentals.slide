@@ -1,4 +1,4 @@
-An overview of Go
+Go Fundamentals
 2022-09-14
 
 Valentin Deleplace
@@ -124,7 +124,7 @@ Orthogonality
 - Go’s features should interact in predictable and consistent ways.
 - Types ∟ Functions ∟ Goroutines ∟ Channels ∟ ...
 
-: All new languages try to be as simple as possible. Go takes this concern very seriously by having a limited set of features, and make sure that all features play nicely with each other.
+: All new languages try to be as simple as possible. Go takes this concern very seriously by having a limited set of features, and making sure that all the features play nicely with each other.
 : The language itself is almost "fixed", which means that the bar to add any new keyword or new concept to the language is extremely high.
 
 * Goals
@@ -148,9 +148,9 @@ Orthogonality
 - *Interfaces* for generic behavior
 - New (2022): type parameters
 
-: For many years, it was surprising for developers coming from Java like me, that Go wouldn't let you define generic types and generic functions.
+: For many years, it was surprising for developers coming from Java like me, that Go wouldn't let you define GENERIC types and generic functions.
 : It turns out that most Gophers didn't miss generics that much, and were still able to write amazing software. Only a few use cases were really craving for generics, and these could usually be worked around with "interface{}" or with reflection, giving up compile-time type safety.
-: But they're now available in the language! And my team has even been using this feature in a very specific case in the Google I/O Adventure backend, where workarounds were too awkward.
+: But GENERICS are now available in the language! And my team has even been using this feature in a very specific case in the Google I/O Adventure backend, where workarounds were too awkward.
 
 .background ./go-fundamentals/Invoice.png
 
@@ -267,7 +267,7 @@ Executables are statically linked.
 
 : Some of my colleagues have a Windows workstation, some have a Mac. And of course our production servers runs on Linux.
 
-: When I compile Patapon, I need to ship a distinct executable for each of these platforms. No problem! From my workstation, or from any CI/CD, I can cross-compile to other target platforms with simple command lines.
+: When I compile Patapon, I need to ship a distinct executable for each of these platforms. No problem! From my workstation, or from any CI/CD tool, I can cross-compile to other target platforms with simple command lines.
 
 #* Comparison with other languages
 #
@@ -358,7 +358,7 @@ Unlean the _Don't_ _Repeat_ _Yourself_ motto
 - No cycles in dependency graph
 - Sometimes it's okay to copy and paste
 
-: This one is a little surprising: We don't try too much to adhere to the "Don't Repeat Yourself" mantra.
+: This one is a little surprising: We don't try too much to adhere to the "Don't Repeat Yourself" rule of thumb.
 : Sometimes the same function will be written twice, for 2 slightly different types of arguments.
 : Sometimes the same utility function will be copy-pasted in 2 different packages, in order to break a dependency relationship.
 : There are always tradeoffs, and in Go we tend to lean towards as little *coupling* as possible.
@@ -388,20 +388,24 @@ Unlean the _Don't_ _Repeat_ _Yourself_ motto
 
 .background ./go-fundamentals/background-gopher-top-right.png
 
+: When we say that the Go language is expressive, what do we mean by that?
+: It's of course about how much a developer can achieve with just a few lines of code. But it's definitely not just about being more concise or more verbose. It's more about how meaningful and legible is the code we write.
+: I'll illustrate this with an example about how functions are used.
+
 * First-class functions, and closures
 
 .background ./go-fundamentals/background-gopher-top-right.png
 
-: Go supports anonymous functions and closures. Let's have a look with an example.
+: Go supports anonymous functions and closures. Let's have a look at a sample program.
 
 * Simple chronometer
 
 .play go-fundamentals/simple-chrono.go /START OMIT/,/END OMIT/
 
-.play go-fundamentals/go-version.go
-
 : I have a function *fetchData* and I want to know how much time it takes.
 : The traditional way of doing this is to read the clock value just before the function is run, then again just after the function has executed, and substract the two values to compute the execution duration.
+: What happens when I click the [Run] button is this: the source file will be compiled on my workstation (not inside the web browser), then executed, and the stdout/stderr will be displayed here, over the slide. So for now, it uses the Go toolchain that's installed on my system.
+: Can you please CONFIRM that you see the output of the program? Otherwise I would need to share my screen in a different way.
 
 * Simple chronometer: with func argument
 
@@ -423,7 +427,7 @@ Unlean the _Don't_ _Repeat_ _Yourself_ motto
 
 	duration := time.Since(t)
 
-: Now if the instructions that I want to time are not a function, but arbitrary lines of code, like this FOR loop.
+: Now if the instructions that I want to measure are not a function, but arbitrary lines of code, like this FOR loop.
 : This is not a proper parameter for my "clock" function. What should I do?
 
 * Wrap code in a closure
@@ -456,7 +460,7 @@ Unlean the _Don't_ _Repeat_ _Yourself_ motto
 
 : Here, we are not writing the type of the variables a, b, ok, because we expect CUT to return 2 strings and a boolean.
 : Cut is similar to Split.
-: The 1st string will receive "en", the 2nd string will be "US", and the boolean will be true, meaning "the separator was found in the 1st argument".
+: The 1st string will receive "en", the 2nd string will be "US", and the boolean will be true, meaning "the DASH separator was found indeed in the 1st argument".
 
 * Expressiveness
 
@@ -487,7 +491,7 @@ Conversion
   vat := float32(price) * 0.15
 
 : Except for type inference, Go code tends to be very explicit, sometimes even boring.
-: There are no magic functional functions to iterate over a slice: just write a for loop. The intent and the consequences will be very clear to the reader.
+: There are no magical functional syntactic sugar to iterate over a slice: just write a FOR loop. The intent and the consequences will be very clear to the reader.
 : An int variable needs to be converted to a float in order to do floating-point computations. The conversion needs to be explicit in the code, no magic, no surprises.
 
 * Expressiveness
@@ -532,7 +536,7 @@ Conversion
 
 : Maps are another very powerful built-in type. They are associative arrays that map unique keys to some values. They are implemented as hashmaps under the hood, but we don't need to care about this implementation detail.
 : Here you can see that the map OPS has keys of type STRING, and values of type FUNCTION THAT TAKES 2 INTS AND RETURN AN INT.
-: I initialize it with 4 arithmetic operations. It is very convenient to iterate over all the keys and values with the RANGE keyword. The value OP is a function, which means of course that I can call the function OP inside the body of the loop.
+: I initialize the map with 4 arithmetic operations. It is very convenient to iterate over all the keys and values of the map with the RANGE keyword. The value OP is a function, which means of course that I can call the function OP inside the body of the loop.
 
 * Expressiveness
 
@@ -546,9 +550,9 @@ Conversion
 .play go-fundamentals/string-utf8.go /START OMIT/,/END OMIT/
 
 : In Go, there is a single type for strings. Strings are very similar to immutable byte slices. UTF-8 is the default encoding. Each character is called a RUNE.
-: The length of a string is always its number of bytes, however it may contain multi-byte characters. Here you can see, the string s has length 89, but it contains 43 runes. 
-: One needs to know some details about UTF-8 to figure out why some of these characters are displayed as 2 distinct runes.
-: Strings supports slicing, which is efficient and safe, as all strings are immutable.
+: The length of a string is always its number of bytes, however it may contain multi-byte characters. Here you can see, the string s has length 89, but it contains 43 runes.
+: One needs to know some details about how UTF-8 works to figure out why some of these characters are displayed as 2 distinct runes.
+: Strings supports slicing, which is efficient and safe, as all strings are immutable. Here, t contains the 7 first bytes of s.
 
 * Expressiveness
 
@@ -569,7 +573,7 @@ Conversion
       return time.Since(t)
   }
 
-: In Go, functions are first-class citizens, which is a fantastic feature for expressiveness. This is common in dynamic languages like JS, but less common in statically, strongly typed languages. Functions are strongly typed, they can be passed as arguments, and returned as value. Closure can freely access all of the variables in the scope where they are defined.
+: In Go, functions are first-class citizens, which is a fantastic feature for expressiveness. This is common in dynamic languages like JS, but less common in statically, strongly typed languages. Functions are strongly typed, they can be passed as arguments, and returned as values. Closures can freely access all of the variables in the scope where they are defined.
 : We can do many things with METHODS and INTERFACES, but sometimes a FUNCTION variable is exactly what we need.
 
 * Expressiveness
@@ -593,7 +597,7 @@ Conversion
 .play go-fundamentals/goroutine-hello.go /START OMIT/,/END OMIT/
 
 : The syntax reflects this and encourages you to launch a new goroutine, simply by preceding a function call by the keyword GO.
-: This is just a toy example, but in a real production usage, it is best to decide precisely when the Goroutine is supposed to stop, and how it will synchronize and communicate with other goroutines.
+: CLICK RUN BUTTON — This is just a toy example, but in a real production usage, it is best to decide precisely when the Goroutine is supposed to stop, and how it will synchronize and communicate with other goroutines.
 : The Go keyword, and the prowerful objects in the SYNC package, make it more straightforward to write correct concurrent code in Go, than in most other languages.
 
 * Expressiveness
@@ -652,11 +656,9 @@ Nobody arguing about code formatting
 
 "*Expected*" errors: network requests failing, wrong user input
 
-"Unexpected" errors: logic bug, init bug, hardware CPU/memory failure
-
-: Expected errors are something that can happen during the normal execution of your program, because of external factors.
+: Expected errors are something that can happen during the NORMAL execution of your program, because of external factors.
 : When your program parses a user-provided file, it would be foolish to trust it at face value. You must validate the data and return an error value if the data is invalid.
-: When your program calls a REST API, or a database, it would be foolish to think it cannot fail. Your code must be prepared to retry, or to abort, any attempted network operation.
+: When your program calls a REST API, or a database, it would be foolish to think that it cannot fail. Your code must be prepared to retry, or to abort, any attempted network operation.
 : All of this is part of the "normal program execution", IMO.
 : If your program is a server, there is no good reason to crash the server because of one invalid request. Please handle the incorrect input *gracefully*.
 
@@ -669,7 +671,7 @@ Nobody arguing about code formatting
 : The other class of errors could be called "serious", or "critical", or "unchecked" in Java.
 : If your program reaches an inconsistent state because of a bug in the program, then the error definitely falls into this category.
 : A division by zero, an out-of-bounds slice access, are always caused by the programmer, not by invalid inputs, because inputs must always be validated before use.
-: If the processor or the memory bus is failing, this is also not expected and recoverable.
+: If the processor or the memory bus is failing, this is also not expected and not really recoverable.
 
 * Expected errors
 
@@ -703,7 +705,7 @@ Nobody arguing about code formatting
       Error() string
   }
 
-: The error type is an interface with a single method, which is about providing an error message.
+: The error built-in type is an interface with a single method, which is about providing an error message.
 : Any custom type may implement the error interface.
 
 * Expected errors
@@ -725,6 +727,7 @@ Nobody arguing about code formatting
 : This is useful to provide rich errors with extra details to the caller function.
 : The call site can either print a more comprehensible message to the user, or follow a retry policy depending on some specifics.
 : Here for example, the server may send an error HTTP response with the appropriate Status Code, decided by some backend component.
+: "ResponseError" is our custom error type. It implicitly implements the error interface, simply by having an Error method.
 
 * Unexpected errors
 
@@ -749,7 +752,7 @@ panic
 .play ./go-fundamentals/panic-init.go
 
 : If the program is not able to start because of incorrect initialization, it is also appropriate to panic.
-: As you can see, this program doesn't print Hello and Good bye. The Go program itself does compile successfully, however it crashes at runtime right here at initialization when trying to build the regex, even before entering the main function.
+: CLICK RUN BUTTON — As you can see, this program doesn't print Hello and Good bye. The Go program itself does compile successfully, however it crashes at runtime right here at initialization when trying to build the regex, even before entering the main function.
 : Because backslashes have a special meaning, and this string is not a valid regex.
 
 * Unexpected errors
@@ -767,10 +770,10 @@ recover
 
 .play ./go-fundamentals/panic-recover.go /START OMIT/,/END OMIT/
 
-: There exists 1 way to recover from an unexpected error that is panicking, and it is the builtin function *recover*.
+: There exists 1 way to recover from an unexpected error that is panicking, and it is the builtin function *recover*. CLICK RUN BUTTON and WALK THROUGH EXECUTION
 : panic and recover may look superficially like a try/catch control flow, however it is absolutely not a normal control flow.
 : panics are serious events! Usually, panic is supposed to crash the program and display an error message.
-: The only valid use case I know for using "recover" is when calling a function from a 3rd party library, which is known to be buggy and that you cannot fix. Then, it's okay to protect your server from a random panic from this library. Otherwise, please don't use recover for your usual control flow, it is not appropriate.
+: The only valid use case I know for using "recover" is when calling a function from a 3rd party library, which is known to be buggy and that you cannot fix because the code is not under your control. Then, it's okay to protect your server from a random panic from this library. Otherwise, please don't use recover for your usual control flow, it is not appropriate.
 
 * Example: wrong offset in an archive
 
@@ -787,7 +790,7 @@ recover
 
 : Here is what some proper code would look like for such a parser.
 : It is much more verbose, because whenever we're reading important data from the file, we explicitly test its validity and return an error.
-: If the data is invalid, we'll catch it inside one of the check, and gracefully return an error.
+: If the data is invalid, we'll catch it inside one of the checks, and gracefully return an error.
 : When we're accessing data at a given index inside the slice, we're sure that it cannot panic, because we've already checked.
 
 # -----------------------------------------------------------------------------
@@ -808,7 +811,7 @@ recover
 
 .background ./go-fundamentals/background-gopher-top-right.png
 
-: Channels are one of the distinctive features of Go. They are a builtin mechanism that lets goroutines talk to each other.
+: Channels are one of the distinctive features of Go. They are a builtin mechanism that let goroutines talk to each other.
 
 * Channels 
 
@@ -823,9 +826,9 @@ recover
 
 .play ./go-fundamentals/channel-example.go /START OMIT/,/END OMIT/
 
-: In this small example, we have 2 goroutines: the main goroutine, and a new goroutine started with the keyworg *go*.
+: In this small example, we have 2 goroutines: the main goroutine, and a new goroutine started with the keyworg *go*. CLICK RUN BUTTON
 : The 2 goroutines are using the same channel for reading and writing values. A goroutine that is reading the channel will block until some data is available.
-: This is how we are sure that these 2 goroutines here are properly synchronized: the 1st value to be written MUST be "ping", then it is read here and printed, then the value "pong" is written, then it is read and printed here.
+: This is how we are sure that these 2 goroutines here are properly synchronized: the 1st value to be written to the channel MUST be "ping", then it is read here and printed, then the value "pong" is written, then it is read and printed here.
 : What we just achieved is the communication of string messages, and the synchronization of 2 processes.
 
 * Channels
@@ -836,7 +839,7 @@ recover
 - Buffered. Writing is non-blocking, up to capacity.
 
 : Depending on the use case, you will create your channels as either BUFFERED or UNBUFFERED.
-: Unbuffered channels can be useful because have a WRITE block until a READ operation is ready to process the message is an interesting synchronization capability.
+: Unbuffered channels can be useful because any WRITE operation is BLOCKING until a READ operation is ready to process the message, and this is an interesting synchronization capability.
 : With buffered channels, you can write several values without blocking. From a synchronization perspective, it works like a SEMAPHORE. From a communication perspective, it works like the PRODUCER/CONSUMER model of an assembly line. Buffered channels tend to be more efficient, for a few reasons.
 
 * Channels: When to use them 
@@ -855,7 +858,7 @@ Producer-Consumer model
 
 : With exactly 1 goroutine acting as the producer, and 1 goroutine acting as the consumer, everything is pretty simple and smooth.
 : For example, I could have 1 goroutine that scans my filesystem for all files and write their path to a channel, and 1 goroutine that computes the SHA-256 digest of all of the files.
-: Each of them does its work at its own pace, except when the consumer has nothing to READ, or when the producer cannot WRITE because it has already filled the buffer.
+: Each of the 2 worker goroutines does its own work at its own pace, except when the consumer has nothing to READ, or when the producer cannot WRITE because it has already filled the buffer.
 
 * Channels: When to use them 
 
@@ -874,7 +877,7 @@ M producers, 1 consumer
 .image ./go-fundamentals/M-producers-1-consumer.png 240 _
 
 : Things get more complicated as soon as we have several producers. For example, if reading from the filesystem if EXTREMELY SLOW but paralellizable, then we would love to launch several producer goroutines, each traversing a different sector of the hard drive concurrently.
-: Unfortunately, it is NOT STRAIGHTFORWARD to use a channel for this. The different producers would need to synchronize with each other with other primitives in order to agree about when to close the channel.
+: Unfortunately, it is NOT STRAIGHTFORWARD to use a channel for this. The different producers would need to synchronize with each other, using yet other primitives in order to agree about when to close the channel.
 
 * Channels: When to NOT use them 
 
@@ -900,8 +903,8 @@ M producers, N consumers
 
 .image ./go-fundamentals/fan-out.png 240 _
 
-: It is also possible to duplicate the same message to several consumers.
-: This is called a "FAN-OUT". For example, you may want to compute the SHA-256 hash of the files, but also the SHA-512 hash, and also the MD5 hash, all done concurrently by different goroutines.
+: It is also possible to duplicate the same messages to several consumers.
+: This is called a "FAN-OUT". For example, you may want to compute the SHA-256 hash of the files, but also the SHA-512 hash of the same files, and also the MD5 hash, all done concurrently by different goroutines.
 
 * Channels: When to NOT use them 
 
@@ -931,6 +934,7 @@ Fork/Join
 
 .play ./go-fundamentals/waitgroup-sha256.go /START OMIT/,/END OMIT/
 
+: Let's run this WaitGroup example — CLICK RUN BUTTON
 : As demonstrated here, a WaitGroup is more readable for this purpose. You create a WaitGroup with the appropriate number of tasks, and then your main goroutine calls WAIT to block until the worker goroutines are finished.
 
 # -----------------------------------------------------------------------------
@@ -938,6 +942,8 @@ Fork/Join
 * Optimizing for maximum efficiency
 
 .background ./go-fundamentals/background-gopher-top-right.png
+
+: Performance optimization! This is a fascinating topic, and also a surprisingly SUBJECTIVE topic, in my experience.
 
 * 
 
@@ -989,7 +995,7 @@ Fork/Join
 
 .background ./go-fundamentals/perf-tricks_7.svg
 
-: Network I/O and external API calls are relatively extremely expensive.
+: Network I/O, external API calls, and database requests, are relatively extremely expensive.
 
 * 
 
@@ -998,13 +1004,13 @@ Fork/Join
 : My advice is to:
 : - make as few requests as possible,
 : - and not to block everything while waiting for a network response
-
+: - consider batching, which is about providing several inputs to a service at the same time, and quickly receiving several responses.
 
 * 
 
 .background ./go-fundamentals/perf-tricks_9.svg
 
-: Reading from, and writing to, the filesystem is slower than most of what we do in memory and in the CPU.
+: Reading from the filesystem, and writing to the filesystem, is slower than most of what we do in memory and in the CPU.
 
 * 
 
@@ -1027,7 +1033,7 @@ Fork/Join
 
 : To limit the excessive need for constant communication between goroutines, I suggest to create workers.
 : The worker pattern looks like this: If I have 4 CPU cores and 1M computations to perform…
-: I *could* launch 1M goroutines, which would have a cost in scheduling and in synchronization to gather the results.
+: Technically I *could* launch 1M goroutines, which would have a cost in scheduling and in synchronization to gather the results.
 : But it’s more efficient to start a small number of worker goroutines, say 8, and have each worker process one 8th of the total load sequentially.
 
 * 
@@ -1042,7 +1048,7 @@ Fork/Join
 
 : My advice is to:
 : - Allocate large chunks of memory in one single call to the built-in “make” function
-: - Reuse memory by passing buffers as arguments to the processing functions
+: - Reuse memory by passing buffers as arguments to the processing functions. This is called BYOB — Bring Your Own Buffer.
 : - Also, sometimes using a Pool from the sync package can prove very useful.
 
 
@@ -1058,7 +1064,7 @@ Fork/Join
 .background ./go-fundamentals/perf-tricks_16.svg
 
 : Heap or Stack?
-: This part is specific to the Go compiler. We know that allocating in the heap is expensive, and that allocating on the stack is almost free. But what goes in the heap, and what goes to the stack?
+: This part is specific to the Go compiler. We know that allocating in the heap is expensive (relatively), and that allocating on the stack is almost free. But what goes to the heap, and what goes to the stack?
 : The answer is not intuitive. Some local variable may escape to the heap if we take its reference and pass it around.
 
 
@@ -1075,13 +1081,13 @@ Fork/Join
 
 .background ./go-fundamentals/perf-tricks_18.svg
 
-: Regular expressions are great but they are often overkill for a given need.
+: Regular expressions are great and very powerful. But they are often overkill for a given need.
 
 * 
 
 .background ./go-fundamentals/perf-tricks_18b.png
 
-: In this example, extracting words separated by a slash is MORE LEGIBL and MORE EFFICIENT if we use the standard function strings.Split, instead of a regular expression.
+: In this example, extracting words separated by a slash is MORE LEGIBLE and MORE EFFICIENT if we use the standard function strings.Split, instead of a regular expression.
 
 * 
 
@@ -1119,6 +1125,27 @@ Fork/Join
 * Go GC
 
 .background ./go-fundamentals/background-gopher-top-right.png
+
+: The Garbage Collector.
+: It is so awesome, that there's really not much to say about it.
+: If you have a background in an interpreted language like Javascript, Python, or Java, the principle is the same: You don't have to explictly free the memory yourself.
+: If you come from C or C++, you can consider the GC 
+
+* Garbage Collector
+
+- Doesn't get in your way 
+- Runs concurrently
+- Very short Stop-The-World pauses (<1ms)
+
+: TODO COMMENT
+
+* Garbage Collector
+
+TODO TODO
+
+TODO DISPLAY AND EXPLAIN THE DIAGRAM DENTS DE SICE https://tip.golang.org/doc/gc-guide
+
+: TODO COMMENT
 
 # -----------------------------------------------------------------------------
 
