@@ -671,6 +671,29 @@ Nobody arguing about code formatting
 
 # -----------------------------------------------------------------------------
 
+* Go for NodeJS Developers
+
+.background ./go-fundamentals/background-gopher-top-right.png
+
+: I will be very quick on this section, as there would be quite a lot to say, but we still have over 100 slides after that.
+: So I'll summarize in just a few bullet points.
+
+* Go for NodeJS Developers
+
+- No OOP, no classes -> Focus on behaviours, not on type hierarchy. Use interfaces.
+- Static typing is great. Embrace it! Don't overuse the type *any*.
+- Minimize 3rd party dependencies -> Prefer the standard library.
+- Don't use callbacks -> Use concurrent goroutines and sync.
+- Don't use async/await/promise -> Use channels.
+- Avoid reflection.
+- Be careful with data races.
+
+: If you come from NodeJS, you'll see that Go is very different, and also OPINIONATED.
+: The NodeJS idioms are obviously not the same as the Go idioms.
+: READ THE LIST
+
+# -----------------------------------------------------------------------------
+
 * Error handling
 
 .background ./go-fundamentals/background-gopher-top-right.png
@@ -830,12 +853,6 @@ recover
 # -----------------------------------------------------------------------------
 
 * Go for web, TCP, HTTP2/3, WebSockets
-
-.background ./go-fundamentals/background-gopher-top-right.png
-
-# -----------------------------------------------------------------------------
-
-* Go for NodeJS Developers
 
 .background ./go-fundamentals/background-gopher-top-right.png
 
@@ -1161,7 +1178,7 @@ Fork/Join
 .background ./go-fundamentals/background-gopher-top-right.png
 
 : The Garbage Collector.
-: It is so awesome, that there's really not much to say about it.
+: It is so awesome, that there's really not much to say about it. Of course, there would be a lot to say about its internals, but I won't... because developers DON'T NEED to care about them.
 : If you have a background in an interpreted language like Javascript, Python, or Java, the principle is the same: You don't have to explictly free the memory yourself.
 : If you come from C or C++, you can consider the GC is not your ennemy, it is there to do the tedious memory chores for you.
 
@@ -1171,15 +1188,24 @@ Fork/Join
 - Runs concurrently
 - Very short Stop-The-World pauses (<1ms)
 
-: From the developer POV, letting the GC do its work is really a good idea
+: From the developer POV, letting the GC do its work is really a good idea.
+: It runs automatically, and NOT TRYING to configure it (by tuning the knob values) is often the best thing to do.
 
 * Garbage Collector
 
-T
+Possible optimizations (if proven useful)
 
-TODO DISPLAY AND EXPLAIN THE DIAGRAM DENTS DE SCIE https://go.dev/doc/gc-guide
+- Use Trace and Pprof to measure
+- Make fewer memory allocations
+- Use fewer pointers
+- Set a memory limit (new in 1.19)
 
-: TODO COMMENT
+.link https://go.dev/doc/gc-guide#Optimization_guide go.dev/doc/gc-guide — A Guide to the Go Garbage Collector
+
+: In some cases, you may want to optimize the memory usage of your program, or reduce the total GC work, only if you've actually measured that it is problematic for your use case.
+: My best advice to indirectly reduce the pressure on the GC is to allocate fewer objects in the first place. It is the same advice from the previous section, because allocating has a cost when getting the memory, but it also has a deferred extra cost for the GC.
+: The GC knows the difference between integer fields and pointer fields. It follows the pointers. If you have more simple structures with fewer pointers, you may have less GC work.
+: A brand new feature in Go 1.19 lets you set a MEMORY LIMIT for the program execution. You can read more about this in the article, as well as deeply technical advice for optimizing the GC.
 
 # -----------------------------------------------------------------------------
 
