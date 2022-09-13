@@ -388,6 +388,228 @@ Unlean the _Don't_ _Repeat_ _Yourself_ motto
 
 .background ./go-fundamentals/background-gopher-top-right.png
 
+* First-class functions, and closures
+
+.background ./an-overview-of-go/background-gopher-top-right.png
+
+: Go supports anonymous functions and closures. Let's have a look with an example.
+
+* Simple chronometer
+
+.play go-fundamentals/simple-chrono.go /START OMIT/,/END OMIT/
+
+.play go-fundamentals/go-version.go
+
+: I have a function *fetchData* and I want to know how much time it takes.
+: The traditional way of doing this is to read the clock value just before the function is run, then again just after the function has executed, and substract the two values to compute the execution duration.
+
+* Simple chronometer: with func argument
+
+.play go-fundamentals/simple-chrono2.go /START OMIT/,/END OMIT/,/START OMIT/,/END OMIT/
+
+: We can encapsulate this logic in a function "clock" that takes a function as argument.
+: Its job is to execute the function and return the execution duration.
+: It accepts any function having this exact signature: zero arguments, and zero return values.
+: This is similar to Javascript closures, but with compile-time safety.
+: This is also similar to Java Runnables and Callables, but requires less boilerplate code.
+
+* Chronometer: time a block of code?
+
+	t := time.Now()
+
+	for _, r := range resources {
+		fetch(r)
+	}
+
+	duration := time.Since(t)
+
+: Now if the instructions that I want to time are not a function, but arbitrary lines of code, like this FOR loop.
+: This is not a proper parameter for my "clock" function. What should I do?
+
+* Wrap code in a closure
+
+.play go-fundamentals/simple-chrono3.go /START OMIT/,/END OMIT/
+
+: The solution is to create an anonymous function containing the loop, and pass it as an argument.
+: It's important to be able to use anonymous functions on-the-fly like this, for scope reasons. It's not always possible to declare a new top-level named function that would have access to the same local variables of our current scope.
+: Here it took 2s to fetch the resources SEQUENTIALLY. We'll see later about the opportunity to do this concurrently, to decrease the total latency for better performances.
+
+* Expressiveness
+
+- Type inference
+- Explicit loops and conversions
+- Multiple return values
+- Slice syntax
+- Map syntax
+- 1 string type (UTF-8)
+- Closures
+- Goroutines
+- Gofmt
+
+: The following section is about the SYNTAX of Go code, which is not the most fundamental feature of the language, but is still very important for cognitive load, readability, and sustainability.
+
+* Expressiveness
+
+- *Type* *inference*
+
+  a, b, ok := strings.Cut("en-US", "-")
+
+: Here, we are not writing the type of the variables a, b, ok, because we expect CUT to return 2 strings and a boolean.
+: Cut is similar to Split.
+: The 1st string will receive "en", the 2nd string will be "US", and the boolean will be true, meaning "the separator was found in the 1st argument".
+
+* Expressiveness
+
+- *Type* *inference*
+
+  a, b, ok := strings.Cut("en-US", "-")
+
+.image go-fundamentals/doc-cut.png 
+
+: This is the documentation of the Cut function in the strings package.
+: You can see that Cut takes 2 arguments and returns 3 values.
+
+* Expressiveness
+
+- Type inference
+- *Explicit* *loops* *and* *conversions*
+
+Loop 
+
+  for i := range salaries {
+    salaries[i] += 100
+  }
+
+Conversion 
+
+  var price int
+
+  vat := float32(price) * 0.15
+
+: Except for type inference, Go code tends to be very explicit, sometimes even boring.
+: There are no magic functional functions to iterate over a slice: just write a for loop. The intent and the consequences will be very clear to the reader.
+: An int variable needs to be converted to a float in order to do floating-point computations. The conversion needs to be explicit in the code, no magic, no surprises.
+
+* Expressiveness
+
+- Type inference
+- Explicit loops and conversions
+- *Multiple* *return* *values*
+
+  a, b, ok := strings.Cut("en-US", "-")
+
+: As we've already seen, functions are not limited to return zero or one result. It is very common and useful to return several values.
+: Actually, I'm surprised that this is not the standard in similar languages like Java and C++. I can take several inputs, why would it not be possible to compute several outputs?
+: This is also extremely useful for error handling, because the idiomatic way to raise an error is to return an error value as last return parameter.
+
+* Expressiveness
+
+- Type inference
+- Explicit loops and conversions
+- Multiple return values
+- *Slice* *syntax*
+
+  week := []string{"monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"}
+
+  weekend := week[5:7]
+
+  fishday := week[4]
+
+  fantasyWeek := append(week, "caturday")
+
+: Slices are very powerful and versatile dynamic arrays. It is a pleasure to use slicing, which creates a window to some part of the list.
+: It takes a few days to learn and understand precisely how SLICES and APPEND work together. I really love this data structure.
+
+* Expressiveness
+
+- Type inference
+- Explicit loops and conversions
+- Multiple return values
+- Slice syntax
+- *Map* *syntax*
+
+.play go-fundamentals/map-ops.go /START OMIT/,/END OMIT/
+
+: Maps are another very powerful built-in type. They are associative arrays that map unique keys to some values. They are implemented as hashmaps under the hood, but we don't need to care about this implementation detail.
+: Here you can see that the map OPS has keys of type STRING, and values of type FUNCTION THAT TAKES 2 INTS AND RETURN AN INT.
+: I initialize it with 4 arithmetic operations. It is very convenient to iterate over all the keys and values with the RANGE keyword. The value OP is a function, which means of course that I can call the function OP inside the body of the loop.
+
+* Expressiveness
+
+- Type inference
+- Explicit loops and conversions
+- Multiple return values
+- Slice syntax
+- Map syntax
+- *1* *string* *type* (UTF-8)
+
+.play go-fundamentals/string-utf8.go /START OMIT/,/END OMIT/
+
+: In Go, there is a single type for strings. Strings are very similar to immutable byte slices. UTF-8 is the default encoding. Each character is called a RUNE.
+: The length of a string is always its number of bytes, however it may contain multi-byte characters. Here you can see, the string s has length 89, but it contains 43 runes. 
+: One needs to know some details about UTF-8 to figure out why some of these characters are displayed as 2 distinct runes.
+: Strings supports slicing, which is efficient and safe, as all strings are immutable.
+
+* Expressiveness
+
+- Type inference
+- Explicit loops and conversions
+- Multiple return values
+- Slice syntax
+- Map syntax
+- 1 string type (UTF-8)
+- *Closures*
+
+  chomp := func(s string) string { return s[:len(s)-1] }
+\...
+
+  func clock(f func()) time.Duration {
+      t := time.Now()
+      f()
+      return time.Since(t)
+  }
+
+: In Go, functions are first-class citizens, which is a fantastic feature for expressiveness. This is common in dynamic languages like JS, but less common in statically, strongly typed languages. Functions are strongly typed, they can be passed as arguments, and returned as value. Closure can freely access all of the variables in the scope where they are defined.
+: We can do many things with METHODS and INTERFACES, but sometimes a FUNCTION variable is exactly what we need.
+
+* Expressiveness
+
+- Type inference
+- Explicit loops and conversions
+- Multiple return values
+- Slice syntax
+- Map syntax
+- 1 string type (UTF-8)
+- Closures
+- *Goroutines*
+
+: Goroutines are GREEN THREADS. They are similar to a Java thread of C++ thread, but more lightweight.
+: It is cheap and idiomatic to create many goroutines for various tasks.
+
+* Expressiveness
+
+- Goroutines
+
+.play go-fundamentals/goroutine-hello.go /START OMIT/,/END OMIT/
+
+: The syntax reflects this and encourages you to launch a new goroutine, simply by preceding a function call by the keyword GO.
+: This is just a toy example, but in a real production usage, it is best to decide precisely when the Goroutine is supposed to stop, and how it will synchronize and communicate with other goroutines.
+: The Go keyword, and the prowerful objects in the SYNC package, make it more straightforward to write correct concurrent code in Go, than in most other languages.
+
+* Expressiveness
+
+- Type inference
+- Explicit loops and conversions
+- Multiple return values
+- Slice syntax
+- Map syntax
+- 1 string type (UTF-8)
+- Closures
+- Goroutines
+- *Gofmt*
+
+: GOFMT is the cherry on the top. Let's see what this is about...
+
 * Gofmt
 
 Unique code formatter
@@ -396,7 +618,7 @@ Nobody arguing about code formatting
 
 .background ./go-fundamentals/mindblown.png
 
-: Go has a unique code style formatter. Does it produce a good style?
+: Go has a unique code style formatter called GOFMT. Does it produce a good style?
 
 : Yes. No. It doesn't matter! What matters is that **everybody** uses the same formatter,
 : and **nobody** is wasting time convincing others about the best placement of the opening curly brace.
@@ -745,5 +967,3 @@ GitHub @Deleplace
 
 This presentation:
 .link https://talks.godoc.org/github.com/Deleplace/presentations/2022/09/14/go-fundamentals.slide talks.godoc.org/github.com/Deleplace/presentations/2022/09/14/go-fundamentals.slide
-
-* __________blank________________
