@@ -635,6 +635,40 @@ Nobody arguing about code formatting
 
 .background ./go-fundamentals/background-gopher-top-right.png
 
+: There's a nice transition from "Expressiveness" to "Composition", as we now know that Go is not 
+: OBJECT-ORIENTED, so how are going to express a type that is supposed to extend another type?
+
+* Composition 
+
+- "Prefer Composition over Inheritance" (even in OOP languages)
+- Encapsulation
+- Embedding (advanced)
+
+: It is a best practice IMO, in most languages, to avoid using class inheritance too much. Sometimes, the relationship and contract between a parent class and a child class can be too intimate, which leads to some problems.
+: It is still recommended to group objects together and to encapsulate object dependencies, and for this we use Composition.
+: Basically, an object of type A may have a FIELD of type B.
+
+* Composition 
+
+.code ./go-fundamentals/base64-decoder.go.txt
+
+.play ./go-fundamentals/base64-new-decoder.go /START OMIT/,/END OMIT/
+
+: For example, have you heard of base64 encoding? It's a binary transform that uses only 6 useful bits per output character, which makes it safe to use on the web as it is plain text.
+: Here, THIS TEXT can be decoded into the short data "Hello India". The stdlib base64 package contains an UNEXPORTED struct type "decoder", which contains an io.Reader instance.
+: Instead of trying to EXTEND an existing Reader type, this decoder CONTAINS an underlying Reader object. This is COMPOSITION, rather than INHERITANCE.
+: As you can see, decoder contains an io.Reader instance, and it also implements the io.Reader interface, with its Read method here.
+
+* Composition 
+
+- Advanced: *Embedding*
+
+.play ./go-fundamentals/guarded-string.go /START OMIT/,/END OMIT/
+
+: A specific feature of Go is called EMBEDDING. EMBEDDING is a kind of composition, where the field name is implicit and omitted.
+: All the fields and methods of the embedded type are accessible to the containing type, as if it was its own. This technique can save some boilerplate code, by removing the need for delegate wrapper methods (GuardedString.Lock(), etc.).
+: Embedding also has other subtle advantages. However, my advice to Go beginners would be: don't use embedding everywhere, as it is unlikely to match the concepts you may know from other languages. Use plain composition, with explicit field names, when possible.
+
 # -----------------------------------------------------------------------------
 
 * Error handling
@@ -1129,7 +1163,7 @@ Fork/Join
 : The Garbage Collector.
 : It is so awesome, that there's really not much to say about it.
 : If you have a background in an interpreted language like Javascript, Python, or Java, the principle is the same: You don't have to explictly free the memory yourself.
-: If you come from C or C++, you can consider the GC 
+: If you come from C or C++, you can consider the GC is not your ennemy, it is there to do the tedious memory chores for you.
 
 * Garbage Collector
 
@@ -1137,13 +1171,13 @@ Fork/Join
 - Runs concurrently
 - Very short Stop-The-World pauses (<1ms)
 
-: TODO COMMENT
+: From the developer POV, letting the GC do its work is really a good idea
 
 * Garbage Collector
 
-TODO TODO
+T
 
-TODO DISPLAY AND EXPLAIN THE DIAGRAM DENTS DE SICE https://tip.golang.org/doc/gc-guide
+TODO DISPLAY AND EXPLAIN THE DIAGRAM DENTS DE SCIE https://go.dev/doc/gc-guide
 
 : TODO COMMENT
 
