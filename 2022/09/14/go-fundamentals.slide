@@ -390,7 +390,7 @@ Unlean the _Don't_ _Repeat_ _Yourself_ motto
 
 * First-class functions, and closures
 
-.background ./an-overview-of-go/background-gopher-top-right.png
+.background ./go-fundamentals/background-gopher-top-right.png
 
 : Go supports anonymous functions and closures. Let's have a look with an example.
 
@@ -938,6 +938,181 @@ Fork/Join
 * Optimizing for maximum efficiency
 
 .background ./go-fundamentals/background-gopher-top-right.png
+
+* 
+
+.background ./go-fundamentals/perf-tricks.svg
+
+: Here is a quick checklist of common performance bottlenecks, and how we can address them in Go
+
+* 
+
+.background ./go-fundamentals/perf-tricks_1.svg
+
+: What should you do if your code is already fast?
+
+* 
+
+.background ./go-fundamentals/perf-tricks_2.svg
+
+: I strongly recommend not to optimize too early, and not to try to optimize everything. 
+: And above all: don't turn your code into a giant spaghetti monster just for the sake of performance. Please don’t.
+
+* 
+
+.background ./go-fundamentals/perf-tricks_3.svg
+
+: However if your code is not fast enough, then look at the ever-popular execution of useless instructions!
+
+* 
+
+.background ./go-fundamentals/perf-tricks_4.svg
+
+: Obviously, hunting and eliminating useless code is a good thing. Please do it.
+
+* 
+
+.background ./go-fundamentals/perf-tricks_5.svg
+
+: The Big-O of a function is its theoretical computational complexity.
+: Big-O analysis is the golden metric at the university, and also in some job interviews.
+
+* 
+
+.background ./go-fundamentals/perf-tricks_6.svg
+
+: In my experience however, Big-O is not always helpful, and can even be misleading.
+: Of course, if your function is quadratic or cubic, then you probably won't be able to go very far, and a better algorithm will be needed. However in my experience, dirty slow code and clean efficient code often have the exact same time complexity.
+: The real difference is how the efficient code successfully gets rid of all the clutter, that we commonly sweep under the carpet of "irrelevant hidden multipliers".
+
+* 
+
+.background ./go-fundamentals/perf-tricks_7.svg
+
+: Network I/O and external API calls are relatively extremely expensive.
+
+* 
+
+.background ./go-fundamentals/perf-tricks_8.svg
+
+: My advice is to:
+: - make as few requests as possible,
+: - and not to block everything while waiting for a network response
+
+
+* 
+
+.background ./go-fundamentals/perf-tricks_9.svg
+
+: Reading from, and writing to, the filesystem is slower than most of what we do in memory and in the CPU.
+
+* 
+
+.background ./go-fundamentals/perf-tricks_10.svg
+
+: My advice is:
+: - To work as much as you can IN MEMORY
+: - And to do your I/O in a non-blocking way! When one goroutine is busy reading from the disk, then the other goroutines still have ample opportunity to do some useful work.
+
+* 
+
+.background ./go-fundamentals/perf-tricks_11.svg
+
+: Contention!
+: Thousands of goroutines waiting for each other is a perfect recipe for unnecessary slowness.
+
+* 
+
+.background ./go-fundamentals/perf-tricks_12.svg
+
+: To limit the excessive need for constant communication between goroutines, I suggest to create workers.
+: The worker pattern looks like this: If I have 4 CPU cores and 1M computations to perform…
+: I *could* launch 1M goroutines, which would have a cost in scheduling and in synchronization to gather the results.
+: But it’s more efficient to start a small number of worker goroutines, say 8, and have each worker process one 8th of the total load sequentially.
+
+* 
+
+.background ./go-fundamentals/perf-tricks_13.svg
+
+: Asking for memory to the operating system and to the Go runtime is a notoriously slow operation.
+
+* 
+
+.background ./go-fundamentals/perf-tricks_14.svg
+
+: My advice is to:
+: - Allocate large chunks of memory in one single call to the built-in “make” function
+: - Reuse memory by passing buffers as arguments to the processing functions
+: - Also, sometimes using a Pool from the sync package can prove very useful.
+
+
+* 
+
+.background ./go-fundamentals/perf-tricks_15.svg
+
+: For example, allocating UPFRONT is more efficient than allocating many times with append in a loop.
+: (EXPLAIN HOW DYNAMIC ARRAY WORKS HERE)
+
+* 
+
+.background ./go-fundamentals/perf-tricks_16.svg
+
+: Heap or Stack?
+: This part is specific to the Go compiler. We know that allocating in the heap is expensive, and that allocating on the stack is almost free. But what goes in the heap, and what goes to the stack?
+: The answer is not intuitive. Some local variable may escape to the heap if we take its reference and pass it around.
+
+
+* 
+
+.background ./go-fundamentals/perf-tricks_17.svg
+
+: the Go specification does not say anywhere if memory is allocated on the stack or in the heap. In fact, the spec contains zero occurrence of the words “stack” and “heap”.
+: In the end, it depends if the compiler is clever enough to prove that a variable doesn’t escape, so it is safe to put it on the stack.
+: Use this extra gcflag to determine which local variables escape or not. You may then try to adapt the function scope to "leak" fewer references.
+
+
+* 
+
+.background ./go-fundamentals/perf-tricks_18.svg
+
+: Regular expressions are great but they are often overkill for a given need.
+
+* 
+
+.background ./go-fundamentals/perf-tricks_18b.png
+
+: In this example, extracting words separated by a slash is MORE LEGIBL and MORE EFFICIENT if we use the standard function strings.Split, instead of a regular expression.
+
+* 
+
+.background ./go-fundamentals/perf-tricks_19.svg
+
+: My advice, from the performance POV, is basically to avoid Regular Expressions when you can.
+: You can often get better results using the standard packages strings and bytes, or writing your own for loop.
+
+* 
+
+.background ./go-fundamentals/perf-tricks_20.svg
+
+: A function call incurs a non-zero cost, which can be significant if the function is very small, and called millions of times.
+: The compiler is able to INLINE some small functions, which means to COPY-AND-PASTE THE BODY of the function, instead of actually making a function call.
+
+* 
+
+.background ./go-fundamentals/perf-tricks_20b.png
+
+: This function on the left will NOT BE INLINED.
+: But if you as a developer write this equivalent function on the right, then the compiler will INLINE it, effectively saving the cost of a function call, and potentially enabling other awesome compiler optimizations as well.
+
+* 
+
+.background ./go-fundamentals/perf-tricks_21.svg
+
+: The language specification does not talk at all about inlining.
+: The compiler has its own very specific internal rules when it comes to decide if a small function will be inlined or not.
+: Chasing the inliner, to have it inline a specific hot function, has become a popular sport! 
+
+
 
 # -----------------------------------------------------------------------------
 
