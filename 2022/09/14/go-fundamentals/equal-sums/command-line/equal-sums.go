@@ -7,29 +7,11 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"os"
-	"sort"
-	//	"runtime"
-	"strconv"
+
 	"strings"
+
+	"golang.org/x/exp/slices"
 )
-
-func main() {
-	if len(os.Args) < 9 {
-		fmt.Fprintf(os.Stderr, "Usage: %s <list of 8+ integers> \n", os.Args[0])
-		os.Exit(1)
-	}
-
-	caseStr := os.Args[1:]
-	caseInts, err := string2int64(caseStr)
-	if err != nil {
-		panic(err)
-	}
-	//caseInts := []int64{120, 266, 858, 1243, 1657, 1771, 2328, 2490, 2665, 2894, 3117, 4210, 4454, 4943, 5690, 6170, 7048, 7125, 9512, 9600}
-	msg := solve(caseInts)
-
-	fmt.Println(msg)
-}
 
 // Y is the size of the subsets that will be randomly picked
 const Y = 6
@@ -46,10 +28,10 @@ func solve(in []int64) string {
 			in[j], in[i] = in[i], in[j]
 		}
 		copy(cur[:], in[0:Y])
-		s := sum(cur)
+		s := cur.sum()
 		if other, ok := memo[s]; ok {
-			sort.Sort(&other)
-			sort.Sort(&cur)
+			other.Normalize()
+			cur.Normalize()
 			if other != cur {
 				prettyOther := strings.Join(int642string(other[:]), " + ")
 				prettyCur := strings.Join(int642string(cur[:]), " + ")
@@ -61,7 +43,7 @@ func solve(in []int64) string {
 	return ""
 }
 
-func sum(x sol) int64 {
+func (x sol) sum() int64 {
 	s := int64(0)
 	for _, a := range x {
 		s += a
@@ -69,26 +51,8 @@ func sum(x sol) int64 {
 	return s
 }
 
-func (x *sol) Len() int           { return Y }
-func (x *sol) Less(i, j int) bool { return x[i] < x[j] }
-func (x *sol) Swap(i, j int)      { x[i], x[j] = x[j], x[i] }
-
-func string2int64(str []string) ([]int64, error) {
-	ints := make([]int64, len(str))
-	for i, s := range str {
-		var err error
-		ints[i], err = strconv.ParseInt(s, 10, 64)
-		if err != nil {
-			return nil, err
-		}
-	}
-	return ints, nil
-}
-
-func int642string(ints []int64) []string {
-	str := make([]string, len(ints))
-	for i, val := range ints {
-		str[i] = fmt.Sprintf("%v", val)
-	}
-	return str
+func (s *sol) Normalize() {
+	// Sort the Y numbers in ascending order, so that 2 identical solutions can
+	// be effectively compared
+	slices.Sort(s[:])
 }

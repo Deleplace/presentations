@@ -6,17 +6,10 @@ import (
 )
 
 func BenchmarkSolve(b *testing.B) {
+	in := randomInput()
 	for i := 0; i < b.N; i++ {
-		in := randomInput()
 		solution := solve(in)
-		_ = solution
-	}
-}
-
-func BenchmarkSolveTwice(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		solve(randomInput())
-		solve(randomInput())
+		Sink = solution
 	}
 }
 
@@ -28,3 +21,6 @@ func randomInput() []int64 {
 	}
 	return in
 }
+
+// Sink prevents optimizing computation away
+var Sink string
