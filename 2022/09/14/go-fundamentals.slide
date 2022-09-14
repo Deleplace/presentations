@@ -178,19 +178,46 @@ Orthogonality
 .image ./go-fundamentals/channel.jpg
 
 : It is extremely useful that concurrency primitives are core to the language. Writing correct concurrent code is a difficult challenge in general, and it is made easier by Go's simple memory model, which is based on Tony Hoare's CSP (which stands for "Communicating Sequential Processes").
-
 : Writing *sequential* code is fine, and most often it's the best thing to do. There exists several reasons why we may want to write concurrent code. For example, if we have some heavy computations to perform, and 64 CPU cores, then it makes sense to use many cores in parallel. But it's not always about the CPU! For example when a goroutine is writing to the filesystem, or waiting for a network response... then it's very useful to have other goroutines continue their work.
+: Today we're introducing quite a few buzzwords related to concurrent programming: Goroutines, Mutexes, Channels, WaitGroups. Tomorrow we have a full session together dedicated to Concurrency in Go so ... staty tuned for more details!
 
 * Network
 
 - Excellent standard library
-- Creating a server is straightforward
+- Creating a web server is straightforward
 
 .code ./go-fundamentals/simple-webapp.go
 
 : The stlib comes "batteries included" when it comes to deploy HTTP handlers, generate JSON, etc.
+: Writing an HTTP server is effectively just a few lines of code. You can use the net/http package for example to build a server that generates HTML, or that generates JSON for a REST API.
 
-: Writing an HTTP server is effectively just a few lines of code.
+* Network
+
+- Excellent standard library
+- Creating a web server is straightforward
+- HTTP/2 support out-of-the-box
+
+: Starting with Go 1.6 released in 2016, the HTTP package has transparent support for the HTTP/2 protocol when using HTTPS.
+
+* Network
+
+- Excellent standard library
+- Creating a web server is straightforward
+- HTTP/2 support out-of-the-box
+- TCP/IP, UDP, DNS
+
+: If you need to interact directly with lower-level protocols like TCP, you will find support in the standard library, in the NET package.
+
+* Network
+
+- Excellent standard library
+- Creating a web server is straightforward
+- HTTP/2 support out-of-the-box
+- TCP/IP, UDP, DNS
+- WebSockets: prefer github.com/*gorilla*/websocket, or *nhooyr.io*/websocket
+
+: WebSockets are kind of an exception here, because the implementation provided in the stdlib is NOT the best one. We explicitly recommend using GORILLA or NHOOYR instead.
+: That being said, using these 3rd party libraries it is straightforward to write a WS server or a WS client in Go. That's what we've done for example to build the online game Google I/O Adventure: all the action communication between the players and the server was sent via WebSockets.
 
 * Memory safety
 
@@ -849,12 +876,6 @@ recover
 : It is much more verbose, because whenever we're reading important data from the file, we explicitly test its validity and return an error.
 : If the data is invalid, we'll catch it inside one of the checks, and gracefully return an error.
 : When we're accessing data at a given index inside the slice, we're sure that it cannot panic, because we've already checked.
-
-# -----------------------------------------------------------------------------
-
-* Go for web, TCP, HTTP2/3, WebSockets
-
-.background ./go-fundamentals/background-gopher-top-right.png
 
 # -----------------------------------------------------------------------------
 

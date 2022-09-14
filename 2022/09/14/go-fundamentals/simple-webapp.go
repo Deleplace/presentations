@@ -6,12 +6,12 @@ import (
 	"net/http"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Hello London")
-}
+func handler(w http.ResponseWriter, r *http.Request) { // HL
+	fmt.Fprintln(w, "Hello India") // HL
+} // HL
 
 func main() {
-	http.HandleFunc("/", handler)
-	err := http.ListenAndServe(":8080", nil)
+	http.HandleFunc("/", handler)            // HL
+	err := http.ListenAndServe(":8080", nil) // HL
 	log.Fatal(err)
 }
