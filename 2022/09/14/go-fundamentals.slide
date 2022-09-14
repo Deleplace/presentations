@@ -1230,9 +1230,77 @@ Possible optimizations (if proven useful)
 
 # -----------------------------------------------------------------------------
 
-* Go profiling (Pprof)
+* Profiling
 
 .background ./go-fundamentals/background-gopher-top-right.png
+
+: When we talk about Profiling in Go, we immediately think of Pprof.
+: Pprof is a really great profiler, and is often used alongside the execution tracer called Trace.
+: Pprof and Trace can do CPU profiling, memory profiling, and they can also help investigate CONTENTION, when goroutines are blocked too often for some reason.
+: I know that you may have specific questions about Profiling, but IMO it's still important that I start with a real-life example.
+
+* Example: Equal Sums
+
+Problem from _Google_ _Code_ _Jam_ 2012 : ❝Find 2 subsets having the same sum❞
+
+.image ./go-fundamentals/equal_sums_input.png _ 400
+
+: This was a question in the online algorithm contest Google Code Jam, 10 years ago. You have a set of integers, and you must find 2 subsets that have the same sum.
+
+* Example: Equal Sums
+
+Problem from _Google_ _Code_ _Jam_ 2012 : ❝Find 2 subsets having the same sum❞
+
+.image ./go-fundamentals/equal_sums_solution.png _ 400
+
+: For example, the red subset here and the green subset have the same sum 2743. This is one correct solution to this input.
+: It is not trivial at all to find efficiently, because when you give me N numbers, there exists 2^N subsets. That is a huge number, too large to test them all.
+
+* Example: Equal Sums
+
+Problem from _Google_ _Code_ _Jam_ 2012 : ❝Find 2 subsets having the same sum❞
+
+.image ./go-fundamentals/equal_sums_solution.png _ 400
+
+Nice algorithm uses :
+
+- random
+- hashmap
+
+: It turns out that a stochastic strategy works very well in pratice. Take a random subset. Compute its sum. Keep it on the side. Repeat. As soon as you see a collision, you've found a solution.
+: I was surprised to observe that this approach finds solutions very fast.
+
+* Example: Equal Sums
+
+Pprof demo
+
+: SHARE FULL SCREEN, AND RUN BENCHMARKS + PPROF VIZ
+: I will show you my code, and launch a benchmark. I highly recommend doing performance exploration in TEST FILES. The standard testing and benchmarking tooling is great for this.
+
+* Pprof CPU profile
+
+.image ./go-fundamentals/pprof_graph.png _ 1024
+
+: Today's profile visualization looks quite different from my graphs from 7 years ago. Back then, map access and random number generation would really dominate the benchmark.
+: Since then, the Go runtime has evolved, the standard library has evolved, and even the hardware architecture has evolved, as I'm currently using a Mac laptop with a M1 processor, which didn't exist 7 years ago.
+: This is an important point: Benchmarking and Profiling make sense in the context of a given architecture. Make sure to measure in the same environment as production! Also, what is true today might be different in 2 years.
+
+* Pprof CPU profile
+
+.image ./go-fundamentals/pprof_graph_rand.png _ 1024
+
+: When I saw that RNG was taking 30% of the total execution time, and 40% of the solving time, I wasn't really expecting it. It was obvious only in hindsight, when reading the code again.
+: For me this was an opportunity because I didn't need high-quality RNG with proper statistical properties. I just needed to come up with many subsets, with at least some degree of variety.
+: By implementing my own "poor-man"'s RNG, something very crude, I could shave off ~35% of the solving time.
+
+* Pprof CPU profile
+
+.image ./go-fundamentals/pprof_graph_map.png _ 1024
+
+#* Pprof memory profile
+#
+#.image ./go-fundamentals/pprof_heap_memory_graph.jpg _ 1024
+
 
 * Thank you :)
 
