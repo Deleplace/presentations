@@ -1,0 +1,344 @@
+Concurrency in Go
+2022-09-15
+
+Valentin Deleplace
+Happy path engineer at Google Cloud Platform
+@val_deleplace
+
+: Hello, my name is Valentin 
+: I'm a Developer Advocate for Google Cloud, and I've been using Go as my daily programming language for over 8 years now.
+
+* About me 
+
+#- Java web dev for 10+ years 
+#- Discovered Go in 2012
+#- Deployed Go apps on App Engine in 2013
+#- Used Go for web development, command line tools, data processing...
+#- Joined Google as a Cloud DA in 2017
+#- ...and never stopped using Go as main daily language!
+
+.image ./files/valentin.png 560 _
+
+* Goals
+
+- Simplicity
+- Scalability
+- Stability: Go 1 compatibility promise
+- Memory safety
+- *Good* *concurrency*
+- Good networking
+
+: 
+
+* Concurrency
+
+- Excellent support
+- Goroutines are lighweight threads
+- Message passing through channels
+
+.image ./files/channel.jpg
+
+: 
+
+#* Concurrency
+#
+#"Don't communicate by sharing memory, share memory by communicating"
+#
+#- Channels
+#
+#: 
+
+* Fork/Join
+
+.background ./files/background-gopher-top-right.png
+
+: Have you ever heard of the "Fork/Join model"?
+: It's an obscure word for a common job: "Launch several tasks concurrently, and wait for them all to complete".
+
+* Serial execution
+
+.play ./files/abcde_serialexec.go /START OMIT/,/END OMIT/
+
+.link https://play.golang.org/p/rvnHfKAkRL6 🐭
+
+You have 5 tasks A, B, C, D, E.
+
+: Let's say you need to execute 5 tasks A B C D E, which are all independant from each other.
+: This is what the code looks like when you run them <b>sequentially</b>.
+: When I click the [RUN] button, what happens is that my local code is sent to the Go Playground server, which compiles it, executes it, and streams the output back to my browser.
+: This is not a simulation, this is actually my code executed server-side.
+
+* Utility goroutine spawner
+
+.code ./files/runconcurrent.go HLdecl
+
+You may often write such code to fit your needs.
+
+: To run them concurrently, I create this helper function "RunConcurrent". Let's see what it does.
+
+* Utility goroutine spawner
+
+.code ./files/runconcurrent.go HLdecl
+
+Func arguments (variadic)
+
+: First, it takes an arbitrary number of functions as arguments. This is called a <b>variadic</b> parameter. Such a parameter is effectively a list of things that I want to execute concurrently.
+: Of course this is possible only if the tasks are independent, i.e. if they don't depend on the result of the previous task.
+
+* Utility goroutine spawner
+
+.code ./files/runconcurrent.go HLwg
+
+Use a `sync.WaitGroup` to join at completion
+
+: The WaitGroup is a synchronization device that is perfect to implement a Fork/Join. It contains an internal counter that will eventually reach zero, at which point the calling goroutine will resume its own execution. There are only 3 methods to know about:
+: "Add" to specify the number of tasks. This is the initial value of the counter. "Done" when a task has completed. It decrements the counter. And "Wait" which is blocking until the counter has reached value zero.
+: The keyword "go" here tells the runtime to launch a new goroutine for this function. A goroutine is a lightweight thread.
+
+#Important: call `wg.Add` _before_ spawning the goroutines
+
+.play ./files/abcde_concurrentexec_bug.go /START OMIT/,/END OMIT/
+
+.link https://play.golang.org/p/fek68ng5lN_8 🐭
+
+* Utility goroutine spawner
+
+.code ./files/runconcurrent-fix1.go HLtrap
+
+Must bind to a new variable at each loop iteration
+
+.play ./files/abcde_concurrentexec_fix1.go /START OMIT/,/END OMIT/
+
+.link https://play.golang.org/p/QbBtD-ZFz7G 🐭
+
+: To fix this, we must make sure that each goroutine properly *captures* the current value of loop variables.
+: To achieve this, we pass the loop variable f as an argument of the anonymous function. This is a scope solution to a scope issue.
+: Let's run again... this time, each function has been executed exactly once. Of course, there is no guarantee about their exact ordering, as they were run *concurrently*.
+
+#* Utility goroutine spawner
+#
+#.code ./files/runconcurrent-fix2.go HLtrap
+#
+#.link https://play.golang.org/p/TKm_gzkWB8M 🐭
+#
+#Must bind to a new variable at each loop iteration
+#
+#* Utility goroutine spawner
+#
+#.code ./files/runconcurrent-fix3.go HLtrap
+#
+#.link https://play.golang.org/p/vO_sYy7v67i 🐭
+#
+#Must bind to a new variable at each loop iteration
+
+* Example: page blocks from data sources
+
+.image ./files/aggregate_page.png 580 _
+
+: Now, a more concrete usage of concurrency. Let's say I'm the admin of... a great... 20th century looking website.
+: All the HTML is generated server-side, using 3 data sources: 1 for the currently logged User Profile, 1 to display the weahter forecast on the left bar, and 1 to display the news on the right.
+
+* Serial exec
+
+.play ./files/serialexec.go  /START OMIT/,/END OMIT/
+
+.link https://play.golang.org/p/zFJuKIt0Zdi 🐭
+
+.image ./files/waterfall-serial.png
+
+: In my server handler, fetching all the fresh data sequentially takes a time proportional to the sum of the services latencies.
+: This is actually the bottleneck of my server handler: generating and serving HTML is very fast, and waiting for my 3 data sources accounts for almost 100% of the service time (which is the server latency when handling one incoming HTTP request).
+: Let's execute theses 3 funcs sequentially... the total latency is indeed 6 seconds. Not really great for a single page!
+
+* Concurrent exec
+
+.play ./files/concurrentexec.go  /START OMIT/,/END OMIT/
+
+.link https://play.golang.org/p/mjoxylCbTpX 🐭
+
+.image ./files/waterfall-concurrent.png
+
+: Now we're using our nice utility function RunConcurrent. The total latency should in theory be roughly equal to the latency of the slowest service, which happens to be the weather forecast.
+: Let's try it... yes, we fetched everything in only 3s. That's twice as fast as the sequential version. Good job!
+: Let me emphasize that we gain this speedup EVEN IF OUR SERVER HAS A SINGLE CPU CORE. Thanks to concurrency, we're waiting for several network responses simultaneously, effectively parallelizing some work.
+: The Fork/Join exercise is straightforward and convenient in this case, but in general be very careful with concurrency!
+
+* What if my services don't have the same signature?
+
+
+	func profile(username string) error {...}
+
+	func news() {...}
+
+	func weather(city string, day time.Time) {...}
+
+: If my 3 services' functions have various signatures, then unfortunately it's not possible to pass them as arguments of RunConcurrent.
+: I'll pause for a second and let you think of a possible solution. PAUSE 3 SECONDS
+: Obviously, we need some kind of adapter. Let's wrap the calls in anonymous functions!
+
+* Wrap in closures
+
+	RunConcurrent(
+		func() { perr = profile(currentuser) },
+		news,
+		func() { weather(city, time.Now()) },
+	)
+
+.link https://play.golang.org/p/4RcpneYjNd6 🐭
+
+- Closures can *read* variables from outside their body
+- Closures can *write* variables from outside their body
+
+: In the first closure (which has the exact signature expected by RunConcurrent), a local variable <b>perr</b> declared somewhere above takes the error return value of func "profile".
+: In the last closure, we pass the local variable <b>city</b> declared somewhere above as argument of func "weather"
+: As the middle function "news" already has the expected signature, we dont need to wrap it at all.
+
+* Warning
+
+Concurrency and parallelism are *hard* and *subtle*.
+
+They are made easier in go, but there is still plenty of room to shoot self in the foot.
+
+.image ./files/plane_right.jpg _ 600
+
+: This is my general Public Service Announcement about concurrency.
+: Concurrent code is more difficult to write, more difficult to read, and much more difficult to reason about, than sequential code.
+: If you have the opportunity to achieve a job with sequential code, maybe you don't need concurrency at all.
+
+* Testing and data races
+
+.background ./files/background-gopher-top-right.png
+
+: For example, a data race condition is a nasty bug where 2 goroutines are writing to and reading from a variable in memory, without proper synchronization.
+: When this happens, the behavior is undefined. This means that the program may crash, or and may behave correctly 99% of the time and silently produces wrong results 1% of the time.
+: As an illustration, let's have a look at the Testing tooling.
+
+* A simple server : hit counter
+
+	package main
+
+	import "net/http"
+
+	func main() {
+		http.HandleFunc("/", h)
+		http.ListenAndServe(":7070", nil)
+	}
+
+	var count int = 0
+
+	func h(w http.ResponseWriter, r *http.Request) {
+		count++
+	}
+
+: This very simple web server has a global variable <b>count</b> and a single handler <b>h</b> which increments the variable.
+: Incrementing is actually not an atomic operation, it consists of 1 read operation and then 1 write operation. And I can't see any explicit synchronization in this code!
+: The standard library web server is able to accept many requests concurrently, so I strongly suspect that we may have a data race problem here.
+
+* Test the handler concurrently
+
+	func TestHandler(t *testing.T) {
+		count = 0
+		for i := 0; i < 200; i++ {
+			go h(nil, nil)
+		}
+
+		time.Sleep(3 * time.Second)
+		if count != 200 {
+			t.Errorf("Expected %d hits, got %d", 200, count)
+		}
+	}
+
+ 
+
+	$ go test
+	PASS
+	ok
+
+	$ go test
+	--- FAIL: TestHandler (3.00s)
+		racy_handler_test.go:16: Expected 200 hits, got 194
+	FAIL
+
+: A unit test is a function whose name starts with "Test", and which accepts a single argument of type "testing.T".
+: Running this test once will call the handler 200 times. When I run the test with the command "go test", I see that it succeeds and I open a bottle of champagne.
+: However if I run the same test a second time, now it's failing because the counter doesn't have the expected value. This is a flaky test! Not very fun, as you may trust it and ship very buggy code to production.
+: Actually it's not the fault of the test itself. It's the handler which is flaky and needs to be fixed.
+: BTW sleeping for 3 seconds in the hope that it will be enough to process 200 requests is a very very bad practice. You should in theory be able to launch 200 requests and properly wait for them all to complete. E.g use a WaitGroup! WaitGroups are not the only option, there exist other good synchronization devices. 
+
+* Use the built-in race detector
+
+	$ go test -race
+
+	==================
+	WARNING: DATA RACE
+	Read by goroutine 8:
+	  racy_server.go:13 +0x30
+
+	Previous write by goroutine 7:
+	  racy_server.go:13 +0x4c
+
+	Goroutine 8 (running) created at:
+	  racy_handler_test.go:12 +0x86
+	  testing.tRunner()
+	      /usr/local/go/src/testing/testing.go:473 +0xdc
+
+	Goroutine 7 (finished) created at:
+	  racy_handler_test.go:12 +0x86
+	  testing.tRunner()
+	      /usr/local/go/src/testing/testing.go:473 +0xdc
+	==================
+	--- FAIL: TestHandler (3.01s)
+	racy_handler_test.go:16: Expected 200 hits, got 162
+	FAIL
+
+: The Testing tooling comes with an extremely powerful feature called the Data Race Detector.
+: By creating a specially instrumented compiled version of your code, it's able to detect when a variable was accessed by 2 goroutines without proper synchronization, and shout a big WARNING with the two incriminated LOCs.
+: This is actually awesome! Don't think that you just have a handful of harmless data races, as there is no such thing. Concurrency bugs need to be hunted and fixed.
+
+* Test the server concurrently
+
+	func TestServer(t *testing.T) {
+		count = 0
+		go main()
+		for i := 0; i < 200; i++ {
+			go http.Get("http://localhost:7070/")
+		}
+
+		time.Sleep(3 * time.Second)
+		if count != 200 {
+			t.Errorf("Expected %d hits, got %d", 200, count)
+		}
+	}
+
+: In the previous example we were directly testing the handler function, which was kind of a shortcut compared to the real client-server experience.
+: With a little extra code we can test the equivalent scenario by actually launching 200 HTTP requests, not just 200 function calls.
+
+* Use -race in production
+
+- if you have many servers, enable race detector on one of them
+
+- or enable it on your server for a few hours
+
+Overhead : measure the performance penalty. It might be acceptable (e.g. +100%, +200%). Find as many concurrency bugs as possible.
+
+: The Race Detector is not enabled by default in production executables and test executables, because it incurs a quite large overhead in memory and runtime.
+: However, detecting race conditions is so precious that you may use it in production. For example if you have a fleet of 12 instances serving requests, then it makes sense to have the Race Detector enabled on just one of them, and keep gathering the WARNINGS even after the code has shipped to production.
+
+* Thank you :)
+
+#.background ./go-fundamentals/background_QR-twitter.png
+
+Valentin Deleplace
+
+Happy path engineer at Google Cloud
+
+Twitter @val_deleplace
+
+Medium @val_deleplace
+
+GitHub @Deleplace
+
+This presentation:
+.link https://talks.godoc.org/github.com/Deleplace/presentations/2022/09/15/concurrency-in-go.slide talks.godoc.org/github.com/Deleplace/presentations/2022/09/15/concurrency-in-go.slide
+
+* __________blank________________
