@@ -28,9 +28,9 @@ Happy path engineer at Google Cloud Platform
 - *Good* *concurrency*
 - Good networking
 
-: 
+: As you may remember from this slide in yesterday's presentation, building sane CONCURRENCY primitives was one of the initial core goals of Go. It was even a reason why Go was created at all, because concurrency was so difficult to manage in C++ codebases at Google! 
 
-* Concurrency
+* Built-in concurrency features
 
 - Excellent support
 - Goroutines are lighweight threads
@@ -38,7 +38,8 @@ Happy path engineer at Google Cloud Platform
 
 .image ./files/channel.jpg
 
-: 
+: Go's approach to concurrency is to have agents or processes called "goroutines", each being sequential and executing concurrently with other goroutines.
+: They live in the same address space, meaning that they have read access and write access to the same program memory. However, the preferred way to share data between goroutines is to explicitly communicate it through channels. 
 
 #* Concurrency
 #
@@ -47,6 +48,121 @@ Happy path engineer at Google Cloud Platform
 #- Channels
 #
 #: 
+
+* Tooling 
+
+* Tooling 
+
+\.
+
+: The TOOLING refers to everything in the Go distribution that helps you manage your Go software.
+
+.background files/tooling.svg
+
+: The testing and benchmarking framework, the code coverage tool, the Profiling and Tracing features, the Fuzzer, are all here to help you write robust, efficient, battle-tested Go software.
+
+* Tooling 
+
+\.
+
+.background files/tooling1.svg
+
+: Several of these tools are specifically designed for performance observability and optimization: Benchmarking, Profiling, Flame graph visualizations, and Execution Tracing.
+
+* Tooling 
+
+.background files/tooling2.svg
+
+: And 2 of them are designed for concurrent programming: the Data Race Detector, and the Execution Tracer
+
+* Trace
+
+.image files/Trace.png 400 _
+
+: Trace is the buil-in Execution Tracer. When you enable Tracing, you record by sampling what each of your CPU cores is doing, at regular intervals over a period of time.
+: Then you can visualize in an horizontal timeline, how busy each CPU was, at any given millisecond. And when you click on a span, you even see the call stack of the function being executed at that time by this specific CPU core.
+: When all of your program is sequential, only 1 CPU core is working at any given time. When you launch hundreds of goroutine doing CPU-intensive work, all of your cores are busy.
+: This is really a great tool, that unfortunately I won't have time to demonstrate today.
+
+* Data race
+
+- Go Memory model
+- A goroutine is a process executing concurrently with other goroutines in the same address space
+- A data race occurs when two goroutines access the same variable concurrently and at least one of the accesses is a write.
+
+: With Go it is much easier than in other mainstream languages to achieve correct, elegant and efficient concurrency.
+: Making it EFFICIENT is an exciting topic that would take many more hours to dig into :)
+: Making it CORRECT is mostly about respecting 1 single rule: you are not allowed to make data races. 
+
+* Data race
+
+  a := 1
+
+  go func() {
+      a = 5
+  }()
+
+  b := 2*a
+
+* Data race
+
+  a := 1
+
+  go func() {
+      a = 5
+  }()
+
+  go func() {
+      a = 7
+  }()
+
+
+* Data race
+
+  a, b, c := 1, 1, 1
+
+  go func() {
+      b = a + 5
+  }()
+
+  go func() {
+      c = a + 7
+  }()
+
+Not racy
+
+* Data race
+
+  var mu sync.Mutex
+  a := 1
+
+  go func() {
+      mu.Lock()
+      a = 5
+      mu.Unlock()
+  }()
+
+  mu.Lock()
+  b := 2*a
+  mu.Unlock()
+
+Not racy
+
+
+* Data race
+
+  ch := make(chan bool)
+  a := 1
+
+  go func() {
+      a = 5
+      ch <- true
+  }()
+
+  <-ch
+  b := 2*a
+
+Not racy
 
 * Fork/Join
 
@@ -323,6 +439,13 @@ Overhead : measure the performance penalty. It might be acceptable (e.g. +100%, 
 
 : The Race Detector is not enabled by default in production executables and test executables, because it incurs a quite large overhead in memory and runtime.
 : However, detecting race conditions is so precious that you may use it in production. For example if you have a fleet of 12 instances serving requests, then it makes sense to have the Race Detector enabled on just one of them, and keep gathering the WARNINGS even after the code has shipped to production.
+
+* Demo
+
+- Fetch URLs sequentially
+- Fetch URLs concurrently
+- Wait for completion
+- Display the fastest one
 
 * Thank you :)
 
