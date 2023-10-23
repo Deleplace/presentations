@@ -1,0 +1,11 @@
+package base64
+
+type decoder struct {
+	r io.Reader // HL
+	// ...
+	// other fields
+}
+
+func (d *decoder) Read(p []byte) (n int, err error) {
+	// ...
+}
